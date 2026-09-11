@@ -1118,7 +1118,17 @@ function startQuiz() {
   const raw   = parseInt(document.getElementById('quiz-count').value) || 15;
   const count = Math.min(Math.max(1, raw), filtered.length);
   document.getElementById('quiz-count').value = count;
-  quiz     = shuffle(filtered).slice(0, count).map(q => ({...q}));
+  quiz     = shuffle(filtered).slice(0, count).map(q => {
+    const newQ = { ...q, options: [...q.options] };
+    const indices = newQ.options.map((_, i) => i);
+    for (let i = indices.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [indices[i], indices[j]] = [indices[j], indices[i]];
+    }
+    newQ.options = indices.map(i => q.options[i]);
+    newQ.correctIndex = indices.indexOf(q.correctIndex);
+    return newQ;
+  });
   qIdx     = 0;
   score    = 0;
   wrong    = [];

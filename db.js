@@ -24082,5 +24082,1805 @@ const DB = [
     "explanation": "Count to Infinity is a well-known problem that can occur in distance-vector routing algorithms (like RIP), where, after certain topology changes, routers repeatedly increase their advertised distance to an unreachable destination in small increments, slowing convergence, rather than being a Link-State mechanism.",
     "source": "imported",
     "sourceLabel": "CNTAS"
+  },
+  {
+    "id": "gen4-0123",
+    "chapter": "IPv4 Addressing and Routing",
+    "topic": "Interfaces and Subnets",
+    "difficulty": "easy",
+    "question": "In the context of IPv4 addressing, what does the term 'interface' refer to?",
+    "options": [
+      "The part of a device capable of connecting to a network; one or more IP addresses can be assigned to it",
+      "The physical Ethernet cable connecting two routers",
+      "A layer-2 switch's forwarding table entry",
+      "The routing table stored in a router's memory",
+      "A special address reserved exclusively for broadcast traffic"
+    ],
+    "correctIndex": 0,
+    "explanation": "An interface is the part of a device capable of connecting to the network. Depending on whether the network is subdivided into subnetworks, one or more IP addresses can be assigned to the same interface.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0124",
+    "chapter": "IPv4 Addressing and Routing",
+    "topic": "IP Special Addresses",
+    "difficulty": "medium",
+    "question": "What happens when a host sends a packet to the limited broadcast address 255.255.255.255?",
+    "options": [
+      "The packet is delivered to all hosts on the same physical network, but is stopped at the router",
+      "The packet is forwarded to every network on the Internet",
+      "The packet is silently dropped by the source host",
+      "The packet is routed to the default gateway's loopback interface",
+      "The packet is converted into a multicast message before delivery"
+    ],
+    "correctIndex": 0,
+    "explanation": "255.255.255.255 is the limited broadcast address: at layer 2 hosts recognize it and broadcast to all hosts on the same physical network, but the router stops it from going beyond that network.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0125",
+    "chapter": "IPv4 Addressing and Routing",
+    "topic": "IP Special Addresses",
+    "difficulty": "easy",
+    "question": "What is the purpose of the address 127.0.0.1 in IPv4?",
+    "options": [
+      "To let a host send a packet to itself, e.g. to test if a local service is working",
+      "To identify the default gateway of a subnet",
+      "To represent the subnet itself when host bits are zero",
+      "To perform a limited broadcast within a physical network",
+      "To reserve a range for multicast group communication"
+    ],
+    "correctIndex": 0,
+    "explanation": "127.0.0.1 (loopback) is never sent onto the network; it is returned to the same host, and the IP layer recognizes it, commonly used to check if a local service is working correctly.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0126",
+    "chapter": "IPv4 Addressing and Routing",
+    "topic": "CIDR",
+    "difficulty": "medium",
+    "question": "Given the IP address 196.64.8.2/16, what is the corresponding network ID?",
+    "options": [
+      "196.64.0.0",
+      "196.0.0.0",
+      "196.64.8.0",
+      "196.64.255.0",
+      "196.64.8.2"
+    ],
+    "correctIndex": 0,
+    "explanation": "With a /16 netmask (255.255.0.0), a bitwise AND between the netmask and the IP address keeps only the first 16 bits, giving network ID 196.64.0.0.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0127",
+    "chapter": "IPv4 Addressing and Routing",
+    "topic": "CIDR",
+    "difficulty": "medium",
+    "question": "Why can't the network 200.23.16.0/20 be allocated if 200.23.16.0/23 has already been assigned?",
+    "options": [
+      "Because the two prefixes would create overlapping address spaces",
+      "Because /20 is not a valid CIDR prefix length",
+      "Because /23 always has higher priority in routing tables regardless of allocation",
+      "Because IANA only allows one netmask per network administrator",
+      "Because host bits cannot be shared between two different organizations"
+    ],
+    "correctIndex": 0,
+    "explanation": "Since 200.23.16.0/23 already has 9 zeros in its host part, allocating the broader 200.23.16.0/20 (which contains it) would overlap with the already-allocated address space.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0128",
+    "chapter": "IPv4 Addressing and Routing",
+    "topic": "IP Routing",
+    "difficulty": "medium",
+    "question": "According to the general rules of IP routing, what happens when a routing table has multiple matching entries for a destination address?",
+    "options": [
+      "The device selects the most specific match (longest prefix matching)",
+      "The device selects the entry that was added first to the table",
+      "The device selects the entry with the smallest netmask",
+      "The device broadcasts the packet to all matching interfaces",
+      "The device discards the packet as ambiguous"
+    ],
+    "correctIndex": 0,
+    "explanation": "When multiple matches exist in a routing table, the router selects the most specific one, meaning the entry with the longest matching prefix (longest prefix matching).",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0129",
+    "chapter": "IPv4 Addressing and Routing",
+    "topic": "IPv4 Multicast",
+    "difficulty": "medium",
+    "question": "What is the role of IGMP snooping performed by advanced switches?",
+    "options": [
+      "It allows a switch to inspect IGMP messages so it can forward multicast traffic only to ports with subscribed hosts, instead of flooding it",
+      "It replaces the IP address of a multicast packet with a MAC address before delivery",
+      "It allows switches to run a full multicast routing protocol like PIM between LANs",
+      "It converts multicast traffic into broadcast traffic across the whole network",
+      "It prevents any device from joining more than one multicast group at a time"
+    ],
+    "correctIndex": 0,
+    "explanation": "IGMP snooping is a cross-layer technique in which a Layer 2 switch inspects Layer 3 IGMP messages to learn which ports have hosts that joined a multicast group, so it can forward multicast traffic only where it is needed instead of flooding the whole LAN.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0130",
+    "chapter": "IPv6",
+    "topic": "Motivation and History",
+    "difficulty": "easy",
+    "question": "What was the primary motivation behind the design of IPv6?",
+    "options": [
+      "The need for a much larger address space than IPv4's 32-bit addresses could provide",
+      "The need to remove all forms of routing tables from the Internet",
+      "The need to replace TCP and UDP with new transport protocols",
+      "The need to eliminate all Layer 2 protocols in favor of a single global standard",
+      "The need to make DNS obsolete"
+    ],
+    "correctIndex": 0,
+    "explanation": "The primary motivation for IPv6 was the need for a larger address space, since IPv4's 32-bit address space was running out; IPv6 expanded this dramatically with 128-bit addresses.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0131",
+    "chapter": "IPv6",
+    "topic": "Address Exhaustion",
+    "difficulty": "medium",
+    "question": "Why did NAT (Network Address Translation) become one of the most effective interim solutions to IPv4 address exhaustion?",
+    "options": [
+      "Because it allowed many hosts using private, non-routable addresses to share one or a few public IPv4 addresses",
+      "Because it doubled the number of usable IPv4 addresses through compression",
+      "Because it eliminated the need for routers to maintain routing tables",
+      "Because it converted all private addresses into IPv6 addresses automatically",
+      "Because it removed the need for DNS resolution entirely"
+    ],
+    "correctIndex": 0,
+    "explanation": "NAT maps many private, non-routable addresses inside a local network to one or a few public IPv4 addresses, often combined with port numbers, which was a major reason IPv4 managed to survive for so long.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0132",
+    "chapter": "IPv6",
+    "topic": "IPv6 Notation",
+    "difficulty": "easy",
+    "question": "In IPv6 address notation, what does the double colon '::' represent?",
+    "options": [
+      "As many groups of consecutive zeros as needed to reach the full 128-bit length, and it can appear only once per address",
+      "A separator used only between the network prefix and the interface ID",
+      "A shorthand that can be repeated multiple times in the same address to save space",
+      "An indicator that the address belongs to the multicast range",
+      "A required prefix marking all loopback addresses"
+    ],
+    "correctIndex": 0,
+    "explanation": "The '::' notation stands for as many groups of zeros as needed to reach the 128-bit length, and it can only be used once per address to avoid ambiguity.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0133",
+    "chapter": "IPv6",
+    "topic": "IPv6 Address Types",
+    "difficulty": "medium",
+    "question": "Which of the following best describes an IPv6 anycast address?",
+    "options": [
+      "An address assigned to more than one interface, where a packet is routed to the nearest interface according to the routing table",
+      "An address used exclusively for one-to-one communication between two fixed hosts",
+      "An address reserved only for router-to-router control traffic",
+      "An address that identifies a group of hosts that must all receive every packet sent to it",
+      "An address used only during Duplicate Address Detection"
+    ],
+    "correctIndex": 0,
+    "explanation": "Anycast addresses are assigned to more than one interface; a packet sent to an anycast address is routed to the 'nearest' interface having that address, according to the router's routing table, requiring BGP cooperation.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0134",
+    "chapter": "IPv6",
+    "topic": "IPv6 Address Types",
+    "difficulty": "medium",
+    "question": "What is the purpose of an IPv6 solicited-node multicast address?",
+    "options": [
+      "It replaces the ARP broadcast used in IPv4 by allowing targeted, efficient neighbor discovery without flooding the network",
+      "It is used exclusively to carry DNS AAAA record updates",
+      "It identifies the default router for a given subnet",
+      "It marks an address as belonging to the Unique Local Address range",
+      "It is used only during router advertisement messages"
+    ],
+    "correctIndex": 0,
+    "explanation": "The solicited-node multicast address, derived from the last 24 bits of a unicast/anycast address, allows Neighbor Discovery to target only relevant nodes instead of broadcasting like ARP does in IPv4.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0135",
+    "chapter": "IPv6",
+    "topic": "Packet Header Format",
+    "difficulty": "medium",
+    "question": "Why do IPv6 routers no longer fragment packets that exceed the outgoing link's MTU?",
+    "options": [
+      "Because fragmentation is only allowed at the source; intermediate routers instead discard the packet and send an ICMPv6 'Packet Too Big' message",
+      "Because IPv6 packets are always smaller than the MTU of any link",
+      "Because the fragmentation field was moved into the TCP header",
+      "Because fragmentation was replaced entirely by the flow label field",
+      "Because IPv6 uses a fixed frame size equal to the minimum MTU of the Internet"
+    ],
+    "correctIndex": 0,
+    "explanation": "In IPv6, routers do not fragment packets unless they are the source; if a packet exceeds the MTU, the router discards it and sends an ICMPv6 Packet Too Big message back to the sender.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0136",
+    "chapter": "IPv6",
+    "topic": "Packet Header Format",
+    "difficulty": "easy",
+    "question": "Why does the IPv6 header not include a header checksum, unlike IPv4?",
+    "options": [
+      "Because error detection is already performed at Layer 2 and by TCP/UDP, making the checksum redundant",
+      "Because IPv6 packets cannot be corrupted during transmission",
+      "Because checksums are computed only by extension headers",
+      "Because IPv6 uses digital signatures instead of checksums",
+      "Because removing it was required to support jumbograms"
+    ],
+    "correctIndex": 0,
+    "explanation": "IPv6 removes the header checksum because error detection is already performed at Layer 2 and by TCP/UDP, and many IPv4 routers already ignored checksums for performance reasons.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0137",
+    "chapter": "IPv6",
+    "topic": "Neighbor Discovery",
+    "difficulty": "medium",
+    "question": "In the IPv6 address resolution process, what happens after a host receives a Neighbor Advertisement (NA) in response to its Neighbor Solicitation?",
+    "options": [
+      "It stores the IPv6-to-MAC mapping in its Neighbor Cache for future use",
+      "It immediately performs Duplicate Address Detection on the received address",
+      "It forwards the NA message to all routers on the link",
+      "It discards the mapping since NA messages carry no MAC address information",
+      "It sends the mapping to the DHCPv6 server for validation"
+    ],
+    "correctIndex": 0,
+    "explanation": "The requester stores the IPv6-to-MAC mapping learned from the Neighbor Advertisement in its Neighbor Cache, avoiding the need for another solicitation next time it needs to reach that node.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0138",
+    "chapter": "IPv6",
+    "topic": "ICMPv6",
+    "difficulty": "medium",
+    "question": "In ICMPv6 messages, what does a Type field value below 128 indicate?",
+    "options": [
+      "An error message",
+      "An informational message",
+      "A router advertisement",
+      "A Neighbor Solicitation specifically",
+      "A message that must be dropped by intermediate routers"
+    ],
+    "correctIndex": 0,
+    "explanation": "In ICMPv6, Type field values below 128 indicate error messages (e.g., Destination Unreachable, Packet Too Big), while values of 128 and above indicate informational messages (e.g., Echo Request/Reply).",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0139",
+    "chapter": "IPv6",
+    "topic": "Device Configuration",
+    "difficulty": "medium",
+    "question": "What distinguishes Stateless Address Autoconfiguration (SLAAC) from stateful DHCPv6 configuration?",
+    "options": [
+      "In SLAAC, the host generates its own address using a prefix advertised by a router plus a locally derived interface identifier, without a server tracking assignments",
+      "In SLAAC, a DHCPv6 server keeps track of which addresses are assigned to which hosts",
+      "In SLAAC, the DNS server address can never be obtained",
+      "In SLAAC, the host must always use its EUI-64 identifier and cannot use privacy extensions",
+      "In SLAAC, routers assign addresses only after receiving a Router Solicitation"
+    ],
+    "correctIndex": 0,
+    "explanation": "SLAAC lets the host automatically generate its own address using a prefix advertised by a router and a locally derived interface identifier, unlike DHCPv6, which is 'stateful' because the server tracks which addresses are assigned to which hosts.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0140",
+    "chapter": "IPv6",
+    "topic": "EUI-64",
+    "difficulty": "medium",
+    "question": "What is the purpose of mapping a 48-bit MAC address (EUI-48) to a 64-bit EUI-64 identifier?",
+    "options": [
+      "To derive a unique 64-bit interface identifier for the IPv6 address by inserting the fixed sequence 0xFFFE into the middle of the MAC address",
+      "To convert the MAC address into a routable global unicast prefix",
+      "To generate the checksum used in the IPv6 header",
+      "To assign a link-local multicast address to the interface",
+      "To replace the OUI portion of the MAC address with a random value"
+    ],
+    "correctIndex": 0,
+    "explanation": "To generate an EUI-64 interface identifier, the 48-bit MAC address is split in half, the fixed 16-bit sequence 0xFFFE is inserted in the middle, and the 7th bit is inverted, producing a 64-bit interface ID for the IPv6 address.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0141",
+    "chapter": "IPv6",
+    "topic": "Privacy Extensions",
+    "difficulty": "hard",
+    "question": "According to RFC 4941 privacy extensions, why is MD5 hashing combined with a bitwise AND operation when generating a temporary interface ID?",
+    "options": [
+      "Because MD5 can produce duplicate results due to collisions, so the operation forces the 7th bit to 0, and the result is stored to seed the next iteration",
+      "Because MD5 encrypts the resulting address so that only the host can decode it",
+      "Because the bitwise AND operation reconstructs the original MAC address for debugging",
+      "Because IPv6 routers require all interface IDs to start with the same fixed bit pattern",
+      "Because it allows the address to be classified as a Unique Local Address"
+    ],
+    "correctIndex": 0,
+    "explanation": "The privacy extension algorithm hashes the interface ID concatenated with a random string using MD5, then performs a bitwise AND to force the 7th bit to 0 since MD5 collisions could otherwise produce non-unique IDs; the result is stored to seed the next address generation.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0142",
+    "chapter": "IPv6",
+    "topic": "Duplicate Address Detection",
+    "difficulty": "medium",
+    "question": "During Duplicate Address Detection (DAD) in IPv6, what source address does a host use in the Neighbor Solicitation message?",
+    "options": [
+      "The unspecified address (::), since the host cannot yet be sure its tentative address is valid",
+      "The tentative address itself, to test whether it responds correctly",
+      "The link-local address of the default router",
+      "A randomly generated temporary IPv6 address",
+      "The loopback address ::1"
+    ],
+    "correctIndex": 0,
+    "explanation": "During DAD, the source address field is set to the unspecified address (::) because the host is still testing whether its tentative address is unique; using the tentative address itself as source could create confusion or loops.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0143",
+    "chapter": "IPv4 to IPv6 Transition",
+    "topic": "Dual Stack",
+    "difficulty": "easy",
+    "question": "What is a key limitation of the Dual Stack approach to IPv4/IPv6 coexistence?",
+    "options": [
+      "It does not solve IPv4 address exhaustion, since each dual-stack host still requires an IPv4 address",
+      "It prevents hosts from ever using IPv6 natively",
+      "It requires all IPv4 traffic to be tunneled inside IPv6 packets",
+      "It eliminates the need for separate routing tables and access lists",
+      "It can only be deployed on mobile networks, not fixed networks"
+    ],
+    "correctIndex": 0,
+    "explanation": "Dual Stack requires every host to keep an IPv4 address to communicate over IPv4, so it doesn't reduce the demand for IPv4 addresses; it also requires duplicating routing protocols, tables, and security rules for both protocols.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0144",
+    "chapter": "IPv4 to IPv6 Transition",
+    "topic": "6to4",
+    "difficulty": "medium",
+    "question": "In the 6to4 transition mechanism, what information is embedded in the IPv6 address prefix?",
+    "options": [
+      "The 32-bit IPv4 address of the 6to4 router, following the reserved 2002::/16 prefix",
+      "The MAC address of the border router",
+      "The AS number of the operator running the 6to4 network",
+      "The DNS64 synthetic prefix used for NAT64",
+      "The port number assigned by the AFTR"
+    ],
+    "correctIndex": 0,
+    "explanation": "Each 6to4 router is assigned a unique IPv6 address beginning with the reserved prefix 2002::/16 followed by its 32-bit IPv4 address, allowing IPv6 islands to communicate across the IPv4 Internet.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0145",
+    "chapter": "IPv4 to IPv6 Transition",
+    "topic": "6to4",
+    "difficulty": "medium",
+    "question": "Why was 6to4 progressively phased out starting around 2010?",
+    "options": [
+      "Because of address conflicts, lack of globally routable IPv4 addresses, NAT/firewall interference, and security vulnerabilities",
+      "Because IANA stopped allocating the 2002::/16 prefix entirely",
+      "Because it required replacing all core routers with optical switches",
+      "Because DNS64 made it technically obsolete overnight",
+      "Because it was incompatible with dual-stack hosts"
+    ],
+    "correctIndex": 0,
+    "explanation": "6to4 was phased out due to address conflicts from mapping a large IPv6 pool onto a smaller IPv4 pool, networks lacking globally routable IPv4 addresses, interference from NAT and firewalls, and security vulnerabilities such as spoofing.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0146",
+    "chapter": "IPv4 to IPv6 Transition",
+    "topic": "NAT44 / CGN",
+    "difficulty": "medium",
+    "question": "In classic NAT44, how does a home router (CPE) know which internal host should receive an incoming reply packet?",
+    "options": [
+      "It checks the NAT translation table using the destination port number of the reply packet",
+      "It broadcasts the reply to every device on the local network",
+      "It uses the TTL field of the reply packet to identify the host",
+      "It relies on the source MAC address of the original outgoing packet",
+      "It queries a DHCP server for the correct mapping"
+    ],
+    "correctIndex": 0,
+    "explanation": "When a reply arrives, the router looks up its NAT translation table using the destination port number, determines which internal host that port corresponds to, and forwards the packet accordingly.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0147",
+    "chapter": "IPv4 to IPv6 Transition",
+    "topic": "NAT444",
+    "difficulty": "medium",
+    "question": "What does the term NAT444 describe?",
+    "options": [
+      "A setup with two layers of NAT: a home NAT and a Carrier-Grade NAT at the provider's edge, so traffic goes private-to-private-to-public",
+      "A NAT solution that translates only IPv4 addresses ending in .444",
+      "A protocol that assigns exactly 444 ports per customer",
+      "A NAT mechanism used exclusively for translating IPv6 to IPv4",
+      "A NAT variant that requires four separate public IP addresses per customer"
+    ],
+    "correctIndex": 0,
+    "explanation": "NAT444 refers to traffic passing through two NAT translations, a home NAT and a Carrier-Grade NAT at the provider's edge, meaning 'NAT IPv4 to NAT IPv4 to NAT IPv4', since the customer never receives a public IPv4 address at all.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0148",
+    "chapter": "IPv4 to IPv6 Transition",
+    "topic": "DS-Lite / A+P",
+    "difficulty": "medium",
+    "question": "What is the main advantage of the A+P (Address plus Port) approach over DS-Lite?",
+    "options": [
+      "It moves the NAT function to the customer's CPE, letting the customer configure their own port forwarding",
+      "It removes the need for any IPv6 transport in the ISP's core network",
+      "It eliminates the need for an AFTR entirely",
+      "It allows customers to use any TCP/UDP port without restriction",
+      "It requires the ISP to assign a full public IPv4 address to every customer"
+    ],
+    "correctIndex": 0,
+    "explanation": "Unlike DS-Lite, where NAT is controlled by the ISP inside the AFTR, A+P moves the NAT function to the customer's CPE by assigning each customer a shared public IP plus a restricted port range, allowing the customer to configure port forwarding locally.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0149",
+    "chapter": "IPv4 to IPv6 Transition",
+    "topic": "NAT64 / DNS64",
+    "difficulty": "medium",
+    "question": "How does a DNS64 server allow an IPv6-only host to reach an IPv4-only server?",
+    "options": [
+      "It synthesizes an AAAA record from the existing A record, embedding the IPv4 address inside a well-known IPv6 prefix such as 64:FF9B::/96",
+      "It converts the IPv4-only server's operating system to support IPv6 natively",
+      "It rewrites the IPv6 host's address to look like an IPv4 address",
+      "It tunnels all IPv6 traffic through a 6to4 relay",
+      "It requires the IPv4 server to register a new domain name"
+    ],
+    "correctIndex": 0,
+    "explanation": "DNS64 generates a synthetic AAAA record by embedding the IPv4 address's 32 bits into a well-known prefix (typically 64:FF9B::/96); the NAT64 gateway then recognizes this prefix and translates the packet to IPv4.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0150",
+    "chapter": "Wireless and Cellular Networks",
+    "topic": "Modulation",
+    "difficulty": "easy",
+    "question": "What is the general purpose of modulation in wireless communication?",
+    "options": [
+      "To alter a sinusoidal electromagnetic wave (amplitude, frequency, or phase) so it can represent digital bits",
+      "To convert digital signals into a form that can travel through copper wires only",
+      "To encrypt data before it is transmitted over the wireless channel",
+      "To compress data so fewer bits need to be transmitted",
+      "To synchronize the clocks of transmitter and receiver"
+    ],
+    "correctIndex": 0,
+    "explanation": "Modulation is the process of altering a sinusoidal electromagnetic wave (amplitude, frequency, or phase) to represent digital information, allowing multiple bits to be encoded per symbol depending on the number of distinct waveform variations.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0151",
+    "chapter": "Wireless and Cellular Networks",
+    "topic": "SNR and BER",
+    "difficulty": "medium",
+    "question": "According to Adaptive Modulation and Coding (AMC), what happens as the SNR of a wireless channel decreases significantly?",
+    "options": [
+      "The system switches to a simpler modulation scheme, such as BPSK, to maintain reliability at the cost of lower data rate",
+      "The system automatically increases the modulation order to compensate for the noise",
+      "The transmission is halted until the SNR returns to its original value",
+      "The Bit Error Rate becomes independent of the SNR",
+      "The system switches from wireless to wired transmission"
+    ],
+    "correctIndex": 0,
+    "explanation": "As SNR decreases, BER increases; to maintain reliable communication, adaptive modulation switches to a simpler, more robust scheme like BPSK, sacrificing throughput for reliability.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0152",
+    "chapter": "Wireless and Cellular Networks",
+    "topic": "Hidden Terminal Problem",
+    "difficulty": "medium",
+    "question": "What causes the hidden terminal problem in wireless networks?",
+    "options": [
+      "Two transmitters that cannot sense each other's signals both transmit to a common receiver, causing a collision at that receiver",
+      "A receiver is too close to the transmitter, causing signal saturation",
+      "Two transmitters share the exact same MAC address",
+      "A transmitter uses a modulation scheme unsupported by the receiver",
+      "The receiver is outside of both transmitters' coverage areas"
+    ],
+    "correctIndex": 0,
+    "explanation": "The hidden terminal problem occurs when two transmitters cannot detect each other's transmissions (e.g., due to distance or an obstacle) but can both reach the same receiver, so their simultaneous transmissions collide there.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0153",
+    "chapter": "Wireless and Cellular Networks",
+    "topic": "Cellular Concepts",
+    "difficulty": "easy",
+    "question": "Why is a cellular network typically modeled with hexagonal cells?",
+    "options": [
+      "Because a hexagonal tessellation efficiently covers a geographical area without gaps, inspired by the honeycomb structure",
+      "Because hexagonal cells are mandated by international radio regulation bodies",
+      "Because antennas can only physically be shaped as hexagons",
+      "Because hexagonal cells eliminate the need for handovers",
+      "Because hexagons minimize the number of frequencies needed to zero"
+    ],
+    "correctIndex": 0,
+    "explanation": "Engineers modeled cellular coverage using hexagons because they tessellate an area efficiently without gaps, similar to a honeycomb structure, even though real-world coverage areas are irregular due to terrain and obstacles.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0154",
+    "chapter": "Wireless and Cellular Networks",
+    "topic": "Frequency Reuse",
+    "difficulty": "medium",
+    "question": "In frequency reuse planning, what is the main trade-off between using a small cluster size (G) versus a large cluster size?",
+    "options": [
+      "A small cluster size gives higher capacity but more interference, while a large cluster size gives lower capacity but less interference",
+      "A small cluster size always eliminates interference completely",
+      "A large cluster size requires fewer antennas to cover the same total area",
+      "Cluster size has no effect on interference, only on capacity",
+      "A small cluster size increases the distance between co-channel cells"
+    ],
+    "correctIndex": 0,
+    "explanation": "A smaller cluster size reuses frequencies more often, increasing capacity but also interference since co-channel cells are closer together; a larger cluster size spaces co-channel cells farther apart, reducing interference but also capacity per cell.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0155",
+    "chapter": "Wireless and Cellular Networks",
+    "topic": "Cell Techniques",
+    "difficulty": "medium",
+    "question": "What is the purpose of sectoring in cellular network design?",
+    "options": [
+      "Dividing a cell into sectors served by directional antennas, allowing frequencies to be reused more efficiently and reducing interference",
+      "Replacing all macrocells with femtocells inside a single sector",
+      "Splitting a cluster into multiple clusters of identical size",
+      "Reducing the transmit power of the base station to zero during off-peak hours",
+      "Assigning a unique cluster size to each individual user"
+    ],
+    "correctIndex": 0,
+    "explanation": "Sectoring divides a cell into multiple sectors (e.g., 3 or 6), each covered by a directional antenna, allowing more efficient frequency reuse across sectors and reduced interference, effectively multiplying capacity without changing the cell radius.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0156",
+    "chapter": "Wireless and Cellular Networks",
+    "topic": "Mobility Management",
+    "difficulty": "medium",
+    "question": "What is the purpose of the paging procedure in cellular networks?",
+    "options": [
+      "To notify a mobile terminal about an incoming call or data transmission by broadcasting to all cells in its last known location area",
+      "To permanently assign a fixed IP address to a mobile terminal",
+      "To measure the signal strength between two adjacent base stations",
+      "To update the mobile terminal's SIM card credentials",
+      "To authenticate the mobile terminal during initial registration only"
+    ],
+    "correctIndex": 0,
+    "explanation": "Paging is the procedure through which the network notifies a mobile terminal of an incoming call or data by broadcasting a paging message across all cells of the location area where the device was last registered.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0157",
+    "chapter": "Wireless and Cellular Networks",
+    "topic": "Handover",
+    "difficulty": "medium",
+    "question": "What distinguishes a soft handover from a hard handover in cellular networks?",
+    "options": [
+      "In a soft handover both the old and new radio channels are active simultaneously, while in a hard handover the old connection is broken before the new one is established",
+      "A soft handover only occurs between base stations of different operators",
+      "A hard handover always requires the user to manually reconnect",
+      "A soft handover is only used for text messaging, not voice or data",
+      "A hard handover uses higher transmission power than a soft handover"
+    ],
+    "correctIndex": 0,
+    "explanation": "In a soft handover, both the old and new radio channels are active at the same time for a smooth transition, whereas in a hard handover only one channel is active at a time, so the old connection is broken before the new one is established.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0158",
+    "chapter": "Wireless and Cellular Networks",
+    "topic": "GSM Architecture",
+    "difficulty": "medium",
+    "question": "In GSM's network architecture, what is the main function of the Home Location Register (HLR)?",
+    "options": [
+      "It is a central database storing the static identity, services, and subscription information of all subscribers",
+      "It temporarily tracks the current location of a mobile device within an MSC's coverage area",
+      "It physically transmits and receives radio signals to and from mobile stations",
+      "It performs voice transcoding from analog to digital form",
+      "It manages handover decisions between BTSs"
+    ],
+    "correctIndex": 0,
+    "explanation": "The HLR is a central database storing the static identity of all subscribers (phone number, enabled services, subscription and billing information), working with the VLR (which tracks dynamic location) and the Authentication Center for security.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0159",
+    "chapter": "Wireless and Cellular Networks",
+    "topic": "LTE Architecture",
+    "difficulty": "medium",
+    "question": "What is the role of the Mobility Management Entity (MME) in LTE?",
+    "options": [
+      "It is a control-plane element that manages mobility, authentication, and bearer setup, without handling actual packet routing",
+      "It routes user data packets between the eNodeB and the Internet",
+      "It performs the physical radio transmission to mobile devices",
+      "It stores the master copy of the subscriber's billing information",
+      "It converts LTE traffic into GSM voice channels"
+    ],
+    "correctIndex": 0,
+    "explanation": "The MME belongs to the control plane; it tracks device mobility, manages handovers, locates devices for incoming sessions, and coordinates bearer management, but it does not handle actual data-plane packet routing, which is the job of the S-GW and P-GW.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0160",
+    "chapter": "Wireless and Cellular Networks",
+    "topic": "LTE Bearers",
+    "difficulty": "medium",
+    "question": "In LTE, what does the 'radio bearer' segment of the end-to-end bearer connect?",
+    "options": [
+      "The User Equipment (UE) to the eNodeB",
+      "The Serving Gateway (S-GW) to the Packet Gateway (P-GW)",
+      "The eNodeB to the Serving Gateway (S-GW)",
+      "The Home Subscriber Server (HSS) to the MME",
+      "The visited network to the home network during roaming"
+    ],
+    "correctIndex": 0,
+    "explanation": "The LTE bearer is a concatenated tunnel: the radio bearer connects the UE to the eNodeB, the S1 bearer connects the eNodeB to the S-GW, and the S5 bearer connects the S-GW to the P-GW.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0161",
+    "chapter": "Wireless and Cellular Networks",
+    "topic": "Roaming",
+    "difficulty": "medium",
+    "question": "What distinguishes home-routed roaming from local breakout in LTE/5G roaming architectures?",
+    "options": [
+      "In home-routed roaming, traffic is tunneled back to the home network's P-GW, while in local breakout the visited network's own P-GW handles the traffic locally",
+      "Home-routed roaming requires the visited network to issue the user a new SIM card",
+      "Local breakout is only available for voice calls, never for data",
+      "Home-routed roaming eliminates the need for an S8 bearer",
+      "Local breakout always provides better billing visibility to the home operator"
+    ],
+    "correctIndex": 0,
+    "explanation": "In home-routed roaming, an S8 tunnel carries traffic from the visited S-GW back to the home network's P-GW, preserving home billing and IP assignment; in local breakout, the visited network's own P-GW handles the traffic locally, which can break geo-restrictions but reduces home-network visibility.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0162",
+    "chapter": "Wireless and Cellular Networks",
+    "topic": "5G Concepts",
+    "difficulty": "medium",
+    "question": "Which 5G use case category is specifically designed for applications like industrial automation and remote surgery that require minimal delay and high reliability?",
+    "options": [
+      "Ultra-Reliable Low-Latency Communication (URLLC)",
+      "Enhanced Mobile Broadband (eMBB)",
+      "Massive Machine-Type Communication (mMTC)",
+      "Network Function Virtualization (NFV)",
+      "Software Defined Networking (SDN)"
+    ],
+    "correctIndex": 0,
+    "explanation": "URLLC (Ultra-Reliable Low-Latency Communication) is the 5G use case category targeting applications requiring minimal delay and high reliability, such as industrial automation, autonomous driving, and remote surgery.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0163",
+    "chapter": "Wireless and Cellular Networks",
+    "topic": "Wi-Fi Scanning",
+    "difficulty": "medium",
+    "question": "What privacy issue is associated with active scanning in 802.11 networks, and how is it commonly mitigated?",
+    "options": [
+      "Probe requests were originally sent with the real MAC address in clear text, allowing tracking; modern devices mitigate this by randomizing the MAC address",
+      "Active scanning encrypts all beacon frames, preventing any device from finding a network",
+      "Active scanning requires sharing the user's password with every nearby access point",
+      "Active scanning discloses the SSID of the access point to unauthorized users",
+      "Active scanning is only vulnerable when using the 5 GHz frequency band"
+    ],
+    "correctIndex": 0,
+    "explanation": "Probe requests must be sent in clear text since the device hasn't yet discovered the access point, so anyone could track a device via its real MAC address; modern operating systems mitigate this by using randomized MAC addresses for probe requests.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0164",
+    "chapter": "Wireless and Cellular Networks",
+    "topic": "Wi-Fi Multiple Access",
+    "difficulty": "medium",
+    "question": "Why does 802.11 use CSMA/CA (Collision Avoidance) rather than CSMA/CD (Collision Detection), unlike wired Ethernet?",
+    "options": [
+      "Because a wireless device cannot reliably detect a collision while transmitting, since its own strong signal overwhelms any incoming signal",
+      "Because CSMA/CD is prohibited by IEEE regulations for radio spectrum use",
+      "Because CSMA/CA requires no acknowledgments at all, simplifying implementation",
+      "Because 802.11 networks never experience collisions in the first place",
+      "Because CSMA/CA only works with a single access point per building"
+    ],
+    "correctIndex": 0,
+    "explanation": "Detecting collisions in a wireless environment is extremely difficult because a device's own transmitted signal overwhelms any incoming signal, so 802.11 uses CSMA/CA to minimize collisions and relies on acknowledgments to detect failed transmissions.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0165",
+    "chapter": "Principles of Modern LAN Design and Operation",
+    "topic": "OSI Layer Devices",
+    "difficulty": "easy",
+    "question": "Which network device type separates broadcast domains while switches only separate collision domains?",
+    "options": [
+      "Routers (Layer 3 devices)",
+      "Repeaters (Layer 1 devices)",
+      "Hubs (Layer 1 devices)",
+      "Bridges/Switches (Layer 2 devices)",
+      "Access points operating purely as repeaters"
+    ],
+    "correctIndex": 0,
+    "explanation": "Repeaters and hubs (Layer 1) do not separate collision or broadcast domains; bridges/switches (Layer 2) separate collision domains but keep the broadcast domain intact; routers (Layer 3) separate both collision and broadcast domains.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0166",
+    "chapter": "Principles of Modern LAN Design and Operation",
+    "topic": "Full Duplex",
+    "difficulty": "medium",
+    "question": "What key benefit did full-duplex communication bring to Ethernet LANs?",
+    "options": [
+      "It eliminated collisions entirely, making CSMA/CD unnecessary beyond 1 Gigabit Ethernet",
+      "It doubled the maximum Ethernet frame size to accommodate more data",
+      "It removed the need for switches, replacing them with hubs",
+      "It required each device to use two separate MAC addresses",
+      "It made VLAN tagging mandatory on every link"
+    ],
+    "correctIndex": 0,
+    "explanation": "Full duplex allows simultaneous transmission and reception on different wire pairs, eliminating collisions entirely; as a result, CSMA/CD became obsolete beyond 1 Gigabit Ethernet since collision detection was no longer needed.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0167",
+    "chapter": "Principles of Modern LAN Design and Operation",
+    "topic": "Backward Learning",
+    "difficulty": "medium",
+    "question": "How does the backward learning algorithm allow a switch to build its filtering database without manual configuration?",
+    "options": [
+      "When a frame arrives on a port, the switch records the source MAC address as reachable via that port, ignoring the destination address",
+      "The switch periodically broadcasts a request asking every host to report its own MAC address and port",
+      "The administrator manually enters each device's MAC address into the switch",
+      "The switch uses the destination MAC address of every frame to update its table",
+      "The switch queries a central DNS-like server to resolve MAC-to-port mappings"
+    ],
+    "correctIndex": 0,
+    "explanation": "In backward learning, when a frame arrives on a port, the switch notes that the source MAC address is reachable via that port and updates its filtering database; the destination address is ignored during this learning process.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0168",
+    "chapter": "Principles of Modern LAN Design and Operation",
+    "topic": "Filtering Database",
+    "difficulty": "medium",
+    "question": "What happens when a switch receives a frame whose destination MAC address is not present in its filtering database?",
+    "options": [
+      "The switch floods the frame out of every port except the one it arrived on, behaving temporarily like a hub",
+      "The switch silently drops the frame to prevent unnecessary traffic",
+      "The switch sends the frame only to the port with the lowest port number",
+      "The switch queries the router to resolve the unknown MAC address",
+      "The switch buffers the frame indefinitely until the address appears in the table"
+    ],
+    "correctIndex": 0,
+    "explanation": "If a destination MAC address is not in the filtering database, the switch temporarily behaves like a hub, flooding the frame out of every port except the incoming one, until backward learning eventually populates the table.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0169",
+    "chapter": "Principles of Modern LAN Design and Operation",
+    "topic": "Loops and Storms",
+    "difficulty": "medium",
+    "question": "Why can a Layer 2 loop cause a broadcast storm, while a routing loop at Layer 3 is generally self-limiting?",
+    "options": [
+      "Ethernet frames have no TTL field so they can circulate endlessly, whereas IP packets have a TTL/Hop Limit that is decremented at every router",
+      "Layer 2 frames are always larger than Layer 3 packets, causing congestion",
+      "Layer 3 routers cannot forward more than one packet per second",
+      "Ethernet switches automatically detect and discard duplicate frames",
+      "IP routing loops are prevented because IP addresses are globally unique"
+    ],
+    "correctIndex": 0,
+    "explanation": "Ethernet frames lack a Time-To-Live field, so in a Layer 2 loop they can circulate indefinitely causing a broadcast storm; IP packets include a TTL (or Hop Limit in IPv6) decremented at each router, which eventually discards looping packets and limits the damage.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0170",
+    "chapter": "Principles of Modern LAN Design and Operation",
+    "topic": "Spanning Tree Protocol",
+    "difficulty": "medium",
+    "question": "What is the main function of the Spanning Tree Protocol (STP) in switched LANs?",
+    "options": [
+      "It detects redundant paths and blocks enough ports to make the topology loop-free while allowing a single path between any two hosts",
+      "It assigns unique VLAN IDs to every switch port automatically",
+      "It encrypts all frames traveling between switches",
+      "It converts broadcast frames into unicast frames to reduce traffic",
+      "It replaces the MAC address table with an IP routing table"
+    ],
+    "correctIndex": 0,
+    "explanation": "STP identifies redundant paths and blocks enough ports so the overall topology becomes a loop-free tree with a single unique path between any two hosts, preventing broadcast storms.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0171",
+    "chapter": "Principles of Modern LAN Design and Operation",
+    "topic": "VLANs",
+    "difficulty": "medium",
+    "question": "Why must hosts in different VLANs be assigned to different IP subnets?",
+    "options": [
+      "Because ARP broadcasts cannot cross VLAN boundaries, so address resolution across VLANs would otherwise fail",
+      "Because VLANs require every host to use a unique MAC address prefix",
+      "Because IP addresses are tied directly to VLAN tag values by the IEEE 802.1Q standard",
+      "Because DHCP servers cannot issue addresses to more than one VLAN",
+      "Because Layer 2 switches automatically discard traffic from overlapping subnets"
+    ],
+    "correctIndex": 0,
+    "explanation": "Since Ethernet frames and their ARP broadcasts cannot cross VLAN boundaries, hosts on different VLANs must be placed in different IP subnets, otherwise normal Layer 3 address resolution would not function correctly.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0172",
+    "chapter": "Principles of Modern LAN Design and Operation",
+    "topic": "VLAN Tagging",
+    "difficulty": "medium",
+    "question": "What is the purpose of the IEEE 802.1Q tag inserted into an Ethernet frame?",
+    "options": [
+      "It identifies the VLAN a frame belongs to so a single trunk link can carry traffic for multiple VLANs",
+      "It encrypts the payload of the frame for security purposes",
+      "It specifies the maximum transmission unit for the link",
+      "It replaces the source and destination MAC addresses with VLAN identifiers",
+      "It is inserted on every link in the network, including access ports"
+    ],
+    "correctIndex": 0,
+    "explanation": "The 802.1Q tag adds 4 bytes containing the VLAN ID (and other fields) to distinguish which VLAN a frame belongs to; tagging is only needed on trunk links carrying traffic for multiple VLANs, not on access ports.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0173",
+    "chapter": "Principles of Modern LAN Design and Operation",
+    "topic": "Broadcast Storms in VLANs",
+    "difficulty": "medium",
+    "question": "Why can a broadcast storm in one VLAN still degrade performance for other VLANs, even though frames cannot cross VLAN boundaries?",
+    "options": [
+      "Because the storm can saturate a shared trunk link that also carries traffic for the other VLANs, causing congestion",
+      "Because VLAN tags are removed automatically once a storm is detected",
+      "Because broadcast storms convert automatically into multicast traffic across VLANs",
+      "Because all VLANs on a switch always share the exact same filtering database entries",
+      "Because Spanning Tree Protocol is disabled whenever a VLAN is created"
+    ],
+    "correctIndex": 0,
+    "explanation": "Although broadcast frames stay confined to their own VLAN, if a broadcast storm saturates a trunk link that also carries traffic for other VLANs, those other VLANs suffer from the resulting congestion on the shared physical link.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0174",
+    "chapter": "Routing",
+    "topic": "Routing Algorithm Classification",
+    "difficulty": "medium",
+    "question": "Why is Hot-Potato (Deflection) Routing generally classified as a non-adaptive (static) routing approach, despite using some local information?",
+    "options": [
+      "Because it only considers the least congested output port at the moment, ignoring the global network state",
+      "Because it requires manual administrator configuration for every packet",
+      "Because it never changes the chosen output port once selected",
+      "Because it relies exclusively on flooding to every output port",
+      "Because it uses only the destination's IP address, never the port state"
+    ],
+    "correctIndex": 0,
+    "explanation": "Hot-Potato routing selects the least congested output port at that moment using minimal local information, but it still ignores the global network state, so it is generally categorized as non-adaptive.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0175",
+    "chapter": "Routing",
+    "topic": "Centralized Routing",
+    "difficulty": "medium",
+    "question": "What is the main disadvantage of centralized adaptive routing using a Routing Control Center (RCC)?",
+    "options": [
+      "It creates a single point of failure and a potential bottleneck, since all routers must send updates to it and receive results",
+      "It cannot guarantee globally consistent routing decisions",
+      "It requires every router to independently recompute shortest paths",
+      "It cannot be used in networks with more than ten routers",
+      "It always produces routing loops due to inconsistent state"
+    ],
+    "correctIndex": 0,
+    "explanation": "Centralized routing has complete, globally consistent information and simplifies troubleshooting, but the RCC is a single point of failure and a bottleneck, and it performs poorly in highly dynamic networks due to heavy update traffic.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0176",
+    "chapter": "Routing",
+    "topic": "Distance Vector",
+    "difficulty": "medium",
+    "question": "In the Bellman-Ford based Distance Vector algorithm, what does a router do when a neighbor reports an increased cost to a destination it is currently routing through?",
+    "options": [
+      "It increases its own cost to that destination, unless it knows of an alternative route",
+      "It immediately removes the destination from its routing table",
+      "It ignores the update and keeps using the same cost",
+      "It floods the network asking all routers to recompute their tables",
+      "It automatically switches to a link-state algorithm for that destination"
+    ],
+    "correctIndex": 0,
+    "explanation": "If a router is currently routing through a neighbor and that neighbor reports an increased cost to a destination, the router must increase its own cost as well, unless it knows of an alternative, cheaper route.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0177",
+    "chapter": "Routing",
+    "topic": "Path Vector",
+    "difficulty": "medium",
+    "question": "What advantage does the path vector algorithm offer over the basic distance vector algorithm?",
+    "options": [
+      "Since the full path is advertised, routing loops become easy to detect if a router appears more than once in the path",
+      "It eliminates the need for any exchange of routing information between neighbors",
+      "It always converges instantly regardless of network size",
+      "It uses less overhead than distance vector because paths are never included in updates",
+      "It requires no knowledge of neighboring routers at all"
+    ],
+    "correctIndex": 0,
+    "explanation": "Path vector routing advertises the entire ordered path to each destination; because the full path is included in updates, a loop is easy to detect if a router appears twice in the same path, at the cost of increased overhead.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0178",
+    "chapter": "Routing",
+    "topic": "Link State",
+    "difficulty": "medium",
+    "question": "In link-state routing, how does each router obtain the information needed to compute shortest paths across the entire network?",
+    "options": [
+      "Every router floods (via a restricted multicast) information about its own links and their costs, so all routers can reconstruct the full topology",
+      "Each router only exchanges information with its immediate neighbors, never with the rest of the network",
+      "A single centralized server distributes the complete topology to all routers",
+      "Routers learn the topology exclusively through periodic full routing table exchanges",
+      "Each router independently guesses the topology using only local traffic statistics"
+    ],
+    "correctIndex": 0,
+    "explanation": "In link-state routing, every router broadcasts (via controlled multicast flooding restricted to routers) information about its links and their costs, so every router can independently reconstruct the entire network topology and run Dijkstra's algorithm.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0179",
+    "chapter": "Routing",
+    "topic": "Autonomous Systems",
+    "difficulty": "easy",
+    "question": "What is an Autonomous System (AS) in the context of Internet routing?",
+    "options": [
+      "A set of subnets grouped under a single administrative entity that manages its own internal routing and cooperates with other ASes externally",
+      "A single physical router that connects two ISPs directly",
+      "A protocol used exclusively for intra-domain multicast routing",
+      "A backup routing table stored at every gateway router",
+      "A device that performs Network Address Translation between two private networks"
+    ],
+    "correctIndex": 0,
+    "explanation": "An Autonomous System is a set of subnets grouped by topology and organizational criteria under one administrative entity, which makes autonomous internal routing choices while negotiating external routing choices with other ASes.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0180",
+    "chapter": "Routing",
+    "topic": "OSPF",
+    "difficulty": "medium",
+    "question": "What advantage does OSPF's Equal-Cost Multipath (ECMP) feature offer compared to RIP?",
+    "options": [
+      "OSPF can use multiple paths of the same cost simultaneously, while RIP allows only one",
+      "OSPF eliminates the need for a routing table entirely",
+      "OSPF requires no authentication, unlike RIP",
+      "OSPF only supports a single Autonomous System per network",
+      "OSPF cannot support multicast routing, unlike RIP"
+    ],
+    "correctIndex": 0,
+    "explanation": "OSPF supports Equal-Cost Multipath (ECMP), allowing multiple paths with the same cost to be used simultaneously, whereas RIP allows only one path per destination.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0181",
+    "chapter": "Routing",
+    "topic": "BGP",
+    "difficulty": "medium",
+    "question": "What is the fundamental difference between eBGP and iBGP?",
+    "options": [
+      "eBGP exchanges reachability information between different Autonomous Systems, while iBGP distributes that learned information to routers within the same AS",
+      "eBGP is used only for multicast routing, while iBGP is used for unicast routing",
+      "eBGP requires UDP, while iBGP requires TCP for its sessions",
+      "eBGP is a link-state protocol, while iBGP is a distance-vector protocol",
+      "eBGP builds the internal topology of an AS, while iBGP has no relation to topology at all"
+    ],
+    "correctIndex": 0,
+    "explanation": "eBGP (External BGP) exchanges reachability information between different Autonomous Systems, while iBGP (Internal BGP) distributes that externally learned information to all routers inside the same AS so they can make consistent forwarding decisions.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0182",
+    "chapter": "Routing",
+    "topic": "BGP Hijacking / Hot Potato",
+    "difficulty": "medium",
+    "question": "What is the guiding principle behind 'hot potato routing' in inter-domain BGP routing?",
+    "options": [
+      "An AS forwards traffic out of its own network as quickly as possible, choosing the exit gateway with the lowest internal cost even if it results in more inter-domain hops",
+      "An AS always chooses the exit point that minimizes the total number of AS hops end-to-end",
+      "An AS refuses to forward any traffic that did not originate within its own network",
+      "An AS randomly selects among all valid exit gateways to balance load",
+      "An AS always prioritizes public peering over private peering agreements"
+    ],
+    "correctIndex": 0,
+    "explanation": "Hot potato routing means an AS minimizes its own internal (intra-domain) cost by choosing the closest exit gateway to hand off traffic as quickly as possible, even if this results in a longer path once the traffic leaves the AS.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0183",
+    "chapter": "Multimedia Networking and Quality of Service",
+    "topic": "QoS vs QoE",
+    "difficulty": "easy",
+    "question": "What is the key difference between Quality of Service (QoS) and Quality of Experience (QoE)?",
+    "options": [
+      "QoS measures technical network metrics like delay and loss, while QoE reflects the user's perceived satisfaction",
+      "QoS applies only to video, while QoE applies only to voice traffic",
+      "QoS is measured only after a connection ends, while QoE is measured only during the connection",
+      "QoS and QoE are two names for exactly the same concept",
+      "QoS is a business term, while QoE is a purely mathematical formula"
+    ],
+    "correctIndex": 0,
+    "explanation": "QoS measures how well the network meets requirements like delay, jitter, packet loss, and throughput, while QoE reflects the user's perceived satisfaction, which can remain high even with some underlying delay if playback appears smooth.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0184",
+    "chapter": "Multimedia Networking and Quality of Service",
+    "topic": "Packet Scheduling",
+    "difficulty": "medium",
+    "question": "What key benefit does Weighted Fair Queuing (WFQ) provide compared to strict Priority Queuing?",
+    "options": [
+      "It gives higher-weight queues a larger bandwidth share without completely starving lower-priority queues",
+      "It guarantees zero packet loss for all traffic classes",
+      "It processes packets strictly in the order they arrive, ignoring any classification",
+      "It eliminates the need for a switching fabric inside the router",
+      "It requires every queue to be served in exactly equal proportion regardless of weight"
+    ],
+    "correctIndex": 0,
+    "explanation": "WFQ combines the ideas of priority and fairness: each queue gets a weight representing its relative importance, and the scheduler serves queues in a statistical round-robin fashion, giving higher-weight queues more bandwidth without starving others.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0185",
+    "chapter": "Multimedia Networking and Quality of Service",
+    "topic": "Traffic Policing and Shaping",
+    "difficulty": "medium",
+    "question": "What is the main difference between the token bucket and leaky bucket mechanisms?",
+    "options": [
+      "Token bucket allows controlled bursts up to a bucket capacity and is typically used for policing, while leaky bucket smooths traffic to a constant rate and is typically used for shaping",
+      "Token bucket only works for UDP traffic, while leaky bucket only works for TCP traffic",
+      "Leaky bucket allows unlimited bursts, while token bucket enforces a strictly constant rate",
+      "Token bucket is used exclusively at the receiver, while leaky bucket is used exclusively at the sender",
+      "Leaky bucket generates tokens, while token bucket drains packets at a constant rate"
+    ],
+    "correctIndex": 0,
+    "explanation": "The token bucket generates tokens at rate R up to capacity B, allowing controlled bursts, and is typically used for policing; the leaky bucket drains packets at a constant rate R, smoothing traffic, and is typically used for shaping.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0186",
+    "chapter": "Multimedia Networking and Quality of Service",
+    "topic": "IntServ vs DiffServ",
+    "difficulty": "medium",
+    "question": "Why was DiffServ adopted more widely than IntServ for providing QoS on the Internet?",
+    "options": [
+      "DiffServ classifies packets into broad aggregate categories using a marking field, avoiding the heavy per-flow state overhead that IntServ required",
+      "DiffServ guarantees stronger end-to-end reservations than IntServ",
+      "IntServ does not require any signaling protocol at all",
+      "DiffServ was standardized before IntServ and became a legacy requirement",
+      "IntServ works only over wireless links, while DiffServ works only over wired links"
+    ],
+    "correctIndex": 0,
+    "explanation": "IntServ used RSVP to maintain per-flow state in every router, which introduced too much overhead. DiffServ instead classifies packets into broad aggregate categories using a DSCP marking, which is lighter and more manageable, so it saw wider adoption.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0187",
+    "chapter": "Multimedia Networking and Quality of Service",
+    "topic": "Streaming Requirements",
+    "difficulty": "medium",
+    "question": "Why is jitter (delay variation) especially problematic for conversational multimedia applications like voice calls?",
+    "options": [
+      "Because large jitter cannot be masked with playout buffering without introducing extra delay that conversational applications cannot tolerate",
+      "Because jitter only affects video, never affects audio streams",
+      "Because jitter is eliminated automatically by using UDP instead of TCP",
+      "Because jitter increases the total available throughput of the connection",
+      "Because jitter has no measurable impact on real-time communication"
+    ],
+    "correctIndex": 0,
+    "explanation": "For real-time streaming, delay variation (jitter) must be small because large buffering to smooth it out would itself introduce extra delay, which conversational applications cannot tolerate given the need for low one-way delay.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0188",
+    "chapter": "Virtual Private Network",
+    "topic": "VPN Basics",
+    "difficulty": "easy",
+    "question": "Why does a site-to-site VPN require two VPN gateways rather than just one?",
+    "options": [
+      "Because one gateway encapsulates outgoing private traffic while the other decapsulates and forwards it, since private addresses are not routable on the public Internet",
+      "Because a single gateway cannot handle encryption and decryption at the same time",
+      "Because regulations require VPN traffic to cross at least two administrative domains",
+      "Because a single gateway can only support one simultaneous user connection",
+      "Because DNS resolution requires two separate servers for VPN traffic"
+    ],
+    "correctIndex": 0,
+    "explanation": "Private IP addresses are not routable on the public Internet, so a VPN needs one gateway on the sender's side to encapsulate outgoing traffic and another on the receiver's side to decapsulate and forward it correctly.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0189",
+    "chapter": "Virtual Private Network",
+    "topic": "VPN Flavors",
+    "difficulty": "medium",
+    "question": "What is the main security advantage of an end-to-end (E2E) VPN compared to a site-to-site VPN?",
+    "options": [
+      "Data is encrypted from the very beginning to the very end of the communication path, including local LAN traffic",
+      "It requires only a single tunnel regardless of how many hosts communicate",
+      "It never requires the hosts themselves to perform encryption",
+      "It automatically scales without adding any tunnel management overhead",
+      "It eliminates the need for VPN gateways entirely"
+    ],
+    "correctIndex": 0,
+    "explanation": "In an end-to-end VPN, the tunnel is terminated directly on the communicating hosts, so data is encrypted from the very beginning to the very end of the path, including local LAN traffic before reaching a gateway — unlike a site-to-site VPN.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0190",
+    "chapter": "Virtual Private Network",
+    "topic": "VPN Topologies",
+    "difficulty": "medium",
+    "question": "What is the main drawback of a hub-and-spoke VPN topology compared to a mesh topology?",
+    "options": [
+      "Communication between two branches must pass through the hub, adding latency and creating a potential bottleneck",
+      "It requires a separate tunnel between every pair of branches",
+      "It cannot be used for centralized applications hosted at headquarters",
+      "It always requires more tunnels than a mesh topology",
+      "It provides no cost savings compared to dedicated leased lines"
+    ],
+    "correctIndex": 0,
+    "explanation": "In a hub-and-spoke VPN, each branch connects only to the hub, so communication between two branches must pass through the hub first, adding latency and creating a potential bottleneck, unlike a mesh topology where routing is optimized.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0191",
+    "chapter": "Virtual Private Network",
+    "topic": "Deployment Models",
+    "difficulty": "medium",
+    "question": "What distinguishes the overlay model from the peer model in VPN deployment?",
+    "options": [
+      "In the overlay model the public network is unaware of VPN destinations and routing is handled entirely by VPN gateways, while in the peer model the service provider participates in VPN routing",
+      "The overlay model requires the ISP to own all VPN gateways",
+      "The peer model never guarantees any QoS to the customer",
+      "The overlay model is only used for Layer 3 VPNs",
+      "The peer model eliminates the need for any tunnel between gateways"
+    ],
+    "correctIndex": 0,
+    "explanation": "In the overlay model, the public network only provides basic connectivity and is unaware of VPN destinations, with routing handled entirely by the VPN gateways; in the peer model, the service provider actively participates in VPN routing, exchanging information with VPN gateways.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0192",
+    "chapter": "Virtual Private Network",
+    "topic": "GRE",
+    "difficulty": "medium",
+    "question": "What is a key limitation of basic GRE (version 0) as a tunneling protocol?",
+    "options": [
+      "It provides no reliability, flow control, or congestion control on its own; any loss, duplication, or reordering must be handled by higher-layer protocols",
+      "It cannot encapsulate any protocol other than TCP",
+      "It always requires IPsec to function at all",
+      "It permanently changes the source and destination addresses of the inner packet",
+      "It limits tunnels to a maximum of two hops"
+    ],
+    "correctIndex": 0,
+    "explanation": "Basic GRE (version 0) simply wraps and forwards packets without providing reliability, flow control, or congestion control; any loss, duplication, or reordering must be handled by protocols above or below it.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0193",
+    "chapter": "Virtual Private Network",
+    "topic": "L2TP",
+    "difficulty": "medium",
+    "question": "In L2TP, what are the roles of the LAC and the LNS?",
+    "options": [
+      "The LAC provides access to the tunnel from the client side, while the LNS is the VPN gateway on the corporate side that terminates the tunnel",
+      "The LAC encrypts data while the LNS only handles authentication",
+      "The LNS initiates all tunnels, while the LAC can only receive them",
+      "The LAC and LNS are two names for the same device in different contexts",
+      "The LAC operates at Layer 3 while the LNS operates at Layer 1"
+    ],
+    "correctIndex": 0,
+    "explanation": "The LAC (L2TP Access Concentrator) provides access to the tunnel from the client side, often part of a Network Access Server, while the LNS (L2TP Network Server) is the VPN gateway on the corporate side that terminates the tunnel and authenticates the connection.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0194",
+    "chapter": "Virtual Private Network",
+    "topic": "PPTP",
+    "difficulty": "medium",
+    "question": "How does PPTP transport user data across the tunnel?",
+    "options": [
+      "It encapsulates PPP frames inside GRE, which runs over IP",
+      "It encapsulates PPP frames directly inside a TCP segment with no additional header",
+      "It uses IPsec ESP exclusively for all data transport",
+      "It relies solely on UDP with no encapsulation of PPP frames",
+      "It transmits PPP frames as plain Ethernet broadcast traffic"
+    ],
+    "correctIndex": 0,
+    "explanation": "PPTP encapsulates PPP frames inside GRE (Generic Routing Encapsulation), which in turn runs over IP, providing a lightweight mechanism for transporting PPP packets across an IP network for the data channel.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0195",
+    "chapter": "Virtual Private Network",
+    "topic": "IPsec",
+    "difficulty": "medium",
+    "question": "What is the key difference between IPsec's Authentication Header (AH) and Encapsulating Security Payload (ESP)?",
+    "options": [
+      "AH provides integrity and authentication but no encryption, while ESP provides confidentiality through encryption and optionally authentication",
+      "AH encrypts the payload while ESP only authenticates the header",
+      "ESP is incompatible with NAT while AH works perfectly with NAT",
+      "AH can only be used in tunnel mode, while ESP can only be used in transport mode",
+      "ESP is used only for IPv4, while AH is used only for IPv6"
+    ],
+    "correctIndex": 0,
+    "explanation": "AH ensures data integrity and authenticates the sender but does not encrypt the data, and is incompatible with NAT since NAT modifies the IP header; ESP focuses on confidentiality by encrypting the payload and optionally provides authentication and integrity.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0196",
+    "chapter": "Virtual Private Network",
+    "topic": "IPsec Modes",
+    "difficulty": "medium",
+    "question": "What distinguishes IPsec Tunnel Mode from Transport Mode?",
+    "options": [
+      "In Tunnel Mode, the entire original IP packet is encapsulated inside a new IP packet with the VPN gateways' addresses as the outer header, typically used for site-to-site VPNs",
+      "In Transport Mode, a completely new outer IP header replaces the original header entirely",
+      "Tunnel Mode leaves the original IP header fully visible while encrypting nothing",
+      "Transport Mode is only used for site-to-site VPNs between two networks",
+      "Tunnel Mode cannot be used together with ESP"
+    ],
+    "correctIndex": 0,
+    "explanation": "In Tunnel Mode, the entire IP packet (header and payload) is protected and encapsulated inside a new packet whose outer header contains the VPN gateways' IP addresses, hiding the original endpoints — this is the typical mode for site-to-site VPNs. Transport Mode instead leaves the original IP header mostly unchanged and only protects the payload.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0197",
+    "chapter": "The Optical Internet",
+    "topic": "WDM",
+    "difficulty": "easy",
+    "question": "What does Wavelength Division Multiplexing (WDM) allow an optical fiber to do?",
+    "options": [
+      "Carry multiple light signals of different wavelengths simultaneously, dramatically increasing capacity without laying additional fiber",
+      "Convert optical signals into electrical signals at every intermediate node",
+      "Transmit only a single wavelength but at a much higher bit rate",
+      "Eliminate the need for laser transmitters and receivers",
+      "Guarantee zero attenuation over unlimited distances"
+    ],
+    "correctIndex": 0,
+    "explanation": "WDM allows multiple light signals, each with a different wavelength, to travel simultaneously through the same optical fiber, dramatically increasing transmission capacity without needing to lay additional fibers.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0198",
+    "chapter": "The Optical Internet",
+    "topic": "Wavelength Conversion",
+    "difficulty": "medium",
+    "question": "Why do optical networks commonly allow wavelength conversion at intermediate nodes rather than preserving the same wavelength end-to-end?",
+    "options": [
+      "Because reserving the same wavelength across an entire path for every source-destination pair leads to a quadratic (N^2) scalability problem",
+      "Because wavelength conversion eliminates the need for any switching hardware",
+      "Because international regulations forbid using the same wavelength twice",
+      "Because it removes the need for demultiplexers at the receiver",
+      "Because wavelength conversion is always cheaper than reserving wavelengths"
+    ],
+    "correctIndex": 0,
+    "explanation": "Reserving the same wavelength end-to-end for every source-destination pair creates an N^2 scalability problem when checking conflicts across shared links; allowing wavelength conversion at intermediate nodes simplifies assignment, at the cost of conversion overhead.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0199",
+    "chapter": "The Optical Internet",
+    "topic": "OEO Conversion",
+    "difficulty": "medium",
+    "question": "What is a key advantage of Optical-Electrical-Optical (OEO) conversion in an optical core network?",
+    "options": [
+      "It allows signal regeneration and wavelength changes, avoiding the N^2 wavelength assignment problem, at the cost of complexity and power consumption",
+      "It eliminates all electrical components from the network core",
+      "It guarantees data transparency across all protocols with no interpretation needed",
+      "It requires no monitoring of Bit Error Ratio at all",
+      "It reduces network cost by avoiding electronic processing entirely"
+    ],
+    "correctIndex": 0,
+    "explanation": "OEO conversion allows a signal to be regenerated, error-corrected, and re-assigned a different wavelength, avoiding the N^2 wavelength assignment problem, though it is complex, costly, not data-transparent, and less mature than end-to-end optical switching.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0200",
+    "chapter": "The Optical Internet",
+    "topic": "Protection and Restoration",
+    "difficulty": "medium",
+    "question": "What is the key difference between protection and restoration in optical network fault recovery?",
+    "options": [
+      "Protection uses predetermined, pre-planned backup paths reserved in advance, while restoration dynamically determines alternative routes after a failure occurs",
+      "Protection only applies to Layer 3 routing, while restoration only applies to the optical layer",
+      "Restoration is always faster than protection because it requires no signaling",
+      "Protection requires no backup resources to be reserved at all",
+      "Restoration and protection are two names for exactly the same mechanism"
+    ],
+    "correctIndex": 0,
+    "explanation": "Protection relies on predetermined, pre-planned backup paths reserved in advance, ensuring quick recovery but potentially leaving resources idle; restoration dynamically finds alternative routes after a failure, optimizing resource use at the cost of longer recovery time.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0201",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "MPLS Concept",
+    "difficulty": "easy",
+    "question": "What is the fundamental idea behind MPLS forwarding compared to traditional IP routing?",
+    "options": [
+      "MPLS routers forward packets using a short fixed-length label as a direct index into a forwarding table, instead of performing longest prefix matching on the IP address",
+      "MPLS eliminates the need for any forwarding table at all",
+      "MPLS requires every packet to carry its full destination path in the header",
+      "MPLS replaces IP addressing entirely with MAC addressing",
+      "MPLS performs a full route recomputation for every packet"
+    ],
+    "correctIndex": 0,
+    "explanation": "Instead of performing longest prefix matching on the destination IP address, MPLS routers use a short, fixed-length label as an index into the MPLS forwarding table, achieving essentially O(1) forwarding decisions.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0202",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "MPLS and ATM",
+    "difficulty": "medium",
+    "question": "Why was MPLS attractive to telecom operators who had already invested heavily in ATM infrastructure?",
+    "options": [
+      "MPLS could work with both IP and ATM, letting operators reuse existing ATM hardware while upgrading only software to modernize their networks at low cost",
+      "MPLS required replacing all ATM hardware with entirely new optical equipment",
+      "MPLS eliminated the need for any core network infrastructure",
+      "MPLS was only compatible with brand-new hardware, forcing a full network rebuild",
+      "MPLS was designed exclusively to run over Frame Relay, ignoring ATM"
+    ],
+    "correctIndex": 0,
+    "explanation": "MPLS was designed to work with both IP and ATM, so operators could keep their existing ATM hardware and upgrade only the software to support MPLS routers, modernizing their networks without costly hardware replacement.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0203",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "MPLS Elements",
+    "difficulty": "medium",
+    "question": "What is the difference between an LSR (Label Switching Router) and an LER (Label Edge Router) in an MPLS network?",
+    "options": [
+      "LSRs perform label switching inside the MPLS core, while LERs at the network edge encapsulate incoming IP packets with labels (ingress) or remove labels before forwarding IP packets out (egress)",
+      "LSRs operate only at the network edge, while LERs operate only in the core",
+      "LERs never interact with IP packets, only with MPLS labels",
+      "LSRs are Layer 2 devices, while LERs are Layer 4 devices",
+      "LERs are used only in G-MPLS networks, never in standard MPLS"
+    ],
+    "correctIndex": 0,
+    "explanation": "LSRs (Label Switching Routers) perform label switching within the MPLS core, while LERs (Label Edge Routers) sit at the network edge: an ingress LER encapsulates IP packets with MPLS labels, and an egress LER strips the labels and forwards plain IP packets onward.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0204",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "FEC",
+    "difficulty": "medium",
+    "question": "What is a Forwarding Equivalence Class (FEC) in MPLS?",
+    "options": [
+      "A set of packets that are treated the same way by each LSR, following the same path and receiving consistent labels hop by hop",
+      "A field in the MPLS header that stores the packet's checksum",
+      "A protocol used only to distribute labels between routers",
+      "A hardware component responsible for switching optical wavelengths",
+      "A synonym for the MPLS routing table itself"
+    ],
+    "correctIndex": 0,
+    "explanation": "A Forwarding Equivalence Class groups packets that are treated identically and forwarded along the same LSP, with labels being switched consistently hop-by-hop for every packet in the flow, based on criteria that MPLS can define more finely than plain IP.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0205",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "Label Binding",
+    "difficulty": "medium",
+    "question": "In MPLS, why is label binding always performed by the downstream LSR rather than the upstream LSR?",
+    "options": [
+      "Because the lookup for forwarding happens at the downstream router, so it makes sense for it to choose a label convenient for its own forwarding table",
+      "Because upstream routers are never aware of the destination address",
+      "Because downstream routers cannot run IP routing protocols",
+      "Because label binding must always occur at the ingress LER only",
+      "Because the upstream router lacks the processing power for label assignment"
+    ],
+    "correctIndex": 0,
+    "explanation": "Label binding is performed by the downstream LSR because the actual lookup for forwarding happens at that router, so it makes sense for it to assign a label convenient for its own forwarding table operations.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0206",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "Routing Modes",
+    "difficulty": "medium",
+    "question": "Why is explicit routing necessary to enable MPLS Traffic Engineering, unlike hop-by-hop routing?",
+    "options": [
+      "Because constraint-based paths require a centralized decision; independent hop-by-hop decisions by different LSRs could conflict and violate the required constraints",
+      "Because hop-by-hop routing does not use any labels at all",
+      "Because explicit routing removes the need for any label distribution protocol",
+      "Because hop-by-hop routing can only be used with static label binding",
+      "Because explicit routing is always faster to set up than hop-by-hop routing"
+    ],
+    "correctIndex": 0,
+    "explanation": "Constraint-based routing needed for traffic engineering must be centralized, typically decided by the ingress LSR, because independent hop-by-hop decisions made by separate LSRs could conflict with one another and violate the desired constraints.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0207",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "MPLS Fault Recovery",
+    "difficulty": "medium",
+    "question": "What is the key difference between link re-routing and edge-to-edge re-routing as MPLS fault recovery methods?",
+    "options": [
+      "Link re-routing protects a specific physical link with a fast backup LSP, while edge-to-edge re-routing protects the entire LSP and is slower but still faster than traditional IP rerouting",
+      "Edge-to-edge re-routing only works for LSPs using hop-by-hop routing",
+      "Link re-routing requires manual intervention for every failure",
+      "Edge-to-edge re-routing does not use backup LSPs at all",
+      "Link re-routing can only recover from failures that occur at the ingress LER"
+    ],
+    "correctIndex": 0,
+    "explanation": "Link re-routing protects a specific physical link via a fast backup LSP using label stacking, enabling very fast recovery, while edge-to-edge re-routing protects the entire LSP and reacts to failure notifications sent backward, which is slower but still faster than traditional IP rerouting.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0208",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "Penultimate Hop Popping",
+    "difficulty": "medium",
+    "question": "What is the purpose of Penultimate Hop Popping (PHP) in MPLS?",
+    "options": [
+      "It removes the outer MPLS label at the second-to-last router instead of the egress router, reducing processing load at the egress",
+      "It prevents any router other than the ingress LER from adding new labels",
+      "It forces the egress LER to always drop the packet after the last hop",
+      "It is used only when the LSP passes through exactly two routers",
+      "It replaces the routing table of the penultimate router with a static list"
+    ],
+    "correctIndex": 0,
+    "explanation": "Penultimate Hop Popping removes the label at the penultimate LSR (the second-to-last router) rather than at the egress LSR, since the egress router does not need the label to forward the packet, reducing its processing load.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0209",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "MPLS VPNs",
+    "difficulty": "medium",
+    "question": "What is the function of a VRF (VPN Routing and Forwarding) table in an MPLS-based Layer 3 VPN?",
+    "options": [
+      "It holds forwarding information specific to one VPN, isolating traffic between different VPN instances sharing the same provider infrastructure",
+      "It stores the wavelength assignments for an optical core network",
+      "It is used exclusively to encrypt traffic between CE and PE routers",
+      "It replaces the need for any label distribution protocol",
+      "It is shared identically across all VPNs on a PE router"
+    ],
+    "correctIndex": 0,
+    "explanation": "A VRF table holds routing and forwarding information specific to one VPN, associated with the ports connected to that VPN's customer network, effectively isolating traffic between different VPN instances on the same provider router.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0210",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "6PE",
+    "difficulty": "medium",
+    "question": "What advantage does the 6PE (IPv6 Provider Edge) approach offer to an MPLS operator wishing to support IPv6?",
+    "options": [
+      "It allows IPv6 connectivity to be added only at the network edge (PE routers), without requiring any modification of the core (P) routers",
+      "It requires converting the entire MPLS backbone into a native IPv6-only network",
+      "It eliminates the need for MP-BGP entirely",
+      "It requires replacing all LDP sessions with GRE tunnels",
+      "It only works if the operator has no existing MPLS VPN deployment"
+    ],
+    "correctIndex": 0,
+    "explanation": "6PE lets providers keep their MPLS core exactly as it is, adding IPv6 support only at the network edge; PE routers are upgraded to handle IPv6 and MP-BGP, while core P routers require no modification since they only forward labeled packets.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0211",
+    "chapter": "CDN - Content Delivery Network",
+    "topic": "Web Caches",
+    "difficulty": "medium",
+    "question": "Why did the widespread adoption of SSL/TLS encryption undermine the effectiveness of traditional transparent web caching proxies?",
+    "options": [
+      "Because proxies need to inspect HTTP requests to determine cacheability, but encrypted traffic prevents them from reading the content",
+      "Because SSL/TLS blocks all traffic from reaching a proxy server entirely",
+      "Because encrypted traffic always uses a different transport protocol than HTTP",
+      "Because SSL/TLS requires proxies to store an unencrypted copy of every user's private key",
+      "Because encryption makes DNS resolution impossible for cached domains"
+    ],
+    "correctIndex": 0,
+    "explanation": "Since transparent proxies need to inspect HTTP requests to determine whether content is cacheable and fresh, widespread SSL/TLS encryption made ISPs 'blind' to the content, reducing proxies to simple forwarders that cannot cache what they cannot read.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0212",
+    "chapter": "CDN - Content Delivery Network",
+    "topic": "CDN vs Caching Proxies",
+    "difficulty": "medium",
+    "question": "What is a key difference between how CDNs and traditional caching proxies obtain and store content?",
+    "options": [
+      "CDNs are proactive, pushing content to distributed replicas before demand appears, while caching proxies are reactive, storing content only after a user requests it",
+      "CDNs only serve clients within a single ISP's domain, exactly like caching proxies",
+      "Caching proxies are owned by large content providers like Netflix, while CDNs are owned by ISPs",
+      "CDNs cannot be used for live streaming, only static content",
+      "Caching proxies give content providers full control over distribution, unlike CDNs"
+    ],
+    "correctIndex": 0,
+    "explanation": "CDNs are proactive, pushing content to distributed replicas before demand appears, giving content providers tight control over distribution, while traditional caching proxies are reactive, storing content only after it has been requested, and serve only their own ISP's clients.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0213",
+    "chapter": "CDN - Content Delivery Network",
+    "topic": "Server Selection",
+    "difficulty": "medium",
+    "question": "Which mechanism for directing clients to CDN replicas provides the finest application-level control, at the cost of requiring two separate HTTP requests?",
+    "options": [
+      "HTTP Redirects",
+      "Anycast routing",
+      "DNS-based redirection",
+      "Static configuration of the client's hosts file",
+      "IGMP snooping"
+    ],
+    "correctIndex": 0,
+    "explanation": "HTTP Redirects give the content provider fine-grained, application-level control over which replica serves each client, but require two HTTP requests (one to the original site, one to the redirected replica), adding extra latency.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0214",
+    "chapter": "CDN - Content Delivery Network",
+    "topic": "DNS-based CDN",
+    "difficulty": "medium",
+    "question": "What is a key limitation of DNS-based CDN redirection?",
+    "options": [
+      "The CDN typically sees only the IP address of the DNS resolver, not the actual client, limiting redirection granularity to the access network level",
+      "DNS-based redirection cannot be used for any static content",
+      "DNS-based redirection requires two full HTTP round trips for every object",
+      "DNS servers cannot cache any responses for CDN-managed domains",
+      "It requires the client to explicitly select a replica server manually"
+    ],
+    "correctIndex": 0,
+    "explanation": "Because of the hierarchical nature of DNS, the authoritative DNS server typically sees the IP address of the resolver rather than the actual client, limiting redirection to a coarse-grained decision based on the resolver's location rather than the exact user or requested object.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0215",
+    "chapter": "CDN - Content Delivery Network",
+    "topic": "Akamai / URL Rewriting",
+    "difficulty": "medium",
+    "question": "How does Akamai's URL rewriting technique direct browsers to fetch content from its own infrastructure?",
+    "options": [
+      "Content providers embed URLs pointing to Akamai-managed domains (for which Akamai's DNS servers are authoritative) instead of the original domain",
+      "Akamai physically relocates the content provider's origin server into its own data centers",
+      "Akamai intercepts and decrypts all HTTPS traffic transparently without any URL modification",
+      "Akamai requires end users to manually install a browser plugin to resolve rewritten URLs",
+      "Akamai replaces the content provider's IP address in the DNS root zone"
+    ],
+    "correctIndex": 0,
+    "explanation": "Content providers modify their web pages so embedded resource URLs reference Akamai-managed domains (e.g., a128.g.akamai.net), for which Akamai's own DNS servers are authoritative, giving Akamai control over which replica server ultimately serves the request.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0216",
+    "chapter": "CDN - Content Delivery Network",
+    "topic": "Load Balancing",
+    "difficulty": "medium",
+    "question": "According to the notes, why doesn't simply balancing all servers to around 50% CPU utilization always minimize a data center's energy consumption?",
+    "options": [
+      "Because server power usage remains relatively constant except when CPU load is below 20% or above 90%, so keeping most servers under 20% load and powering down unused ones can save more energy",
+      "Because servers consume the least power exactly at 50% CPU utilization",
+      "Because energy consumption is completely independent of CPU load",
+      "Because load balancers cannot measure CPU usage at all",
+      "Because balanced load always requires more physical servers than unbalanced load"
+    ],
+    "correctIndex": 0,
+    "explanation": "Studies show server power usage stays fairly constant except below 20% or above 90% CPU load, so evenly balancing all servers around 50% doesn't save much power; a power-saving strategy instead keeps most servers under 20% load and turns off unused ones, which conflicts with pure load balancing.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0217",
+    "chapter": "CDN - Content Delivery Network",
+    "topic": "Content Peering",
+    "difficulty": "medium",
+    "question": "What does 'content peering' refer to in a multi-CDN architecture?",
+    "options": [
+      "Coordination among independent CDNs to replicate, synchronize, or jointly deliver the same content, going beyond simple packet-level network peering",
+      "The process of encrypting content shared between two content providers",
+      "A single CDN's internal load balancing between its own delivery PoPs",
+      "The exchange of DNS root zone information between countries",
+      "A billing agreement between an ISP and a single CDN provider"
+    ],
+    "correctIndex": 0,
+    "explanation": "Content peering describes coordination among multiple independent CDNs to replicate and jointly deliver the same content, going beyond traditional network peering (which only concerns packet forwarding) to address how and where content itself is stored and delivered.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0218",
+    "chapter": "Pattern Analysis",
+    "topic": "Anomaly Detection",
+    "difficulty": "medium",
+    "question": "Which network traffic characteristics are typically associated with a Denial-of-Service (DoS) attack pattern?",
+    "options": [
+      "A very high number of flows and packets with minimal data size, low variation in destination ports/IPs, and mostly incoming UDP traffic with constant TTL",
+      "A steady decrease in the total number of flows over time",
+      "An increase in outbound TCP traffic evenly spread across many random destination ports",
+      "A drop in packet size variance combined with a drop in the total number of packets",
+      "A gradual seasonal increase in traffic that matches historical baselines"
+    ],
+    "correctIndex": 0,
+    "explanation": "A DoS attack is often identified by a very high number of flows and packets with minimal data size, low variation in destination ports and IPs, traffic primarily incoming and often using UDP, and a constant TTL suggesting a single source.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0219",
+    "chapter": "Pattern Analysis",
+    "topic": "Types of Anomalies",
+    "difficulty": "medium",
+    "question": "What distinguishes a 'contextual' point anomaly from a 'global' point anomaly?",
+    "options": [
+      "A contextual anomaly is an outlier only within a specific context, while a global anomaly is an outlier compared to the entire dataset",
+      "A contextual anomaly always spans multiple consecutive data points, while a global anomaly is always a single point",
+      "A global anomaly can only occur in seasonal time series data",
+      "A contextual anomaly is always caused by a DDoS attack, while a global anomaly is not",
+      "A global anomaly requires machine learning to detect, while a contextual one does not"
+    ],
+    "correctIndex": 0,
+    "explanation": "A global point anomaly is an outlier compared to the entire dataset, while a contextual anomaly is an outlier only within a specific context (e.g., a particular time window), even though it may not stand out in the overall dataset.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0220",
+    "chapter": "Pattern Analysis",
+    "topic": "Stationarity",
+    "difficulty": "medium",
+    "question": "What three criteria must a time series satisfy to be considered stationary?",
+    "options": [
+      "Zero trend, constant variance, and constant autocorrelation",
+      "Increasing trend, decreasing variance, and zero autocorrelation",
+      "Constant mean only, with no requirement on variance or autocorrelation",
+      "A fixed number of observations and no missing values",
+      "Perfect seasonality and a strictly positive autocorrelation at every lag"
+    ],
+    "correctIndex": 0,
+    "explanation": "For a time series to be stationary, it must have zero trend (not growing or shrinking), constant variance (the spread of data points around the mean doesn't change), and constant autocorrelation (the relationship between neighboring values stays the same over time).",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0221",
+    "chapter": "Pattern Analysis",
+    "topic": "ADF Test",
+    "difficulty": "medium",
+    "question": "In the Augmented Dickey-Fuller (ADF) test for stationarity, what does a p-value below 0.05 indicate?",
+    "options": [
+      "The null hypothesis of non-stationarity is rejected, so the time series is considered stationary",
+      "The time series is definitely non-stationary and must be differenced further",
+      "The test failed to converge and must be repeated with more data",
+      "The series contains no seasonal component whatsoever",
+      "The ARIMA model cannot be applied to this data at all"
+    ],
+    "correctIndex": 0,
+    "explanation": "The ADF test's null hypothesis assumes the time series is non-stationary; if the p-value is less than 0.05, the null hypothesis is rejected, meaning the time series is considered stationary.",
+    "source": "generated",
+    "sourceLabel": null
+  },
+  {
+    "id": "gen4-0222",
+    "chapter": "Pattern Analysis",
+    "topic": "ARIMA",
+    "difficulty": "medium",
+    "question": "In the ARIMA(p,d,q) model notation, what does the parameter 'd' represent?",
+    "options": [
+      "The number of times the raw observations are differenced to achieve stationarity (the degree of differencing)",
+      "The number of lag observations used in the autoregressive component",
+      "The size of the moving average window",
+      "The total number of data points used in the training set",
+      "The confidence interval percentage used for forecasting"
+    ],
+    "correctIndex": 0,
+    "explanation": "In ARIMA(p,d,q), 'd' is the degree of differencing, representing the number of times the raw observations are differenced to remove trends and achieve stationarity, corresponding to the Integration (I) part of ARIMA.",
+    "source": "generated",
+    "sourceLabel": null
   }
 ];

@@ -246,8 +246,8 @@ const DB = [
       "Link 1, because only the /20 entry matches",
       "Link 2, because only the /16 entry matches"
     ],
-    "correctIndex": 2,
-    "explanation": "Applying each netmask to 200.23.17.53 shows it matches both 200.23.16.0/20 and 200.23.18.0/23. Since there are multiple matches, the router selects the longest (most specific) prefix match — the /23 entry — so the packet goes out link 2.",
+    "correctIndex": 3,
+    "explanation": "Only the 200.23.16.0/20 matches",
     "source": "generated",
     "sourceLabel": null
   },
@@ -7604,23 +7604,6 @@ const DB = [
     "sourceLabel": "TSR"
   },
   {
-    "id": "tsr-0027",
-    "chapter": "IPv6",
-    "topic": "IPv6 vs IPv4",
-    "difficulty": "easy",
-    "question": "Unlike IPv4, IPv6:",
-    "options": [
-      "Does not allow discovering the MAC address of another station while knowing its IP address",
-      "Has no variable-length header",
-      "Has no equivalent of TTL (time-to-live)",
-      "Does not permit the use of IPsec"
-    ],
-    "correctIndex": 1,
-    "explanation": "The IPv6 main header is fixed-length (40 bytes), unlike the IPv4 header which has a variable length due to its options field; it still has a Hop Limit field equivalent to TTL, still supports address resolution (via Neighbor Discovery), and supports IPsec.",
-    "source": "imported",
-    "sourceLabel": "TSR"
-  },
-  {
     "id": "tsr-0028",
     "chapter": "IPv6",
     "topic": "IPv6 header",
@@ -8619,23 +8602,6 @@ const DB = [
     "sourceLabel": "TSR"
   },
   {
-    "id": "tsr-0087",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "IMEI",
-    "difficulty": "easy",
-    "question": "The International Mobile Equipment Identity (IMEI) is:",
-    "options": [
-      "A fixed code assigned by the BTS",
-      "A temporary phone number assigned to the terminal based on its location",
-      "A temporary code assigned by the ISP",
-      "A code that identifies the device, is assigned by the manufacturer and is not modifiable"
-    ],
-    "correctIndex": 3,
-    "explanation": "The IMEI is a permanent, manufacturer-assigned identifier for the physical device itself, distinct from the subscriber's phone number or SIM identity.",
-    "source": "imported",
-    "sourceLabel": "TSR"
-  },
-  {
     "id": "tsr-0088",
     "chapter": "Wireless and Cellular Networks",
     "topic": "UMTS",
@@ -9197,23 +9163,6 @@ const DB = [
     "sourceLabel": "TSR"
   },
   {
-    "id": "tsr-0121",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "Filtering database",
-    "difficulty": "medium",
-    "question": "The entries of the filtering database of an Ethernet switch",
-    "options": [
-      "Have a validity time generally configurable by the switch administrator",
-      "All have a validity time of less than one second, in order to better manage device movements",
-      "All have infinite validity time",
-      "Have a validity time that varies over time, based on the number of frames received"
-    ],
-    "correctIndex": 0,
-    "explanation": "Switch filtering (MAC address) table entries have an ageing time (commonly defaulting to around 300 seconds) that a network administrator can typically reconfigure.",
-    "source": "imported",
-    "sourceLabel": "TSR"
-  },
-  {
     "id": "tsr-0122",
     "chapter": "Principles of Modern LAN Design and Operation",
     "topic": "Switch forwarding",
@@ -9282,38 +9231,6 @@ const DB = [
     "sourceLabel": "TSR"
   },
   {
-    "id": "tsr-0126",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "VLAN and broadcast",
-    "difficulty": "easy",
-    "question": "Given a certain LAN on which VLANs have been defined, a broadcast frame:",
-    "options": [
-      "Possibly reaches only a portion of the LAN",
-      "Reaches all hosts of the LAN"
-    ],
-    "correctIndex": 0,
-    "explanation": "VLANs isolate users belonging to different VLANs; a broadcast frame generated within a VLAN stays confined to that VLAN, reaching only part of the physical LAN.",
-    "source": "imported",
-    "sourceLabel": "TSR"
-  },
-  {
-    "id": "tsr-0127",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "VLAN and domains",
-    "difficulty": "medium",
-    "question": "Increasing the number of VLANs:",
-    "options": [
-      "Increases the number of broadcast domains",
-      "Increases the number of collision domains",
-      "Decreases the number of broadcast domains",
-      "Decreases the number of collision domains"
-    ],
-    "correctIndex": 0,
-    "explanation": "Each VLAN forms its own broadcast domain, so adding more VLANs increases the number of broadcast domains. Collision domains are managed at the switch-port level and are not directly affected by VLAN configuration.",
-    "source": "imported",
-    "sourceLabel": "TSR"
-  },
-  {
     "id": "tsr-0128",
     "chapter": "Principles of Modern LAN Design and Operation",
     "topic": "VLAN filtering table",
@@ -9343,54 +9260,6 @@ const DB = [
     ],
     "correctIndex": 2,
     "explanation": "Whether two hosts on different VLANs can communicate depends on the network configuration; typically a router (or a router-like function) is needed to route traffic between VLANs.",
-    "source": "imported",
-    "sourceLabel": "TSR"
-  },
-  {
-    "id": "tsr-0130",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "VLAN inter-communication",
-    "difficulty": "medium",
-    "question": "A host belonging to a certain VLAN",
-    "options": [
-      "Can only contact hosts in the same VLAN",
-      "Can contact hosts in other VLANs through a router"
-    ],
-    "correctIndex": 1,
-    "explanation": "Communication between different VLANs requires layer-3 routing, typically provided by a router (or a router-on-a-stick/inter-VLAN routing switch).",
-    "source": "imported",
-    "sourceLabel": "TSR"
-  },
-  {
-    "id": "tsr-0131",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "Access mode ports",
-    "difficulty": "medium",
-    "question": "Two hosts connected to an Ethernet switch network through ports configured in Access mode:",
-    "options": [
-      "Can communicate only if they belong to the same VLAN",
-      "If they belong to different VLANs, they can communicate only if connected to different switches and the link between switches is configured in trunk mode",
-      "Cannot communicate",
-      "If they belong to different VLANs, it is possible that they still manage to communicate even if connected to different switches with the switch ports configured in access mode"
-    ],
-    "correctIndex": 3,
-    "explanation": "Even with access-mode ports and inter-switch links, network topology and additional devices (such as an inter-VLAN routing device) can still allow communication between hosts on different VLANs.",
-    "source": "imported",
-    "sourceLabel": "TSR"
-  },
-  {
-    "id": "tsr-0132",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "Access mode ports",
-    "difficulty": "medium",
-    "question": "What functionality does an Access port provide on an Ethernet switch?",
-    "options": [
-      "Access to the network",
-      "Some type of filtering",
-      "Frame coloring (tagging) for VLANs"
-    ],
-    "correctIndex": 2,
-    "explanation": "An access port sends and receives untagged frames and internally assigns them to a single, statically configured VLAN, effectively performing implicit frame classification/coloring for that VLAN.",
     "source": "imported",
     "sourceLabel": "TSR"
   },
@@ -9971,23 +9840,6 @@ const DB = [
     "sourceLabel": "TSR"
   },
   {
-    "id": "tsr-0167",
-    "chapter": "Routing",
-    "topic": "OSPF packets",
-    "difficulty": "medium",
-    "question": "In OSPF, a 'Database Description' packet:",
-    "options": [
-      "Is always sent encrypted for privacy reasons",
-      "Is always sent encrypted to avoid security problems",
-      "Is used during the 'Neighbor Discovery' phase",
-      "Is used during the phase of realigning adjacencies"
-    ],
-    "correctIndex": 3,
-    "explanation": "Database Description packets are exchanged between routers that already know each other as neighbors, during the adjacency-forming/realignment process, and are not necessarily encrypted.",
-    "source": "imported",
-    "sourceLabel": "TSR"
-  },
-  {
     "id": "tsr-0168",
     "chapter": "Routing",
     "topic": "OSPF metrics",
@@ -10273,23 +10125,6 @@ const DB = [
     ],
     "correctIndex": 1,
     "explanation": "An Autonomous System groups together subnets that are topologically close and administered as a single organizational unit; its numeric identifier is centrally assigned (originally 2 bytes, now also 4 bytes with IANA), not computed automatically by BGP.",
-    "source": "imported",
-    "sourceLabel": "TSR"
-  },
-  {
-    "id": "tsr-0185",
-    "chapter": "Routing",
-    "topic": "Autonomous Systems",
-    "difficulty": "medium",
-    "question": "Regarding an Autonomous System, which of these statements is false:",
-    "options": [
-      "It is a subnet configured through static routing algorithms",
-      "They are identified through a 2-byte ID",
-      "It is a set of subnets with topological proximity, managed by a single organization",
-      "Exterior Gateway Protocols are used to distribute information among Autonomous Systems"
-    ],
-    "correctIndex": 0,
-    "explanation": "An Autonomous System is not simply 'a subnet configured through static routing' — it is an administratively coherent grouping of subnets, identified by an AS number, exchanging reachability information with other ASes via exterior gateway protocols such as BGP.",
     "source": "imported",
     "sourceLabel": "TSR"
   },
@@ -12392,23 +12227,6 @@ const DB = [
     "sourceLabel": "ALL_MERGED"
   },
   {
-    "id": "merged-0019",
-    "chapter": "IPv4 Addressing and Routing",
-    "topic": "IGMP",
-    "difficulty": "easy",
-    "question": "The IGMP protocol",
-    "options": [
-      "Is a new version of the ICMP protocol",
-      "Allows an IPv4 router to discover which multicast groups are present in a directly connected network",
-      "Allows an IPv4 router to discover which multicast groups are active in the Internet network at a given instant of time",
-      "Allows an IPv4 host to create a new multicast group"
-    ],
-    "correctIndex": 1,
-    "explanation": "IGMP (Internet Group Management Protocol) is used between hosts and their local router so the router can learn which multicast groups have interested listeners on its directly attached subnets.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
     "id": "merged-0020",
     "chapter": "IPv4 Addressing and Routing",
     "topic": "IPv4 multicast",
@@ -12422,40 +12240,6 @@ const DB = [
     ],
     "correctIndex": 2,
     "explanation": "Because the mapping from an IPv4 multicast address to an Ethernet multicast MAC address is 32-to-1, and without IGMP snooping a switch simply floods multicast frames, a host can receive (at the NIC/link layer) multicast traffic for a group it never joined.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0021",
-    "chapter": "IPv6",
-    "topic": "Neighbor Discovery",
-    "difficulty": "easy",
-    "question": "The Neighbor Discovery procedure in IPv6",
-    "options": [
-      "Is based on a multicast ICMPv6 packet",
-      "Is based on ARPv6",
-      "Needs the network to support IPv4",
-      "Is based on a broadcast ICMPv6 packet"
-    ],
-    "correctIndex": 0,
-    "explanation": "IPv6 Neighbor Discovery replaces ARP and uses ICMPv6 messages (Neighbor Solicitation/Advertisement) sent to solicited-node multicast addresses instead of link-layer broadcast.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0022",
-    "chapter": "IPv6",
-    "topic": "Router Advertisement",
-    "difficulty": "medium",
-    "question": "The ICMPv6 Router Advertisement packet",
-    "options": [
-      "Enables device autoconfiguration without a DHCP protocol intervention",
-      "Is sent periodically by a router to all the other routers of the Internet network",
-      "Is a broadcast packet",
-      "Is sent as a reply to an ICMPv6 Neighbor Solicitation packet"
-    ],
-    "correctIndex": 0,
-    "explanation": "Router Advertisements carry prefix and configuration information that IPv6 hosts use for stateless address autoconfiguration (SLAAC), without requiring a DHCPv6 server.",
     "source": "imported",
     "sourceLabel": "ALL_MERGED"
   },
@@ -12494,23 +12278,6 @@ const DB = [
     "sourceLabel": "ALL_MERGED"
   },
   {
-    "id": "merged-0025",
-    "chapter": "IPv6",
-    "topic": "Link-local addresses",
-    "difficulty": "medium",
-    "question": "The IPv6 address FE80::0201:06FF:FEA5:3A4C is:",
-    "options": [
-      "An address currently not available in IPv6",
-      "An address that can be used on a host with MAC address 00:01:06:A5:3A:4C for communicating with another host on the same link",
-      "An address that can be used on a server with MAC address 00:01:06:A5:3A:4C to offer a service on the public IPv6 Internet",
-      "An address that can be used by more than one device on the same link"
-    ],
-    "correctIndex": 1,
-    "explanation": "FE80::/10 is the IPv6 link-local prefix; the interface ID here is a MAC-derived EUI-64 (00:01:06:A5:3A:4C), and link-local addresses are usable only for communication with other hosts on the same link, not for global Internet services.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
     "id": "merged-0026",
     "chapter": "Virtual Private Network",
     "topic": "MPLS VPN labels",
@@ -12524,23 +12291,6 @@ const DB = [
     ],
     "correctIndex": 2,
     "explanation": "In BGP/MPLS VPNs, packets carry an outer (transport) label used by P routers to forward the packet across the backbone toward the egress PE, and an inner (VPN) label that only the egress PE examines to identify the correct VRF/customer.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0027",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "5G",
-    "difficulty": "medium",
-    "question": "One of the main properties of the new 5G infrastructure is",
-    "options": [
-      "The comeback to circuit switching technology in order to guarantee a proper quality of service, which is key in a new generation mobile network",
-      "The joint use of virtualization techniques and flexible solutions for the network control, with the aim of dividing available network resources in an efficient and effective way",
-      "The use of virtualization techniques on mobile terminals, in order to properly support novel applications",
-      "The use of software emulators and simulators for the design of the mobile operators' network infrastructures, which for this reason are usually referred to as Software-Defined networks."
-    ],
-    "correctIndex": 1,
-    "explanation": "5G relies heavily on NFV/SDN-style virtualization combined with flexible, programmable control to enable network slicing, letting the infrastructure be partitioned efficiently among different services and tenants.",
     "source": "imported",
     "sourceLabel": "ALL_MERGED"
   },
@@ -12592,23 +12342,6 @@ const DB = [
     ],
     "correctIndex": 2,
     "explanation": "SSL/TLS-based VPNs (e.g., OpenVPN, various vendor implementations) are not built on a single formal standard the way IPsec is; implementations differ across vendors, so 'standard solutions are available' is the false claim.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0031",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "Handover",
-    "difficulty": "easy",
-    "question": "The term handover in cellular networks refers to",
-    "options": [
-      "The movement of a mobile terminal from a cell to another without the interruption of an active communication (e.g., a call)",
-      "The use of a mobile terminal in the network of a different operator with respect to the one the SIM card installed in the terminal belongs to",
-      "The movement of a mobile terminal from a cell to another, even if in that moment there are no active communications",
-      "The turn on of the mobile terminal after a long period of inactivity."
-    ],
-    "correctIndex": 0,
-    "explanation": "Handover (or handoff) is the process of transferring an ongoing call/session from one cell (base station) to another as a mobile terminal moves, without dropping the active communication.",
     "source": "imported",
     "sourceLabel": "ALL_MERGED"
   },
@@ -12749,40 +12482,6 @@ const DB = [
     "sourceLabel": "ALL_MERGED"
   },
   {
-    "id": "merged-0040",
-    "chapter": "IPv4 Addressing and Routing",
-    "topic": "IPv4 multicast addressing",
-    "difficulty": "medium",
-    "question": "Multicast groups in IPv4",
-    "options": [
-      "Are identified by the list of IP addresses of the hosts belonging to the group. These addresses are then used as destination IP addresses on multicast packets directed to these hosts",
-      "Are identified by means of special IP addresses that cannot be assigned to single hosts",
-      "are identified by the list of MAC addresses of the hosts belonging to the group. These addresses are then used as destination MAC addresses on multicast directed these hosts",
-      "Do not exist"
-    ],
-    "correctIndex": 1,
-    "explanation": "IPv4 multicast groups are identified by dedicated Class D addresses (224.0.0.0-239.255.255.255), which are never assigned to individual hosts and are used as the single destination address representing the whole group.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0041",
-    "chapter": "MPLS - Multi-Protocol Label Switching",
-    "topic": "Label distribution",
-    "difficulty": "medium",
-    "question": "Label distribution in MPLS (Multi-Protocol Label Switching)",
-    "options": [
-      "Can be performed implicitly through the routing protocol OSPF (Open Shortest Path First)",
-      "Is not needed when network nodes deploy the BGP (Border Gateway Protocol) routing protocol",
-      "Can be performed with the RSVP (Resource ReSerVation Protocol)",
-      "Involves both network nodes and hosts"
-    ],
-    "correctIndex": 2,
-    "explanation": "RSVP-TE is one of the standard label distribution protocols in MPLS, extending RSVP to also carry label-binding information along explicitly routed LSPs (alongside LDP and MP-BGP for VPN labels).",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
     "id": "merged-0042",
     "chapter": "MPLS - Multi-Protocol Label Switching",
     "topic": "Traffic engineering extensions",
@@ -12817,23 +12516,6 @@ const DB = [
     "sourceLabel": "ALL_MERGED"
   },
   {
-    "id": "merged-0044",
-    "chapter": "IPv4 Addressing and Routing",
-    "topic": "IPv4 multicast scope",
-    "difficulty": "medium",
-    "question": "Multicast communications in an IPv4 network",
-    "options": [
-      "Are possible only within a single LAN, even if additional protocols are used",
-      "Are always possible, IGMP only makes them more efficient",
-      "Are not possible without the deployment of additional protocols in the network",
-      "Are possible at global scale, it is only required to enable the IGMP protocol in the network"
-    ],
-    "correctIndex": 2,
-    "explanation": "Native IPv4 unicast routing does not forward multicast traffic; additional protocols (IGMP for group membership plus a multicast routing protocol such as PIM) must be deployed for multicast to work beyond a single LAN.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
     "id": "merged-0045",
     "chapter": "Routing",
     "topic": "Distance Vector algorithm",
@@ -12847,23 +12529,6 @@ const DB = [
     ],
     "correctIndex": 1,
     "explanation": "Distance vector protocols such as RIP or EIGRP are still deployed today, but typically in smaller or specific scenarios, since link-state protocols generally converge faster and scale better in large networks.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0046",
-    "chapter": "MPLS - Multi-Protocol Label Switching",
-    "topic": "MPLS basic idea",
-    "difficulty": "easy",
-    "question": "The basic idea of MPLS (Multi-Protocol Label Switching) consists in",
-    "options": [
-      "Inserting a label in IP packets so that network nodes can use it to determine the path the packet must follow",
-      "Inserting a label layer two frames so that network nodes can use it to identify the various higher-layer protocols (multi-protocol) encapsulated in the frame",
-      "Association a label to each packet so that the destination can identify the data flow the packet belongs to. Independently of the protocol being used (multi-protocol)",
-      "Associating a label to each packet so that network nodes can use it to determine how to process such packet"
-    ],
-    "correctIndex": 3,
-    "explanation": "MPLS attaches a short, fixed-length label to each packet; intermediate label switch routers use only this label (not the network-layer header) to decide how to forward/process the packet, regardless of the network-layer protocol carried.",
     "source": "imported",
     "sourceLabel": "ALL_MERGED"
   },
@@ -13089,124 +12754,6 @@ const DB = [
     "sourceLabel": "ALL_MERGED"
   },
   {
-    "id": "merged-0060",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "Token bucket",
-    "difficulty": "medium",
-    "question": "In the token bucket mechanism it is possible to control:",
-    "options": [
-      "The maximum transit (crossing) time of a router",
-      "The internal management of queues with WFQ",
-      "The minimum data injection rate",
-      "The maximum burst size and the average data injection rate"
-    ],
-    "correctIndex": 3,
-    "explanation": "A token bucket regulator characterizes and limits traffic by its average rate (rate at which tokens are added) and its maximum burst size (bucket depth), constraining how much traffic can be sent instantaneously versus on average.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0061",
-    "chapter": "IPv6",
-    "topic": "IPv6 vs IPv4 features",
-    "difficulty": "medium",
-    "question": "Unlike IPv4, IPv6:",
-    "options": [
-      "Has no associated version of ICMP",
-      "Does not allow discovering the MAC address of another station, knowing its IP address",
-      "Has no broadcast addresses",
-      "Has no equivalent of the TTL (time-to-live) field"
-    ],
-    "correctIndex": 2,
-    "explanation": "IPv6 eliminates the broadcast address type entirely, relying on multicast (e.g., all-nodes multicast) instead; it still has ICMPv6, a MAC-resolution mechanism (Neighbor Discovery), and a Hop Limit field equivalent to IPv4's TTL.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0063",
-    "chapter": "Virtual Private Network",
-    "topic": "IPsec",
-    "difficulty": "medium",
-    "question": "IPsec:",
-    "options": [
-      "Used only for VPN",
-      "Manages key encryption",
-      "Has problems with solutions that use NAT"
-    ],
-    "correctIndex": 2,
-    "explanation": "IPsec (particularly in transport mode, or AH which protects the IP header) can be incompatible with NAT because NAT modifies IP addresses/ports that IPsec integrity checks cover; NAT-Traversal (NAT-T) extensions were developed to work around this.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0064",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "UMTS",
-    "difficulty": "medium",
-    "question": "Which of the following definitions is a novelty of the UMTS standard?",
-    "options": [
-      "Microdiversity",
-      "Network Slicing",
-      "None of these definitions",
-      "Macrodiversity"
-    ],
-    "correctIndex": 3,
-    "explanation": "UMTS (based on WCDMA) introduced macrodiversity, where a mobile terminal in soft handover simultaneously communicates with multiple base stations and combines their signals, unlike prior GSM systems.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0065",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "VLAN and broadcast domains",
-    "difficulty": "easy",
-    "question": "By increasing the number of VLANs:",
-    "options": [
-      "Collision domains increase",
-      "Collision domains decrease",
-      "Broadcast domains increase",
-      "Broadcast domains decrease"
-    ],
-    "correctIndex": 2,
-    "explanation": "Each VLAN forms its own separate broadcast domain, so adding more VLANs on a switched network increases the number of distinct broadcast domains.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0066",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "Handover",
-    "difficulty": "easy",
-    "question": "Handover is the mechanism that allows:",
-    "options": [
-      "Encrypting a communication channel",
-      "Managing the disconnection from one cell and the reconnection to a new one",
-      "Notifying a user of an incoming call",
-      "Requesting network access by a user"
-    ],
-    "correctIndex": 1,
-    "explanation": "Handover manages the transfer of an active connection from the current serving cell to a new one as a mobile terminal moves, disconnecting from the old cell and reconnecting via the new one without dropping the call.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0067",
-    "chapter": "Virtual Private Network",
-    "topic": "PPTP",
-    "difficulty": "medium",
-    "question": "The PPTP protocol is usually used for:",
-    "options": [
-      "Allowing the creation of a tunnel in an access VPN.",
-      "Allowing the creation of a tunnel in an overlay site-to-site VPN.",
-      "Allowing the creation of a tunnel in a peer site-to-site VPN.",
-      "Allowing the creation of a tunnel in a Layer 4 VPN."
-    ],
-    "correctIndex": 0,
-    "explanation": "PPTP (Point-to-Point Tunneling Protocol) is typically used to let a remote/mobile user establish a tunnel back into a corporate network, i.e., in a remote-access VPN scenario, rather than for permanent site-to-site links.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
     "id": "merged-0068",
     "chapter": "Routing",
     "topic": "Flooding algorithm",
@@ -13220,57 +12767,6 @@ const DB = [
     ],
     "correctIndex": 3,
     "explanation": "With pure flooding, every router resends the packet on all links except the one it arrived on; on a ring topology this causes the packet to keep circulating and duplicate, with the number of copies eventually reaching D growing with (bounded by) the TTL value, since TTL is what eventually stops the flooding.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0069",
-    "chapter": "MPLS - Multi-Protocol Label Switching",
-    "topic": "MPLS motivation",
-    "difficulty": "medium",
-    "question": "The importance of MPLS (multi-protocol label switching) in today's and future networks derives from the possibility of",
-    "options": [
-      "Efficiently transporting IP packets over ATM networks",
-      "Connecting servers to their disks at high speed",
-      "Easily and effectively realizing traffic engineering",
-      "Realizing devices capable of operating without the need for configuration"
-    ],
-    "correctIndex": 2,
-    "explanation": "One of the main motivations for MPLS is that explicit label-switched paths make it easy and effective to perform traffic engineering, steering traffic along paths chosen for load-balancing or performance rather than only the IGP shortest path.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0070",
-    "chapter": "Routing",
-    "topic": "Forwarding vs Routing",
-    "difficulty": "medium",
-    "question": "The concepts of Forwarding and Routing:",
-    "options": [
-      "Are synonyms; they identify the process that finds a valid path for a packet, from sender to receiver",
-      "Are synonyms; they identify the process that, given a packet entering a network node, determines the best outgoing port towards the destination",
-      "Are different concepts; the forwarding process aims at finding a valid path for a packet, from sender to receiver; the routing process, given a packet entering a network node, determines the best outgoing port towards the destination",
-      "Are different concepts; the routing process aims at finding a valid path for a packet, from sender to receiver; the forwarding process, given a packet entering a network node, determines the best outgoing port towards the destination"
-    ],
-    "correctIndex": 3,
-    "explanation": "Routing is the control-plane process of computing/discovering paths from source to destination (e.g., building routing tables), while forwarding is the data-plane, per-packet operation of looking up the destination and sending the packet out the correct interface.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0071",
-    "chapter": "MPLS - Multi-Protocol Label Switching",
-    "topic": "LSP establishment",
-    "difficulty": "medium",
-    "question": "For the establishment of an LSP it is essential that",
-    "options": [
-      "All links on the path use the same layer two protocol",
-      "The MPLS routers on the path use the same protocol for label distribution",
-      "The final destinations of the packets traveling on the LSP support MPLS",
-      "The MPLS routers on the path perform a mapping operation"
-    ],
-    "correctIndex": 3,
-    "explanation": "Setting up an LSP requires each MPLS router (LSR) along the path to perform a label mapping/binding operation — associating an incoming label to a specific outgoing label and next hop for the given FEC.",
     "source": "imported",
     "sourceLabel": "ALL_MERGED"
   },
@@ -13342,23 +12838,6 @@ const DB = [
     "sourceLabel": "ALL_MERGED"
   },
   {
-    "id": "merged-0077",
-    "chapter": "IPv6",
-    "topic": "Link-local addresses",
-    "difficulty": "easy",
-    "question": "A link-local address:",
-    "options": [
-      "Can be used to allow communication between stations on local links (e.g., a LAN) in the absence of other IPv6 addresses",
-      "Is used to physically connect two stations on a local link",
-      "Is the address used by stations on a LAN to exchange data (always, regardless of other addresses)",
-      "Is used in all communications between local stations, even when global addresses are configured"
-    ],
-    "correctIndex": 0,
-    "explanation": "Every IPv6 interface automatically has a link-local address (FE80::/10) so that on-link communication (including Neighbor Discovery) is always possible even before or without any other (global or unique-local) address being configured.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
     "id": "merged-0078",
     "chapter": "IPv4 Addressing and Routing",
     "topic": "Addressing plan design",
@@ -13375,23 +12854,6 @@ const DB = [
     "sourceLabel": "ALL_MERGED"
   },
   {
-    "id": "merged-0079",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "HSPA",
-    "difficulty": "medium",
-    "question": "High Speed Packet Access (HSPA):",
-    "options": [
-      "Uses dedicated channels for better transmission",
-      "Increases the TTI to 10ms (from 2ms in UMTS)",
-      "Uses shared channels to reduce the waste of resources",
-      "Has a TTI of 1ms thanks to the use of OFDMA, MIMO systems and 64QAM modulation"
-    ],
-    "correctIndex": 2,
-    "explanation": "HSPA (High Speed Packet Access) improves on UMTS by using shared channels (HS-DSCH/E-DCH) among users, allowing more efficient, statistically multiplexed use of radio resources instead of dedicating a channel per user.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
     "id": "merged-0080",
     "chapter": "Routing",
     "topic": "RIP characteristics",
@@ -13404,57 +12866,6 @@ const DB = [
     ],
     "correctIndex": 1,
     "explanation": "RIP is a distance-vector protocol: each router periodically exchanges its routing table (distance information) with directly connected neighboring routers.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0081",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "Policing",
-    "difficulty": "medium",
-    "question": "What is the use of policing mechanisms?",
-    "options": [
-      "They are used by the user to agree with the provider on the QoS level to obtain",
-      "They are used by the service provider to verify that the traffic injected by the customer conforms to the agreements made",
-      "They are used by the user to verify that incoming traffic from the provider conforms to the agreements made",
-      "They are used in various routers to guarantee a maximum crossing time for each of them"
-    ],
-    "correctIndex": 1,
-    "explanation": "Policing is enforced by the network (typically at the ingress of a provider's domain) to check that a customer's traffic stays within the negotiated traffic contract (e.g., via a token bucket), discarding or marking out-of-profile packets.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0082",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "DiffServ vs IntServ",
-    "difficulty": "medium",
-    "question": "DiffServ differs from IntServ because:",
-    "options": [
-      "DiffServ tends to provide a QoS guarantee that IntServ does not give",
-      "DiffServ introduces new protocols to allow resource reservation in order to obtain a given QoS",
-      "IntServ tends to provide a QoS guarantee that DiffServ does not give",
-      "DiffServ tends to guarantee a maximum crossing time, while IntServ tends to provide a guaranteed minimum bandwidth"
-    ],
-    "correctIndex": 2,
-    "explanation": "IntServ uses per-flow signaling (RSVP) to reserve resources and provide strict, guaranteed end-to-end QoS for individual flows, while DiffServ only aggregates traffic into a few classes with best-effort-like per-hop treatment, without such strict per-flow guarantees.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0084",
-    "chapter": "IPv6",
-    "topic": "Aggregatable global unicast",
-    "difficulty": "medium",
-    "question": "IPv6 Aggregatable Global Unicast addresses are:",
-    "options": [
-      "Aggregatable only in very small address ranges, to favor the precision of path computation",
-      "Globally unique, substantially equivalent to public IPv4 addresses",
-      "Usable only on devices belonging to the same local network",
-      "Usable at global level only together with proper Network Address Translation (NAT) techniques"
-    ],
-    "correctIndex": 1,
-    "explanation": "IPv6 global unicast addresses are globally unique and routable across the whole Internet, playing the role that public IPv4 addresses play, without requiring NAT.",
     "source": "imported",
     "sourceLabel": "ALL_MERGED"
   },
@@ -13578,40 +12989,6 @@ const DB = [
     "sourceLabel": "ALL_MERGED"
   },
   {
-    "id": "merged-0092",
-    "chapter": "Routing",
-    "topic": "Path Vector technique",
-    "difficulty": "medium",
-    "question": "The 'Path Vector' technique allows:",
-    "options": [
-      "Solving the count-to-infinity problem",
-      "Solving the problem of overlapping routes",
-      "Making the protocol 'transparent' with respect to the information carried",
-      "None of the above"
-    ],
-    "correctIndex": 0,
-    "explanation": "By including the full list of Autonomous Systems already traversed in each route advertisement, a router can detect and reject any route whose AS-path already contains its own AS, preventing routing loops and thus avoiding the count-to-infinity problem seen in plain distance-vector protocols.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0093",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "Base Station Controller",
-    "difficulty": "easy",
-    "question": "A BSC (Base Station Controller):",
-    "options": [
-      "Is the access point for the mobile terminal (MT)",
-      "Contains the static user data (such as ID, enabled services and security parameters)",
-      "Is able to control a single BTS",
-      "Is able to control a large number of BTS"
-    ],
-    "correctIndex": 3,
-    "explanation": "In the GSM architecture, a single Base Station Controller (BSC) manages radio resources and handovers for a large number of Base Transceiver Stations (BTS), sitting between the BTSs and the mobile switching center.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
     "id": "merged-0094",
     "chapter": "Routing",
     "topic": "Selective flooding",
@@ -13625,125 +13002,6 @@ const DB = [
     ],
     "correctIndex": 2,
     "explanation": "Selective flooding forwards a packet only on a subset of promising outgoing links (e.g., those roughly heading toward the destination) rather than on every link, reducing redundant retransmissions over the same network segments compared to classic flooding.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0095",
-    "chapter": "Routing",
-    "topic": "OSPF Area Border Router",
-    "difficulty": "medium",
-    "question": "An Area Border Router (OSPF)",
-    "options": [
-      "Has summary information about the areas it borders and floods it into the areas; it does not know the details of those areas",
-      "Knows the details of the backbone area",
-      "Generates type-5 LSAs to describe destinations external to the routing domain",
-      "Forwards, via flooding, all the LSAs it receives from one area to all the others it borders"
-    ],
-    "correctIndex": 1,
-    "explanation": "An OSPF Area Border Router (ABR) participates fully in the backbone area (Area 0) and therefore has its full detailed topology, while for the other (non-backbone) areas it attaches to, it only injects/receives summarized (Type 3) reachability information rather than full topology.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0096",
-    "chapter": "Routing",
-    "topic": "OSPF Database Description packet",
-    "difficulty": "medium",
-    "question": "In OSPF, a 'Database Description' packet:",
-    "options": [
-      "Is used during the 'Neighbor Discovery' phase",
-      "Is used during the adjacency establishment (database synchronization) phase",
-      "Is always sent encrypted to avoid security problems",
-      "Is always sent encrypted for privacy reasons"
-    ],
-    "correctIndex": 1,
-    "explanation": "During adjacency formation, OSPF routers exchange Database Description packets summarizing the contents of their link-state databases, so each router can determine which LSAs it is missing and request them.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0097",
-    "chapter": "Routing",
-    "topic": "Split Horizon",
-    "difficulty": "medium",
-    "question": "The 'Split Horizon' mechanism allows:",
-    "options": [
-      "Eliminating the possibility of loops (cyclic forwarding paths) occurring following topology changes",
-      "Reducing the probability of loops occurring following topology changes",
-      "Disabling, during the convergence phase, the sending of data packets towards destinations that could give rise to loops",
-      "Decreasing routing traffic by implementing the neighbor discovery phase with dedicated packets ('Hello Packets')"
-    ],
-    "correctIndex": 1,
-    "explanation": "Split Horizon prevents a router from advertising a route back to the neighbor it learned that route from, which reduces (but does not completely eliminate, e.g., in networks with loops of more than two routers) the chance of routing loops in distance-vector protocols.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0098",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "Token bucket capacity",
-    "difficulty": "medium",
-    "question": "In the token bucket algorithm:",
-    "options": [
-      "The bucket capacity is related to the long-term average rate",
-      "The bucket capacity is related to the maximum burst size",
-      "The bucket capacity has a direct relationship with bandwidth",
-      "It is used to implement weighted fair queuing"
-    ],
-    "correctIndex": 1,
-    "explanation": "The size (depth) of the token bucket determines how large a burst of traffic can be sent instantaneously once enough tokens have accumulated, independently of the long-term token generation (average) rate.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0099",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "Switch and VLAN communication",
-    "difficulty": "medium",
-    "question": "Two hosts connected to an Ethernet switch:",
-    "options": [
-      "Must always be able to communicate without using an intermediate router",
-      "Can communicate even if belonging to different VLANs, depending on the network configuration",
-      "Can communicate only if belonging to the same VLAN, regardless of the network configuration",
-      "Cannot communicate using a router because they are connected to the same switch"
-    ],
-    "correctIndex": 1,
-    "explanation": "If the two hosts are in the same VLAN they communicate directly at Layer 2; if they are in different VLANs, communication is still possible but only if a Layer 3 device (router or Layer-3 switch) is configured to route between those VLANs.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0100",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "VLAN hopping risk",
-    "difficulty": "hard",
-    "question": "Two hosts connected to a Switched Ethernet network through ports configured in VLAN (Access) mode",
-    "options": [
-      "Can communicate only if belonging to the same VLAN",
-      "Cannot communicate",
-      "If they belong to different VLANs, they can communicate only if they are connected to different switches and the link between the switches is configured in Trunk mode",
-      "If they belong to different VLANs, it is possible that they manage to communicate even if they are connected to different switches whose ports are configured in Access mode"
-    ],
-    "correctIndex": 3,
-    "explanation": "Normally, inter-switch links must be configured as trunks to carry multiple VLANs; however, with certain access-port misconfigurations (e.g., the classic double-tagging VLAN hopping attack, where an access port shares the native VLAN of a trunk), traffic can improperly cross from one VLAN to another even without a properly configured trunk, which is why option (3) rather than the seemingly 'correct' trunk-only answer is flagged as possible.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0101",
-    "chapter": "Routing",
-    "topic": "OSPF Link State Update packet",
-    "difficulty": "medium",
-    "question": "In OSPF, a 'Link State Update' packet:",
-    "options": [
-      "Is also used during the Exchange procedure to send all the LSAs held by a router, each carried in complete form",
-      "Carries only the main summary information relative to a Link State Advertisement",
-      "Is used to update the adjacency status with a neighboring router and only carries information relative to that specific change",
-      "Is sent only under steady-state network conditions, once the transient period has already ended"
-    ],
-    "correctIndex": 0,
-    "explanation": "Link State Update packets are the vehicle that actually carries full LSAs between OSPF routers, used both to flood new/changed LSAs and, during the Exchange procedure after Database Description packets have identified missing LSAs, to send the complete LSAs that were requested.",
     "source": "imported",
     "sourceLabel": "ALL_MERGED"
   },
@@ -13848,23 +13106,6 @@ const DB = [
     "sourceLabel": "ALL_MERGED"
   },
   {
-    "id": "merged-0108",
-    "chapter": "IPv6",
-    "topic": "Addressing scheme",
-    "difficulty": "medium",
-    "question": "The IPv6 addressing scheme:",
-    "options": [
-      "Provides exclusively addresses uniquely assigned by a designated authority",
-      "Provides that every entity (e.g., a company) has a set of addresses globally assigned to it, which become its property for unlimited time",
-      "Provides that the first 64 bits of an address are normally identified as the network prefix, at least on LANs",
-      "Does not provide for the existence of multicast addresses"
-    ],
-    "correctIndex": 2,
-    "explanation": "The common IPv6 convention reserves the first 64 bits of an address as the network/subnet prefix and the last 64 bits as the interface identifier, particularly on LAN segments using SLAAC/EUI-64.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
     "id": "merged-0109",
     "chapter": "Routing",
     "topic": "Link State final phase",
@@ -13915,23 +13156,6 @@ const DB = [
     "sourceLabel": "ALL_MERGED"
   },
   {
-    "id": "merged-0112",
-    "chapter": "Routing",
-    "topic": "BGP policy vs topology",
-    "difficulty": "medium",
-    "question": "In the BGP routing protocol:",
-    "options": [
-      "Topology information always takes precedence over the application of routing policies",
-      "The application of routing policies always takes precedence over topology information",
-      "The lowest-cost path to every destination is always chosen",
-      "The lowest-cost path to every destination is always chosen, except for intrinsic limitations of hierarchical routing"
-    ],
-    "correctIndex": 1,
-    "explanation": "BGP is fundamentally a policy-based routing protocol: administrators can apply local preference, filtering, and other policies that override pure shortest-path/topology considerations when selecting the best route to a destination.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
     "id": "merged-0113",
     "chapter": "IPv4 Addressing and Routing",
     "topic": "IPv4 multicast implementation",
@@ -13944,40 +13168,6 @@ const DB = [
     ],
     "correctIndex": 1,
     "explanation": "IPv4 multicast is not part of the basic unicast forwarding model; it requires additional protocols such as IGMP (group membership) and a multicast routing protocol (e.g., PIM) to actually deliver multicast traffic.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0114",
-    "chapter": "Routing",
-    "topic": "OSPF Database Description use",
-    "difficulty": "medium",
-    "question": "In OSPF, a 'Database Description' packet:",
-    "options": [
-      "Is used by two adjacent routers to exchange their respective copies of the OSPF link-state database",
-      "Is used by two adjacent routers to exchange their respective copies of the routing table",
-      "Allows a router that has detected a new adjacency with another OSPF router to learn which LSAs it is missing",
-      "Allows a router that has just powered on to learn which LSAs it is missing"
-    ],
-    "correctIndex": 2,
-    "explanation": "Database Description packets exchange summaries (headers) of the LSAs each router already has, so that when a new adjacency forms, each router can identify and then request the specific LSAs it does not yet possess.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0115",
-    "chapter": "Virtual Private Network",
-    "topic": "Overlay VPN",
-    "difficulty": "medium",
-    "question": "What distinguishes a VPN implemented according to an overlay scheme?",
-    "options": [
-      "The user's equipment is the same that would be used if the various corporate network segments were directly connected",
-      "It is not possible to have private/reserved communications",
-      "It cannot be implemented without the consent of the chosen ISP",
-      "The network operator is not aware that a VPN is being implemented"
-    ],
-    "correctIndex": 3,
-    "explanation": "In an overlay VPN, the customer builds the virtual private network (tunnels) on top of a plain connectivity service purchased from a provider, so from the provider/network operator's point of view it is just carrying ordinary customer traffic — it has no visibility into or awareness of the VPN structure the customer has created.",
     "source": "imported",
     "sourceLabel": "ALL_MERGED"
   },
@@ -13995,74 +13185,6 @@ const DB = [
     ],
     "correctIndex": 2,
     "explanation": "IPsec's typical VPN role is to build secure tunnels across a shared/public IP network, encapsulating and protecting packets belonging to a private addressing space so it can be transported transparently over the public infrastructure.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0117",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "UMTS frequency reuse",
-    "difficulty": "medium",
-    "question": "In UMTS connections",
-    "options": [
-      "Frequency reuse still exists, with possible interference",
-      "Frequency reuse no longer exists and there is no interference, thanks to the use of different codes",
-      "Frequency reuse still exists, but is optimized to avoid interference",
-      "Frequency reuse no longer exists and there is no interference, thanks to the use of different access times"
-    ],
-    "correctIndex": 1,
-    "explanation": "UMTS is based on WCDMA, where all cells can reuse the same frequency (universal frequency reuse) because users and cells are separated by unique spreading codes rather than by frequency planning.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0118",
-    "chapter": "IPv6",
-    "topic": "Neighbor Discovery and multicast mapping",
-    "difficulty": "hard",
-    "question": "The forwarding of IPv6 packets on a LAN:",
-    "options": [
-      "Does not use neighbor discovery mechanisms at all, because there is a rule to map any IPv6 address into a MAC address",
-      "Does not use neighbor discovery mechanisms for the forwarding of IPv6 multicast and broadcast packets, because there is a rule to map these IPv6 addresses into a MAC address",
-      "Uses neighbor discovery mechanisms for all types of IPv6 addresses",
-      "Does not use neighbor discovery mechanisms for the forwarding of IPv6 multicast packets, because there is a rule to map these IPv6 addresses into a MAC address"
-    ],
-    "correctIndex": 3,
-    "explanation": "IPv6 multicast addresses have a deterministic algorithmic mapping to Ethernet multicast MAC addresses, so no address resolution is needed for them; unicast addresses, however, still require Neighbor Discovery (ND) to resolve the corresponding MAC address, and IPv6 has no broadcast addresses at all.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0119",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "Radio interface protocol stack",
-    "difficulty": "medium",
-    "question": "The radio interface protocol stack is organized into the following layers",
-    "options": [
-      "MAC layer, IP layer, TCP/UDP layer",
-      "MAC layer, Manage protocol layer",
-      "MAC layer, RLC layer, RRC layer",
-      "There is a single layer"
-    ],
-    "correctIndex": 2,
-    "explanation": "In UMTS/3GPP radio access networks, the radio interface protocol stack includes the MAC layer, the RLC (Radio Link Control) layer, and the RRC (Radio Resource Control) layer, among others, handling different aspects of radio resource and link management.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0120",
-    "chapter": "IPv4 to IPv6 Transition",
-    "topic": "NAT64",
-    "difficulty": "medium",
-    "question": "A device equipped with the NAT64 functionality is able to",
-    "options": [
-      "Operate on 64-bit IP addresses",
-      "Replace the IPv6 header of a packet with an IPv4 one, and vice versa",
-      "Convert an IPv6 packet into an Ethernet frame",
-      "Replace the IPv6 destination address in the IPv6 header of a packet with an IPv4 one, and vice versa"
-    ],
-    "correctIndex": 1,
-    "explanation": "NAT64 translates packets between the IPv6 and IPv4 address families by replacing the IP header of the packet accordingly (IPv6-to-IPv4 and IPv4-to-IPv6), enabling IPv6-only clients to reach IPv4-only servers (typically together with DNS64).",
     "source": "imported",
     "sourceLabel": "ALL_MERGED"
   },
@@ -14118,40 +13240,6 @@ const DB = [
     "sourceLabel": "ALL_MERGED"
   },
   {
-    "id": "merged-0124",
-    "chapter": "Routing",
-    "topic": "Transient period in routing protocols",
-    "difficulty": "medium",
-    "question": "In routing protocols, the transient period:",
-    "options": [
-      "Is present only when the simplest algorithms are adopted (e.g., Distance Vector)",
-      "Is never present, as it is a characteristic only of data-link layer protocols (e.g., Spanning Tree)",
-      "Always occurs in the period immediately following the detection of a failure",
-      "Always occurs whenever a part of the network changes state"
-    ],
-    "correctIndex": 3,
-    "explanation": "Any change of state somewhere in the network (a link going up/down, a cost change, a new prefix appearing) triggers a transient period during which routing information is being propagated and routers have not yet reconverged to a consistent view.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0125",
-    "chapter": "Routing",
-    "topic": "Inter-domain routing",
-    "difficulty": "medium",
-    "question": "Inter-domain routing:",
-    "options": [
-      "Requires that every router know exactly the path, in terms of routers traversed, taken by packets towards a destination",
-      "Requires that an exterior gateway make path choices, based on information collected through inter-domain routing protocols, consistent with existing agreements with other autonomous systems",
-      "Requires that every router know exactly the cost of reaching any destination (e.g., in terms of bandwidth of traversed links) in order to compute the lowest-cost path",
-      "Is a concept that will tend to disappear"
-    ],
-    "correctIndex": 1,
-    "explanation": "Inter-domain routing (via BGP) is driven primarily by policy: border/exterior gateway routers choose paths based on the routes learned from neighboring ASes and on the business/administrative agreements (peering, transit) in place, rather than purely on a global least-cost metric.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
     "id": "merged-0126",
     "chapter": "The Optical Internet",
     "topic": "Optical switching devices",
@@ -14169,23 +13257,6 @@ const DB = [
     "sourceLabel": "ALL_MERGED"
   },
   {
-    "id": "merged-0128",
-    "chapter": "IPv6",
-    "topic": "Network/host address division",
-    "difficulty": "medium",
-    "question": "IPv6 addresses",
-    "options": [
-      "Allow IPv6 stations to communicate with IPv4 stations without any particular additional mechanism",
-      "Maintain the same flexible division between a network part and a host part already present in IPv4",
-      "Are rigidly partitioned into a network, subnetwork and host part",
-      "Are rigidly partitioned into a network part and a host part"
-    ],
-    "correctIndex": 1,
-    "explanation": "Like IPv4 (with variable-length subnet masks), IPv6 keeps a flexible split between the network prefix and the interface identifier, with the prefix length specified via CIDR notation (e.g., /64) rather than being architecturally fixed.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
     "id": "merged-0129",
     "chapter": "Principles of Modern LAN Design and Operation",
     "topic": "VLAN filtering table",
@@ -14198,40 +13269,6 @@ const DB = [
     ],
     "correctIndex": 1,
     "explanation": "A switch's VLAN/MAC filtering table can be populated by manual (static) configuration or dynamically learned/updated through protocols such as GVRP/MVRP and normal MAC address learning.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0130",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "VLAN broadcast containment",
-    "difficulty": "easy",
-    "question": "What is a consequence of using VLANs in a local network?",
-    "options": [
-      "Creating virtual interfaces on switches that, as such, are always functioning",
-      "Broadcast traffic is limited to the VLAN in which it was generated",
-      "The security of communication on the corporate network increases because frames are encrypted",
-      "Users are required to authenticate before being able to access the VLAN"
-    ],
-    "correctIndex": 1,
-    "explanation": "Each VLAN forms its own separate broadcast domain, so broadcast frames generated within a VLAN are flooded only to ports belonging to that same VLAN and are not seen by hosts in other VLANs.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0131",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "Scheduling algorithms",
-    "difficulty": "medium",
-    "question": "Scheduling algorithms are used:",
-    "options": [
-      "In access routers, to ensure that the traffic generated by a user conforms to the traffic profile contracted with its service provider",
-      "In firewalls, to delay packets entering a corporate network from the Internet in order to prevent certain types of security attacks",
-      "In routers, to decide the order in which packets waiting at an interface should be transmitted",
-      "In routers, to schedule the list of configuration commands issued by the user so as to minimize the disruption caused while applying changes"
-    ],
-    "correctIndex": 2,
-    "explanation": "A scheduling (queuing) algorithm at a router's output interface decides the order in which packets from possibly multiple queues are transmitted, implementing service differentiation (e.g., priority queuing, WFQ) among different traffic classes.",
     "source": "imported",
     "sourceLabel": "ALL_MERGED"
   },
@@ -14253,23 +13290,6 @@ const DB = [
     "sourceLabel": "ALL_MERGED"
   },
   {
-    "id": "merged-0133",
-    "chapter": "IPv6",
-    "topic": "IPv6 vs IPv4 header format",
-    "difficulty": "medium",
-    "question": "Unlike IPv4, IPv6:",
-    "options": [
-      "Does not have a variable-length header",
-      "Does not allow discovering the MAC address of another station, knowing its IP address",
-      "Has no equivalent of TTL (time-to-live)",
-      "Does not allow the use of IPsec"
-    ],
-    "correctIndex": 0,
-    "explanation": "The IPv6 base header has a fixed 40-byte length (with optional extension headers chained after it), unlike the IPv4 header whose length varies due to its variable-length Options field.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
     "id": "merged-0134",
     "chapter": "IPv4 to IPv6 Transition",
     "topic": "MAP technique",
@@ -14283,23 +13303,6 @@ const DB = [
     ],
     "correctIndex": 0,
     "explanation": "MAP (Mapping of Address and Port) algorithmically derives an IPv6 address for the customer's CPE from its IPv4 address and an assigned port range (Port Set ID), avoiding the need for per-customer state at the provider's border relay while still enabling shared IPv4 address/port allocation.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0135",
-    "chapter": "The Optical Internet",
-    "topic": "Optical switching principle",
-    "difficulty": "medium",
-    "question": "Optical networks are based on the use of",
-    "options": [
-      "Fiber optic links between high-performance packet switches",
-      "IP routers capable of forwarding packets based on their destination address by performing the routing-table lookup using optical techniques",
-      "Devices capable of switching an electromagnetic signal at a certain optical carrier frequency (wavelength) from an input port to an output port",
-      "None of the above"
-    ],
-    "correctIndex": 2,
-    "explanation": "The defining feature of an optical (photonic) network is optical switches/cross-connects that redirect a whole wavelength channel from an input port to an output port while it remains in the optical domain, rather than converting it to electronics for per-packet processing.",
     "source": "imported",
     "sourceLabel": "ALL_MERGED"
   },
@@ -14321,23 +13324,6 @@ const DB = [
     "sourceLabel": "ALL_MERGED"
   },
   {
-    "id": "merged-0137",
-    "chapter": "Virtual Private Network",
-    "topic": "Extranet definition",
-    "difficulty": "medium",
-    "question": "An extranet is",
-    "options": [
-      "A network used when extra transmission capacity is needed to connect two corporate sites",
-      "A part of a private network that is publicly accessible from the internet, to which public corporate servers such as web, mail and DNS servers are normally connected",
-      "A private network that includes networks of independent organizations, such as several different corporate networks",
-      "A private network used to connect additional servers such as disk or database servers, to be used when needed"
-    ],
-    "correctIndex": 2,
-    "explanation": "An extranet extends a private VPN-like network to interconnect separate organizations (e.g., a company and its partners/suppliers) that need controlled access to shared resources, as opposed to an intranet which stays within a single organization.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
     "id": "merged-0138",
     "chapter": "Virtual Private Network",
     "topic": "MPLS VPN peer model",
@@ -14351,23 +13337,6 @@ const DB = [
     ],
     "correctIndex": 0,
     "explanation": "The dominant layer-3 MPLS VPN peer model (BGP/MPLS VPN, RFC 4364) uses Multiprotocol BGP (MP-BGP) extensions between PE routers to exchange customer VPN routes along with their associated MPLS labels.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0139",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "DiffServ architecture",
-    "difficulty": "medium",
-    "question": "The DiffServ architecture is characterized by:",
-    "options": [
-      "A mechanism to separate traffic into classes, each of which can receive a specific service at each traversed node",
-      "Sophisticated signaling protocols for resource reservation",
-      "The capability to provide guaranteed-quality service to applications or flows that explicitly request it from the network",
-      "Sophisticated routing protocols to choose the path of each individual packet so as to ensure it receives the service it needs"
-    ],
-    "correctIndex": 0,
-    "explanation": "DiffServ's core mechanism is traffic classification and marking into a small number of per-hop-behavior classes, so each router along the path applies the same, simple, class-based (not per-flow) forwarding treatment.",
     "source": "imported",
     "sourceLabel": "ALL_MERGED"
   },
@@ -14389,23 +13358,6 @@ const DB = [
     "sourceLabel": "ALL_MERGED"
   },
   {
-    "id": "merged-0141",
-    "chapter": "IPv6",
-    "topic": "Address scope function",
-    "difficulty": "medium",
-    "question": "What is the function of the 'scope' associated with IPv6 addresses?",
-    "options": [
-      "It serves to resolve, in particular cases, ambiguity regarding the sender/receiver of a packet",
-      "There is no scope associated with IPv6 addresses",
-      "It serves to be able to use global addresses",
-      "It serves to be able to use anycast addresses"
-    ],
-    "correctIndex": 0,
-    "explanation": "The scope of an IPv6 address (link-local, unique-local/site, global) defines the region of the network within which that address is valid and unambiguous, which matters e.g. when the same link-local address could appear on multiple interfaces/links.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
     "id": "merged-0142",
     "chapter": "IPv6",
     "topic": "Stateless autoconfiguration without infrastructure",
@@ -14419,23 +13371,6 @@ const DB = [
     ],
     "correctIndex": 3,
     "explanation": "A host can always self-generate at least a link-local IPv6 address (via SLAAC using its own interface identifier and the well-known link-local prefix) without any DHCP server or router being present on the link.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0143",
-    "chapter": "Routing",
-    "topic": "Distance Vector with Split Horizon",
-    "difficulty": "hard",
-    "question": "The Distance Vector routing algorithm:",
-    "options": [
-      "Can cause 'Counting to Infinity' phenomena only in meshed (looped) networks",
-      "Always causes 'Counting to Infinity' phenomena in non-meshed (loop-free) networks",
-      "Is characterized by a lower likelihood of 'Counting to Infinity' phenomena in non-meshed networks, when the 'Split Horizon' technique is used",
-      "The 'Counting to Infinity' phenomenon is specific to Link State networks"
-    ],
-    "correctIndex": 2,
-    "explanation": "Count-to-infinity primarily arises in distance-vector routing when loops exist in the network; using Split Horizon reduces (particularly in simple, non-meshed topologies) the chance of routers advertising information back that could create such counting loops.",
     "source": "imported",
     "sourceLabel": "ALL_MERGED"
   },
@@ -14470,40 +13405,6 @@ const DB = [
     ],
     "correctIndex": 2,
     "explanation": "To fully prevent unwanted transit, B needs both a control-plane measure (not advertising, i.e., masking, A's routes towards C via BGP so C never learns a path through B) and a data-plane measure (packet filtering at the border to actually drop any transit traffic that still shows up), since either alone can be bypassed.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0146",
-    "chapter": "Routing",
-    "topic": "RIP loop prevention mechanisms",
-    "difficulty": "medium",
-    "question": "The RIP protocol provides mechanisms to reduce the possibility of loops occurring:",
-    "options": [
-      "Through analysis of transiting packets and identification of those that pass through the same router more than once",
-      "By means of periodically activated 'traceroute' processes",
-      "Through 'Split-Horizon' and 'Hold-Down' mechanisms",
-      "None of the above answers"
-    ],
-    "correctIndex": 2,
-    "explanation": "RIP implementations commonly combine Split Horizon (not advertising a route back to the neighbor it was learned from) with Hold-Down timers (temporarily ignoring new information about a recently unreachable route) to reduce routing loops and speed convergence.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0147",
-    "chapter": "Virtual Private Network",
-    "topic": "Centralized access external traffic",
-    "difficulty": "medium",
-    "question": "In a user station connected to a VPN with centralized access, messages directed to stations outside the VPN pass through:",
-    "options": [
-      "The VPN site to which the user's machine is connected",
-      "It is not possible to reach stations outside the VPN",
-      "A router specialized for these packets",
-      "They are sent directly from the user station to the external recipient"
-    ],
-    "correctIndex": 0,
-    "explanation": "In a centralized-access VPN model, even traffic destined to hosts outside the private network is routed through the central VPN site (e.g., the corporate hub/gateway) rather than being sent directly out to the Internet from the remote user.",
     "source": "imported",
     "sourceLabel": "ALL_MERGED"
   },
@@ -14559,23 +13460,6 @@ const DB = [
     "sourceLabel": "ALL_MERGED"
   },
   {
-    "id": "merged-0151",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "Ping-pong effect",
-    "difficulty": "medium",
-    "question": "What is the ping-pong effect?",
-    "options": [
-      "A mobile terminal repeatedly handing over back and forth between the same two adjacent cells",
-      "The bouncing of radio signals inside a cell (multipath)",
-      "An alternative way to define the concept of handover",
-      "A packet loop between two routers"
-    ],
-    "correctIndex": 0,
-    "explanation": "The ping-pong effect occurs when a mobile terminal near a cell boundary triggers repeated, rapid handovers back and forth between the same two neighboring cells, wasting signaling resources; it is mitigated with hysteresis margins and handover timers.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
     "id": "merged-0152",
     "chapter": "IPv4 Addressing and Routing",
     "topic": "Asymmetric subnetting",
@@ -14626,91 +13510,6 @@ const DB = [
     "sourceLabel": "ALL_MERGED"
   },
   {
-    "id": "merged-0155",
-    "chapter": "Routing",
-    "topic": "Neutral Access Point",
-    "difficulty": "medium",
-    "question": "A Neutral Access Point is a particular network in which:",
-    "options": [
-      "Multiple Autonomous Systems connect, at layer 2, a number of routers in order to exchange routing information",
-      "Multiple Autonomous Systems connect, at layer 3, a number of routers in order to exchange routing information",
-      "A single Autonomous System connects, at layer 2, a number of routers to speed up routing information exchange within the domain",
-      "A single Autonomous System connects, at layer 3, a number of routers to speed up routing information exchange within the domain"
-    ],
-    "correctIndex": 0,
-    "explanation": "A Neutral Access Point (an Internet Exchange Point) is a shared Layer-2 switching fabric where routers belonging to many different Autonomous Systems connect in order to exchange traffic and BGP routing information (peer) with each other directly.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0156",
-    "chapter": "Routing",
-    "topic": "Peering definition",
-    "difficulty": "easy",
-    "question": "The term 'Peering' refers to:",
-    "options": [
-      "The connection point between two routers of two different Internet Service Providers",
-      "The exchange of information between a router and a station using a routing protocol",
-      "The exchange of information between two OSPF routers connected by a virtual link",
-      "The exchange of information between two OSPF routers in the same area"
-    ],
-    "correctIndex": 0,
-    "explanation": "Peering describes an arrangement (and the associated interconnection point) where two different ISPs' networks (Autonomous Systems) connect directly to exchange traffic destined for each other's customers, typically without settlement.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0158",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "VLAN definition",
-    "difficulty": "easy",
-    "question": "Virtual LANs (VLANs) are",
-    "options": [
-      "Networks that are able to emulate on a given LAN the presence of a remote device, usually created by means of tunneling techniques",
-      "Networks created only among Virtual Machines (VMs)",
-      "Virtually distinct local area networks but created over a single physical infrastructure",
-      "Very high performance wireless networks"
-    ],
-    "correctIndex": 2,
-    "explanation": "A VLAN lets a single physical switched infrastructure be logically partitioned into multiple, isolated broadcast domains (virtually distinct LANs), without requiring separate physical cabling for each.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0159",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "Access port VLAN tagging",
-    "difficulty": "medium",
-    "question": "The configuration of a switch port in access mode is used for",
-    "options": [
-      "Allowing access to the switch only to specific flows that are not considered matching",
-      "Enabling the access to the network",
-      "Assigning a packet received on that port to a specific VLAN",
-      "Assigning a packet sent through that port to a specific VLAN"
-    ],
-    "correctIndex": 2,
-    "explanation": "An access port belongs to a single VLAN; any untagged frame received on it is implicitly assigned (associated) to that port's configured VLAN as it enters the switch.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0160",
-    "chapter": "MPLS - Multi-Protocol Label Switching",
-    "topic": "MPLS traffic engineering enabler",
-    "difficulty": "hard",
-    "question": "In MPLS (unlike in IP) support for scalable traffic engineering is specifically enabled by",
-    "options": [
-      "The availability of efficient label distribution protocols",
-      "The deployment of a unified control plane",
-      "The deployment of dynamic and distributed routing protocols",
-      "The forwarding information in the data plane (e.g., the forwarding table) not being automatically updated when the routing information (e.g., the routing table) changes in the control plane"
-    ],
-    "correctIndex": 3,
-    "explanation": "MPLS decouples the data-plane label-forwarding tables from the control-plane routing computation, meaning label-switched paths can be explicitly engineered (set up along a chosen path) independently of, and without being immediately overridden by, whatever the IGP's shortest-path routing table says — which is what makes scalable traffic engineering possible.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
     "id": "merged-0161",
     "chapter": "Multimedia Networking and Quality of Service",
     "topic": "Packet queuing delay",
@@ -14724,40 +13523,6 @@ const DB = [
     ],
     "correctIndex": 3,
     "explanation": "Under heavy load, queuing delay (time spent waiting in a buffer for other packets ahead of it to be transmitted) dominates node latency, growing rapidly as link utilization approaches 100%, far outweighing the essentially constant processing, transmission, or lookup times.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0162",
-    "chapter": "Routing",
-    "topic": "Source Routing",
-    "difficulty": "medium",
-    "question": "The forwarding technique 'Source Routing':",
-    "options": [
-      "Requires very simple clients ('hosts') and very complex intermediate nodes ('routers')",
-      "Is suitable when one wants to minimize the number of bytes needed for routing operations present in every packet",
-      "Requires the sending node to have (at least partial) knowledge of the network topology",
-      "Is the technique commonly used by the IP protocol in forwarding operations"
-    ],
-    "correctIndex": 2,
-    "explanation": "In source routing, the source host itself decides and specifies the complete (or partial) path a packet must follow, which means it needs to know enough about the network topology to choose a valid route, shifting complexity from routers to the sending host (the opposite of typical IP hop-by-hop forwarding).",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0164",
-    "chapter": "MPLS - Multi-Protocol Label Switching",
-    "topic": "Label stack processing",
-    "difficulty": "medium",
-    "question": "When an MPLS frame has multiple labels, routers",
-    "options": [
-      "Only process the most external (top) label to decide how to forward the frame",
-      "Only process the most internal label to decide how to forward the frame",
-      "Can only swap the most external and the next label with each other",
-      "Can swap any of the labels"
-    ],
-    "correctIndex": 0,
-    "explanation": "At each hop, an MPLS LSR examines and acts (e.g., swaps or pops) only on the topmost label of the stack; any inner labels remain untouched and are only exposed once the outer ones have been removed.",
     "source": "imported",
     "sourceLabel": "ALL_MERGED"
   },
@@ -14813,40 +13578,6 @@ const DB = [
     "sourceLabel": "ALL_MERGED"
   },
   {
-    "id": "merged-0171",
-    "chapter": "Routing",
-    "topic": "RIP vs IGRP metric quality",
-    "difficulty": "hard",
-    "question": "The main limitation of the RIP routing protocol compared to IGRP is that:",
-    "options": [
-      "Being proprietary, RIP is not available on all routers",
-      "RIP's metric (hop count) is less indicative, compared to IGRP's, of the actual degree of preferability of one network path over another",
-      "Unlike IGRP, it does not support hierarchical routing",
-      "It is a Distance Vector type protocol, hence less scalable than IGRP (which is Link State)"
-    ],
-    "correctIndex": 1,
-    "explanation": "RIP uses a simple hop-count metric, which cannot reflect real path quality factors like bandwidth or delay, whereas IGRP (a Cisco distance-vector protocol, still not link-state) uses a composite metric incorporating bandwidth, delay and other factors, giving a more accurate sense of which path is actually better.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0172",
-    "chapter": "Routing",
-    "topic": "Redistribution between routing domains",
-    "difficulty": "medium",
-    "question": "Redistribution:",
-    "options": [
-      "Is the process that must be enabled on a router so that it can correctly forward packets to the appropriate destination",
-      "Is used for the exchange of information between an interior gateway router and an exterior gateway router that uses the BGP protocol",
-      "Is used mainly by peripheral routing domains that connect to a single Internet Service Provider for Internet access",
-      "Is used to allow the passage of routing information from one routing domain A to another routing domain B"
-    ],
-    "correctIndex": 3,
-    "explanation": "Redistribution is the mechanism a border router uses to take routes learned in one routing domain/protocol (A) and inject them into another routing domain/protocol (B), letting routing information flow between otherwise separate routing domains.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
     "id": "merged-0173",
     "chapter": "Wireless and Cellular Networks",
     "topic": "LTE channel access",
@@ -14881,23 +13612,6 @@ const DB = [
     "sourceLabel": "ALL_MERGED"
   },
   {
-    "id": "merged-0176",
-    "chapter": "Routing",
-    "topic": "Static routing definition",
-    "difficulty": "easy",
-    "question": "Static routing",
-    "options": [
-      "Is an obsolete technology no longer deployed since dynamic routing is preferred over it",
-      "Consists in one network node computing routes for other network nodes and providing the computed routes to them",
-      "Consists in the automatic learning of routes without exchanging routing information",
-      "Consists in the network administrator manually configuring routing information in each router"
-    ],
-    "correctIndex": 3,
-    "explanation": "Static routing means an administrator manually enters fixed routing table entries on each router, as opposed to dynamic routing protocols that automatically learn and update routes.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
     "id": "merged-0177",
     "chapter": "Virtual Private Network",
     "topic": "MPLS VPN mechanisms",
@@ -14911,40 +13625,6 @@ const DB = [
     ],
     "correctIndex": 3,
     "explanation": "MPLS can be used to build point-to-point (pseudo-wire-like) links for an overlay-style VPN, or, in the peer model, to provide the entire routing/label-switching mechanism (as in BGP/MPLS Layer 3 VPNs) that carries customer routes across the shared backbone.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0178",
-    "chapter": "IPv4 Addressing and Routing",
-    "topic": "IGMP host-router signaling",
-    "difficulty": "medium",
-    "question": "The IGMP protocol",
-    "options": [
-      "Allows a host to communicate to other hosts belonging to a given multicast group its own interest in entering the group",
-      "Allows a router to communicate to other routers in the Internet network its own interest in receiving traffic related to a given multicast group",
-      "Carries the multicast traffic generated by hosts",
-      "Allows a host to communicate to routers in the network its own interest in receiving traffic related to a given multicast group"
-    ],
-    "correctIndex": 3,
-    "explanation": "IGMP is the signaling protocol a host uses to inform its local router(s) that it wants to join (or leave) a particular IPv4 multicast group, so the router knows to forward that group's traffic onto the host's network.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0181",
-    "chapter": "Routing",
-    "topic": "Internet Exchange Point false claim",
-    "difficulty": "medium",
-    "question": "Which of the following statements about the Internet eXchange Point (IXP) is false?",
-    "options": [
-      "It is where peer routers exchange routing information",
-      "It is often also identified by the name Neutral Access Point (NAP)",
-      "It connects only Tier-1 ISPs",
-      "It consists of a LAN where routers of different ASes are connected"
-    ],
-    "correctIndex": 2,
-    "explanation": "IXPs are open to ISPs of any tier (not only Tier-1), including regional and Tier-2/3 providers and content networks, who peer with each other over a shared Layer-2 fabric — restricting membership to Tier-1 ISPs only is not how IXPs actually work.",
     "source": "imported",
     "sourceLabel": "ALL_MERGED"
   },
@@ -14966,159 +13646,6 @@ const DB = [
     "sourceLabel": "ALL_MERGED"
   },
   {
-    "id": "merged-0183",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "IntServ standardization goal",
-    "difficulty": "medium",
-    "question": "The Integrated Services (IntServ) solution has been standardized to",
-    "options": [
-      "Allow applications to request from, and receive from, the network the quality of service they need",
-      "Mark packets as belonging to a specific class of service so that they can receive the most suitable service",
-      "Integrate within the network traditional IP routers and MPLS Label Switch Routers (LSRs), thanks to the common deployment of RSVP",
-      "Enable the integrated deployment of IP routers and Ethernet switches to guarantee network connectivity"
-    ],
-    "correctIndex": 0,
-    "explanation": "IntServ's goal is to let individual applications/flows explicitly signal (via RSVP) their specific QoS requirements to the network and have routers reserve the resources needed to honor that request end-to-end.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0184",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "Switch filtering table entry lifetime",
-    "difficulty": "medium",
-    "question": "The entries of the filtering database of an Ethernet switch",
-    "options": [
-      "Have a lifetime, which varies over time, depending on the number of received frames",
-      "Have all an infinite lifetime",
-      "Have a lifetime, which is always less than 1 second, in order to properly manage device mobility",
-      "Have a lifetime, which generally can be set by the switch administrator"
-    ],
-    "correctIndex": 3,
-    "explanation": "Switch MAC address table (filtering database) entries are learned dynamically and age out after an aging-time interval, which is typically a configurable parameter that the switch administrator can adjust.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0185",
-    "chapter": "IPv6",
-    "topic": "IPv6 main strength",
-    "difficulty": "easy",
-    "question": "One of the main strengths of the IPv6 protocol is",
-    "options": [
-      "The possibility to use 10Gb/s channels, a feature not available in IPv4",
-      "The possibility to enable a routing mechanism based on names and no longer on addresses",
-      "The large size of the addressing space",
-      "The encryption of the packet payload, available by default for all the packets sent by a host"
-    ],
-    "correctIndex": 2,
-    "explanation": "IPv6's headline advantage is its vastly larger 128-bit address space compared to IPv4's 32 bits, solving IPv4 address exhaustion; it has nothing to do with link speed, and it does not encrypt payloads by default.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0187",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "Cellular paging scope",
-    "difficulty": "medium",
-    "question": "The paging procedure in a cellular network",
-    "options": [
-      "Is based on a message that is broadcast throughout the entire cellular network",
-      "Is based on a message that is broadcast within the location area in which the terminal is located",
-      "Refers to the procedure used by the terminal to manage its internal memory",
-      "Refers to the procedure used by the terminal to update its current position in a central database"
-    ],
-    "correctIndex": 1,
-    "explanation": "To avoid broadcasting over the whole network, paging messages are sent only within the location area (or tracking area) where the network last knows the mobile terminal to be registered.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0188",
-    "chapter": "IPv6",
-    "topic": "IPv6 Extension Headers",
-    "difficulty": "medium",
-    "question": "The IPv6 Extension Headers are",
-    "options": [
-      "Header chains that can be added to the main IPv6 header in order to move to the network layer some features that are typically of the transport layer (e.g., the transmission of acknowledgements)",
-      "Padding techniques adopted to make the IPv6 packet of fixed size equal to 40 bytes",
-      "Header chains that can be added to the main IPv6 header in order to offer additional features",
-      "Padding techniques adopted to fix the size of the layer 2 frame containing the IPv6 packet"
-    ],
-    "correctIndex": 2,
-    "explanation": "IPv6 keeps a simple, fixed base header and moves optional functionality (e.g., routing, fragmentation, security) into a chain of separate extension headers that can be added after it only when needed.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0189",
-    "chapter": "IPv6",
-    "topic": "Link-local address construction",
-    "difficulty": "medium",
-    "question": "Link-local addresses",
-    "options": [
-      "Are valid within an organization, which can use them to assign addresses to machines in the various subnets of its intranet (they are the equivalent of IPv4 private addresses)",
-      "Cannot be assigned to routers",
-      "Are normally automatically built by the station from the MAC address of its own network card, to which a predefined prefix is prepended",
-      "Are used to identify machines performing a certain service (e.g., a DNS server)"
-    ],
-    "correctIndex": 2,
-    "explanation": "A link-local IPv6 address is automatically self-generated by a host by combining the well-known link-local prefix (FE80::/10) with an interface identifier commonly derived from its MAC address (EUI-64), requiring no external configuration.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0190",
-    "chapter": "MPLS - Multi-Protocol Label Switching",
-    "topic": "Label Swapping technique",
-    "difficulty": "hard",
-    "question": "The 'Label Swapping' forwarding technique:",
-    "options": [
-      "Is not suitable when there is a need to guarantee quality of service in packet forwarding",
-      "Provides that a data packet keeps the same label for the entire path from the source node to the destination node",
-      "Requires that all nodes present on the path share exactly the same forwarding table",
-      "May require a 'Path Setup' phase for the determination of the path"
-    ],
-    "correctIndex": 3,
-    "explanation": "Before label swapping can be used to forward packets along a path (as in MPLS), a Path Setup phase is typically needed during which the path is determined and the label bindings at each hop are established.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0191",
-    "chapter": "Routing",
-    "topic": "Autonomous System definition",
-    "difficulty": "medium",
-    "question": "An Autonomous System is:",
-    "options": [
-      "A computer capable of self-configuring",
-      "A zone of an IP network administered, especially from a routing point of view, autonomously from others and with connections to at least two other Autonomous Systems",
-      "A network device capable of autonomously discovering the best path along which to forward packets to destinations",
-      "The network of an ISP"
-    ],
-    "correctIndex": 1,
-    "explanation": "An Autonomous System is a collection of IP networks/routers under one administrative authority that presents a common, clearly defined routing policy to the Internet, typically connected to at least a couple of other ASes for redundancy.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0192",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "LTE physical channel",
-    "difficulty": "medium",
-    "question": "In the LTE protocol, a physical channel is",
-    "options": [
-      "A set of resources reserved for a given communication",
-      "A connection between the core networks of two different operators",
-      "A cable that carries data to the mobile tower",
-      "A tunnel between the S-GW and the P-GW"
-    ],
-    "correctIndex": 0,
-    "explanation": "In LTE, a physical channel refers to a specific set of time-frequency (and code) resources on the radio interface allocated to carry a particular type of data or control information for a communication.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
     "id": "merged-0193",
     "chapter": "Principles of Modern LAN Design and Operation",
     "topic": "Switch management MAC address",
@@ -15132,23 +13659,6 @@ const DB = [
     ],
     "correctIndex": 2,
     "explanation": "A switch's own interface MAC address is used as a frame's destination only when a station is addressing the switch itself directly (e.g., for management/configuration traffic such as SNMP or a Telnet/SSH session to the switch), not for ordinary frames merely being forwarded through it.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0194",
-    "chapter": "IPv6",
-    "topic": "IPv6 station autoconfiguration via RA",
-    "difficulty": "medium",
-    "question": "In the IPv6 protocol:",
-    "options": [
-      "Routing protocols (e.g., the packet format) do not change compared to IPv4",
-      "The ARP protocol is incorporated into ICMPv6, but keeps exactly the same previous operating scheme (broadcast request, unicast reply)",
-      "There is the possibility, for a station on a network segment, to autoconfigure itself by listening to Router Advertisement messages",
-      "Like IPv4, IPv6 does not provide router reconfiguration mechanisms"
-    ],
-    "correctIndex": 2,
-    "explanation": "A key IPv6 feature is stateless address autoconfiguration (SLAAC): a host can construct its own address just by listening for Router Advertisement messages periodically or on-demand sent by a local router, without needing an ARP-like broadcast exchange.",
     "source": "imported",
     "sourceLabel": "ALL_MERGED"
   },
@@ -15220,23 +13730,6 @@ const DB = [
     "sourceLabel": "ALL_MERGED"
   },
   {
-    "id": "merged-0201",
-    "chapter": "IPv4 Addressing and Routing",
-    "topic": "IPv4 multicast full router forwarding",
-    "difficulty": "medium",
-    "question": "When an IP router with complete multicast service support receives a packet related to a given multicast group",
-    "options": [
-      "It discards the packet, because it's not possible to offer multicast services over an IP network",
-      "It sends out a copy of the packet on all the ports",
-      "It sends out a copy of the packet on all the ports, except the one through which the packet was received",
-      "It sends out a copy of the packet on all the ports useful to reach the destinations belonging to the multicast group"
-    ],
-    "correctIndex": 3,
-    "explanation": "A router with proper multicast routing support (e.g., running PIM) forwards a multicast packet only out the specific interfaces that lead toward group members (as determined by the multicast distribution tree), rather than flooding it everywhere.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
     "id": "merged-0202",
     "chapter": "Virtual Private Network",
     "topic": "SSL VPN NAT compatibility",
@@ -15271,40 +13764,6 @@ const DB = [
     "sourceLabel": "ALL_MERGED"
   },
   {
-    "id": "merged-0204",
-    "chapter": "IPv6",
-    "topic": "IPv6 Interface ID assignment",
-    "difficulty": "medium",
-    "question": "The Interface ID of an IPv6 address",
-    "options": [
-      "Is the same for all devices within the same link",
-      "Can be arbitrarily selected; sometimes it is derived from the MAC address of the interface",
-      "Is assigned by the ISP according to a hierarchical schema",
-      "Is assigned by the network administrator according to a hierarchical schema"
-    ],
-    "correctIndex": 1,
-    "explanation": "The interface identifier (the low-order bits of an IPv6 address) is not centrally allocated: it can be chosen fairly freely by the host itself, commonly derived from the interface's MAC address (EUI-64) or generated randomly (e.g., with privacy extensions).",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0205",
-    "chapter": "Routing",
-    "topic": "Autonomous System properties",
-    "difficulty": "medium",
-    "question": "An Autonomous System:",
-    "options": [
-      "Is identified by means of a 4-byte-long ID assigned by the CSA",
-      "Is a set of subnets with a short topological proximity and managed by a single organization unit",
-      "Is a subnet configured by leveraging static routing",
-      "Is identified by means of a 4-byte-long ID automatically computed by BGP"
-    ],
-    "correctIndex": 1,
-    "explanation": "An Autonomous System is a collection of IP networks with common topological proximity that is administered as a unit by a single organization, which then applies a unified routing policy toward the rest of the Internet.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
     "id": "merged-0206",
     "chapter": "IPv4 Addressing and Routing",
     "topic": "ARP reply across mismatched masks",
@@ -15335,23 +13794,6 @@ const DB = [
     ],
     "correctIndex": 1,
     "explanation": "Widespread use of private IPv4 addressing behind NAT (to cope with IPv4 address exhaustion) introduces inefficiencies and complications (e.g., breaking end-to-end connectivity, NAT traversal issues), which is one of the practical drivers pushing adoption of IPv6's vastly larger address space.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0208",
-    "chapter": "Routing",
-    "topic": "Tier-1 network provider",
-    "difficulty": "medium",
-    "question": "A Network Provider considered 'Tier-1':",
-    "options": [
-      "Has only a single interconnection towards another Tier-1 Autonomous System",
-      "Is an Autonomous System connected to other Tier-1 ASes solely with 'Peering' (non-paid) connections",
-      "Is an Autonomous System connected to other Tier-1 ASes predominantly with 'Peering' (non-paid) connections",
-      "Is an Autonomous System connected to other Tier-1 ASes predominantly with paid 'transit' connections"
-    ],
-    "correctIndex": 2,
-    "explanation": "A Tier-1 ISP is defined by being able to reach the entire Internet through settlement-free peering alone; it interconnects with other Tier-1 networks predominantly (though not always exclusively) via such non-paid peering relationships, rather than by purchasing transit from them.",
     "source": "imported",
     "sourceLabel": "ALL_MERGED"
   },
@@ -15492,23 +13934,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0011",
-    "chapter": "IPv4 Addressing and Routing",
-    "topic": "IPv4 Multicast / IGMP",
-    "difficulty": "medium",
-    "question": "In an IPv4 network:",
-    "options": [
-      "A station is reached by a multicast packet for a particular group only if it is subscribed to that group, regardless of the layer-2 technology used",
-      "A station can be reached by a multicast packet for a particular group even if it is not subscribed to that group",
-      "A station always delivers to the application layer all the multicast packets it receives",
-      "A station is not able to understand an IPv4 multicast packet"
-    ],
-    "correctIndex": 1,
-    "explanation": "At layer 2, multicast frames are typically delivered to all stations on a shared segment unless the switches perform IGMP snooping to restrict forwarding to interested ports. Consequently a station's network interface can receive a multicast packet even without having joined that group; filtering then happens at the IP/application layer.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0012",
     "chapter": "IPv4 Addressing and Routing",
     "topic": "IPv4 Multicast / IGMP",
@@ -15539,23 +13964,6 @@ const DB = [
     ],
     "correctIndex": 0,
     "explanation": "IGMP (Internet Group Management Protocol) runs between hosts and their local router: hosts use it to announce interest in receiving traffic for specific multicast groups, and the router uses it to learn which groups have interested members on each of its directly attached networks.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0014",
-    "chapter": "IPv4 Addressing and Routing",
-    "topic": "IPv4 Multicast / IGMP",
-    "difficulty": "easy",
-    "question": "The IGMP protocol:",
-    "options": [
-      "Allows a host to communicate to other hosts belonging to a given multicast group its own interest in entering the group",
-      "Allows a router to communicate to other routers in the Internet network its own interest in receiving the traffic related to a given multicast group",
-      "Carries the multicast traffic generated by hosts",
-      "Allows a host to communicate to routers in the network its own interest in receiving the traffic related to a given multicast group"
-    ],
-    "correctIndex": 3,
-    "explanation": "IGMP is a host-to-router signaling protocol: a host uses IGMP messages (Join/Report) to tell its local router that it wants to receive traffic for a given multicast group. It does not carry the multicast data itself and is not used for router-to-router group announcements (that is the job of multicast routing protocols).",
     "source": "imported",
     "sourceLabel": "reti_Quiz"
   },
@@ -15594,23 +14002,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0017",
-    "chapter": "IPv6",
-    "topic": "IPv6 Address Types",
-    "difficulty": "easy",
-    "question": "A link-local address:",
-    "options": [
-      "Can be used to allow communication between stations on a local link (e.g. a LAN) in the absence of other IPv6 addresses",
-      "Serves to physically connect two stations on a local link",
-      "Is the address used by stations on a LAN to exchange any kind of data",
-      "Is used in all communications between local stations"
-    ],
-    "correctIndex": 0,
-    "explanation": "Link-local addresses (prefix FE80::/10) are automatically configured on every IPv6 interface and are valid only for communication with other nodes on the same link, enabling basic connectivity even before any other address is assigned.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0018",
     "chapter": "IPv6",
     "topic": "Neighbor Discovery",
@@ -15645,40 +14036,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0021",
-    "chapter": "IPv6",
-    "topic": "Neighbor Discovery",
-    "difficulty": "medium",
-    "question": "The Solicited Node Multicast Address is:",
-    "options": [
-      "The multicast address used as the source address in a Neighbor Solicitation packet",
-      "The multicast address inserted in the payload (Target Address field of ARPv6) of a Neighbor Solicitation packet",
-      "The multicast address inserted in the payload (Target Address field of ICMPv6) of a Neighbor Solicitation packet",
-      "The multicast address used as the destination address in a Neighbor Solicitation packet"
-    ],
-    "correctIndex": 3,
-    "explanation": "A Neighbor Solicitation message is sent to the solicited-node multicast address derived from the target's unicast/anycast address; this address is used as the packet's IP destination address, letting only nodes owning a matching address process the request instead of flooding the whole link.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0022",
-    "chapter": "IPv6",
-    "topic": "IPv6 Addressing",
-    "difficulty": "medium",
-    "question": "The IPv6 addressing scheme:",
-    "options": [
-      "Provides exclusively addresses assigned uniquely by a central authority",
-      "Provides that each entity (e.g. a company) is assigned a globally unique set of addresses that it owns indefinitely",
-      "Provides that the first 64 bits of an address are normally identified as the network prefix, at least on LANs",
-      "Does not provide for multicast addresses"
-    ],
-    "correctIndex": 2,
-    "explanation": "In the common IPv6 addressing convention, especially on LANs, the address is split into a 64-bit network prefix and a 64-bit Interface ID, which also supports EUI-64-based and privacy-extension autoconfiguration of the host portion.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0023",
     "chapter": "IPv6",
     "topic": "IPv6 Address Types",
@@ -15692,40 +14049,6 @@ const DB = [
     ],
     "correctIndex": 2,
     "explanation": "Global unicast addresses are allocated hierarchically -- from regional registries down to ISPs and then to organizations/sites -- which mirrors geographic and topological structure and enables efficient route aggregation across the Internet.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0024",
-    "chapter": "IPv6",
-    "topic": "IPv6 Address Types",
-    "difficulty": "hard",
-    "question": "The IPv6 address FE80::0201:06FF:FEA5:3A4C is:",
-    "options": [
-      "An address usable by a host with MAC address 00:01:06:A5:3A:4C for communications with another host on the same link",
-      "An address usable by a server with that MAC address for offering a service on the public IPv6 Internet",
-      "An address usable by more than one device on the same link",
-      "An address currently not foreseen in IPv6"
-    ],
-    "correctIndex": 0,
-    "explanation": "The prefix FE80::/10 identifies a link-local address. This one is built from the MAC address 00:01:06:A5:3A:4C using the modified EUI-64 format (visible in the ...0201:06FF:FEA5... pattern), and is valid only for communication between nodes on that same link, not on the public Internet.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0025",
-    "chapter": "IPv6",
-    "topic": "Neighbor Discovery",
-    "difficulty": "medium",
-    "question": "The forwarding of IPv6 packets on a LAN:",
-    "options": [
-      "Does not use neighbor discovery mechanisms because there is a rule to map any IPv6 address into a MAC address",
-      "Does not use neighbor discovery mechanisms for the forwarding of IPv6 multicast and broadcast packets, because there is a rule to map these IPv6 addresses into a MAC address",
-      "Uses neighbor discovery mechanisms for every type of IPv6 address",
-      "Does not use neighbor discovery mechanisms for the forwarding of IPv6 multicast packets, because there is a rule to map these IPv6 addresses into a MAC address"
-    ],
-    "correctIndex": 3,
-    "explanation": "IPv6 multicast addresses map to Ethernet multicast MAC addresses via a fixed algorithmic rule, so no address-resolution exchange is needed for them (and IPv6 has no broadcast addresses at all); Neighbor Discovery (via ICMPv6) is instead used to resolve the MAC address for unicast IPv6 destinations.",
     "source": "imported",
     "sourceLabel": "reti_Quiz"
   },
@@ -15747,40 +14070,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0027",
-    "chapter": "IPv6",
-    "topic": "IPv6 Header",
-    "difficulty": "medium",
-    "question": "The IPv6 protocol provides that the IP packet header:",
-    "options": [
-      "Is always authenticated via cryptographic algorithms to increase transmission security",
-      "Is smaller than the IPv4 header, in order to increase efficiency in the use of transmission bandwidth by reducing protocol overhead",
-      "Is composed only of fixed-length fields carrying information necessary in every packet",
-      "Includes some fields, previously available only as IPv4 options, for functionalities that have proven to be widely used over the course of time"
-    ],
-    "correctIndex": 2,
-    "explanation": "The 40-byte IPv6 base header consists solely of fixed-length fields that are relevant to every packet; features that were optional in IPv4 (and rarely used) are moved out into optional Extension Headers rather than kept in the base header.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0028",
-    "chapter": "IPv6",
-    "topic": "IPv6 Fundamentals",
-    "difficulty": "medium",
-    "question": "Unlike IP version 4, version 6:",
-    "options": [
-      "Does not have a variable-length header",
-      "Does not allow discovering the MAC address of another station knowing its IP address",
-      "Does not have an equivalent of TTL (time-to-live)",
-      "Does not allow the use of IPsec"
-    ],
-    "correctIndex": 0,
-    "explanation": "The IPv6 base header is always exactly 40 bytes (fixed length), unlike IPv4's variable-length header with options. IPv6 does resolve MAC addresses (via Neighbor Discovery), has a Hop Limit equivalent to TTL, and natively supports IPsec.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0029",
     "chapter": "IPv6",
     "topic": "IPv6 Header",
@@ -15794,40 +14083,6 @@ const DB = [
     ],
     "correctIndex": 2,
     "explanation": "Extension Headers are optional headers chained after the fixed 40-byte IPv6 base header to carry additional functionality (e.g., routing, fragmentation, authentication) only when needed, keeping the base header simple and of fixed size.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0030",
-    "chapter": "IPv6",
-    "topic": "IPv6 Header",
-    "difficulty": "medium",
-    "question": "In IPv6, what disappears from the header, compared to IPv4?",
-    "options": [
-      "The packet's time to live",
-      "The source and destination addresses",
-      "The indication of what the next header is",
-      "The header checksum"
-    ],
-    "correctIndex": 3,
-    "explanation": "IPv6 removes the header checksum to reduce router processing overhead, relying on link-layer and upper-layer (e.g., TCP/UDP) checksums for error detection. It keeps a Hop Limit (TTL equivalent), source/destination addresses, and a Next Header field.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0031",
-    "chapter": "IPv6",
-    "topic": "IPv6 Address Types",
-    "difficulty": "hard",
-    "question": "The IPv6 address 2001:4600::0201:06FF:FEA5:3A4C is:",
-    "options": [
-      "A private-type address",
-      "An address usable by a server to offer a service on the public IPv6 Internet",
-      "An address usable by a host only to communicate with another host on the same link",
-      "An address currently not valid in IPv6"
-    ],
-    "correctIndex": 1,
-    "explanation": "The prefix 2001:4600::/32 falls within the global unicast address range (2000::/3), so this address is a globally routable public IPv6 address, suitable for a server offering a service on the public Internet, unlike link-local (FE80::/10) or unique-local (FC00::/7) addresses.",
     "source": "imported",
     "sourceLabel": "reti_Quiz"
   },
@@ -15900,23 +14155,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0036",
-    "chapter": "IPv6",
-    "topic": "IPv6 Address Autoconfiguration",
-    "difficulty": "medium",
-    "question": "An IPv6 host, upon reboot, will acquire the following address:",
-    "options": [
-      "It is not possible to know the address precisely, since the IPv6 address is regenerated every time with a random number for the part reserved to the Interface ID",
-      "An address FE80::/32",
-      "As far as the link-local address is concerned, it will assume the same IPv6 address it had before the reboot",
-      "The address depends entirely on the configuration it will acquire from its default router"
-    ],
-    "correctIndex": 2,
-    "explanation": "The link-local address is typically derived deterministically from the interface's MAC address (via EUI-64) or from a stable identifier, so after a reboot the same interface normally regenerates the same link-local address, independent of what other addresses it later acquires via routers.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0038",
     "chapter": "IPv6",
     "topic": "IPv6 Fundamentals",
@@ -15934,23 +14172,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0040",
-    "chapter": "IPv6",
-    "topic": "IPv6 Address Autoconfiguration",
-    "difficulty": "medium",
-    "question": "What is the function of the 'scope' associated with IPv6 addresses?",
-    "options": [
-      "It serves to resolve, in particular cases, ambiguity about the sender",
-      "There is no scope associated with IPv6 addresses",
-      "It serves to be able to use global addresses",
-      "It serves to be able to use anycast addresses"
-    ],
-    "correctIndex": 0,
-    "explanation": "The scope of an IPv6 address (link-local, unique-local, global, etc.) defines the topological region within which that address is valid and unambiguous; it is needed because, for instance, the same link-local address can legitimately appear on multiple different links, so the scope (often combined with a zone/interface identifier) resolves that ambiguity.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0041",
     "chapter": "IPv6",
     "topic": "IPv6 Address Autoconfiguration",
@@ -15964,57 +14185,6 @@ const DB = [
     ],
     "correctIndex": 2,
     "explanation": "Router Advertisement messages, sent periodically (or in response to Router Solicitation) to the all-nodes multicast address on a link, carry prefix and other configuration information that hosts use to perform Stateless Address Autoconfiguration (SLAAC), without needing a DHCPv6 server.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0042",
-    "chapter": "IPv6",
-    "topic": "IPv6 Address Autoconfiguration",
-    "difficulty": "hard",
-    "question": "Does IPv6 stateless autoconfiguration present privacy issues?",
-    "options": [
-      "There are no particular problems",
-      "It does not allow encryption of the payload",
-      "It is possible to identify the same interface, if it connects to the internet from various providers",
-      "It does not allow the use of security headers (such as IPsec)"
-    ],
-    "correctIndex": 2,
-    "explanation": "When the Interface ID is derived deterministically from the fixed MAC address (EUI-64), the same interface produces the same Interface ID regardless of the network prefix it is on, allowing a device to be tracked and correlated across different networks/providers -- a concern later addressed by RFC 4941 privacy extensions.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0043",
-    "chapter": "IPv6",
-    "topic": "IPv6 Address Autoconfiguration",
-    "difficulty": "medium",
-    "question": "IPv6 stateless autoconfiguration requires:",
-    "options": [
-      "A DHCPv6 (Dynamic Host Configuration Protocol version 6) server",
-      "A server present on the local network",
-      "A server present on the corporate network (intranet)",
-      "It is possible even without the presence of a server or router"
-    ],
-    "correctIndex": 3,
-    "explanation": "A host can always self-generate a link-local address using just its own interface identifier and the well-known FE80::/10 prefix, entirely without any DHCPv6 server or even a router present on the link; a router is only needed to obtain a globally routable prefix.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0044",
-    "chapter": "IPv6",
-    "topic": "IPv6 Address Autoconfiguration",
-    "difficulty": "medium",
-    "question": "In the IPv6 protocol:",
-    "options": [
-      "Routing protocols (e.g., the packet format) do not change compared to IPv4",
-      "The ARP protocol is embedded in ICMPv6, but keeps exactly the same operating scheme as before (broadcast request, unicast reply)",
-      "There is the possibility, for a station on a network segment, to autoconfigure itself by listening to Router Advertisement messages",
-      "Like IPv4, IPv6 does not provide router reconfiguration mechanisms"
-    ],
-    "correctIndex": 2,
-    "explanation": "IPv6 hosts can perform Stateless Address Autoconfiguration by passively listening for periodic (or solicited) ICMPv6 Router Advertisement messages, which carry the network prefix and other parameters -- there is no ARP-like broadcast request/reply scheme in IPv6, since ARP is replaced entirely by multicast-based Neighbor Discovery.",
     "source": "imported",
     "sourceLabel": "reti_Quiz"
   },
@@ -16087,23 +14257,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0051",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "GSM Signaling",
-    "difficulty": "medium",
-    "question": "Regarding Short Message Service (SMS), if the Mobile Terminal is off:",
-    "options": [
-      "The GSM network informs the network and stores the message, which will be delivered when the MT turns on",
-      "SDCCH is used to deliver the message",
-      "SACCH is used to deliver the message",
-      "The message cannot be sent"
-    ],
-    "correctIndex": 0,
-    "explanation": "The GSM/SMS network keeps track of a subscriber's availability; if the Mobile Terminal is unreachable (off), the Short Message Service Center stores the message and attempts (or is notified to attempt) delivery once the MT becomes reachable again, rather than discarding it.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0053",
     "chapter": "Wireless and Cellular Networks",
     "topic": "Cellular Capacity Planning",
@@ -16138,40 +14291,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0056",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "GSM Identifiers",
-    "difficulty": "easy",
-    "question": "The International Mobile Equipment Identity (IMEI) is:",
-    "options": [
-      "A temporary code assigned by the ISP",
-      "A fixed code assigned by the BTS",
-      "A temporary phone number assigned to the terminal based on its position",
-      "It identifies the device, is assigned by the manufacturer, and is not modifiable"
-    ],
-    "correctIndex": 3,
-    "explanation": "The IMEI uniquely identifies the physical mobile equipment (the handset), is permanently assigned by the manufacturer, and does not change -- unlike the IMSI/SIM, which identifies the subscriber and can be moved between devices.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0057",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "GSM Architecture",
-    "difficulty": "medium",
-    "question": "A BSC (Base Station Controller):",
-    "options": [
-      "Is the access point for the MT (Mobile Terminal)",
-      "Contains the static user data (such as ID, enabled services, and security parameters)",
-      "Is able to control a single BTS",
-      "Is able to control a large number of BTS"
-    ],
-    "correctIndex": 3,
-    "explanation": "In the GSM architecture, a single Base Station Controller (BSC) manages radio resources, handovers, and power control for many Base Transceiver Stations (BTS) beneath it, not just one; the BTS itself is the actual radio access point for mobile terminals.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0058",
     "chapter": "Wireless and Cellular Networks",
     "topic": "GSM Air Interface",
@@ -16202,57 +14321,6 @@ const DB = [
     ],
     "correctIndex": 1,
     "explanation": "The Normal (Regular) Burst is the workhorse burst type of GSM: it carries digitized voice/data during an active call, and can also carry control/signaling information when needed, unlike the Access Burst which is specifically used to request a dedicated channel.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0060",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "Handover",
-    "difficulty": "easy",
-    "question": "Handover is the mechanism that allows:",
-    "options": [
-      "Encrypting a communication channel",
-      "Managing the release from one cell and the re-attachment to a new one",
-      "Notifying a user of an incoming call",
-      "Requesting network access by a user"
-    ],
-    "correctIndex": 1,
-    "explanation": "Handover is the procedure by which an active call/connection is transferred from the radio resources of one cell to those of another, releasing the old cell's channel and attaching to the new cell's channel, typically to maintain connectivity as a mobile terminal moves.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0061",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "Cellular Access Techniques",
-    "difficulty": "medium",
-    "question": "In a cellular network operating according to Frequency Division Multiple Access (FDMA) technology:",
-    "options": [
-      "Only one frequency is adopted for the entire network",
-      "Voice calls are not possible; the network is used only for data traffic",
-      "Frequencies to use are randomly selected by mobile terminals, which then resend voice samples in case of collisions with other users",
-      "Available frequencies are divided among a group of neighboring cells and then reused in sufficiently far cells"
-    ],
-    "correctIndex": 3,
-    "explanation": "FDMA-based cellular systems divide the available spectrum into channels grouped into clusters of neighboring cells; each cluster uses a distinct subset of frequencies, and the same frequencies are reused again only in cells far enough apart to avoid significant co-channel interference.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0062",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "Handover",
-    "difficulty": "medium",
-    "question": "What is the ping-pong effect?",
-    "options": [
-      "Repeatedly proposing the released cell as the cell to reattach to",
-      "The bouncing of signals within a cell",
-      "An alternative way to define the concept of handover",
-      "A technique used to test round-trip latency between two base stations"
-    ],
-    "correctIndex": 0,
-    "explanation": "The ping-pong effect occurs when a mobile terminal near a cell boundary repeatedly hands over back and forth between two cells -- each handover proposes the just-released cell again as the new target -- causing unnecessary signaling load and degraded call quality.",
     "source": "imported",
     "sourceLabel": "reti_Quiz"
   },
@@ -16308,40 +14376,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0069",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "HSPA",
-    "difficulty": "medium",
-    "question": "High Speed Packet Access (HSPA):",
-    "options": [
-      "Uses dedicated channels for a better transmission",
-      "The TTI (Transmission Time Interval) increases to 10ms (from 2ms in UMTS)",
-      "Uses shared channels to reduce the waste of resources",
-      "Has a TTI of 1ms thanks to the use of OFDMA, MIMO systems, and 64QAM modulation"
-    ],
-    "correctIndex": 2,
-    "explanation": "HSPA improves efficiency over basic UMTS mainly by moving from dedicated per-user channels to shared channels (HS-DSCH/E-DCH) that are dynamically allocated among users, reducing wasted capacity; OFDMA/MIMO/64QAM and 1ms TTI are features associated with later LTE, not HSPA.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0070",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "UMTS",
-    "difficulty": "medium",
-    "question": "In the UMTS connection:",
-    "options": [
-      "Frequency reuse still exists, with possible interference",
-      "Frequency reuse no longer exists, and there is no interference thanks to the use of different codes",
-      "Frequency reuse still exists, but it is optimized to avoid interference",
-      "Frequency reuse no longer exists, and there is no interference thanks to the use of different access times"
-    ],
-    "correctIndex": 1,
-    "explanation": "UMTS is based on WCDMA, where every cell can reuse the same frequency (universal frequency reuse, reuse factor 1) because users and cells are distinguished by unique spreading codes rather than by frequency or time separation, which mitigates (though doesn't fully eliminate in practice) co-channel interference conceptually via code orthogonality.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0072",
     "chapter": "Wireless and Cellular Networks",
     "topic": "Radio Interface Protocol Stack",
@@ -16359,23 +14393,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0073",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "Radio Interface Protocol Stack",
-    "difficulty": "medium",
-    "question": "In a radio interface, among its many functions, the MAC layer:",
-    "options": [
-      "Allows flow control",
-      "Allows channel access",
-      "Performs negotiation and control of QoS",
-      "None of the above"
-    ],
-    "correctIndex": 1,
-    "explanation": "The MAC (Medium Access Control) layer's central function is arbitrating access to the shared radio channel among multiple users/flows -- mapping logical channels to physical/transport channels and scheduling transmissions -- rather than end-to-end flow control or QoS negotiation, which are handled by higher layers.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0075",
     "chapter": "Principles of Modern LAN Design and Operation",
     "topic": "VLANs",
@@ -16389,23 +14406,6 @@ const DB = [
     ],
     "correctIndex": 1,
     "explanation": "VLANs are isolated at layer 2, so a host can directly reach only other hosts in the same VLAN; communication with hosts in a different VLAN requires layer-3 routing, typically via a router or a layer-3 switch.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0076",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "Switching and VLANs",
-    "difficulty": "medium",
-    "question": "Two hosts connected to an Ethernet switch:",
-    "options": [
-      "Can communicate only if they belong to the same VLAN, regardless of the network configuration",
-      "Can communicate even if they belong to different VLANs, depending on the network configuration",
-      "Must always be able to communicate without using an intermediate router",
-      "Cannot communicate using a router since they are connected to the same switch"
-    ],
-    "correctIndex": 1,
-    "explanation": "Whether two hosts on different VLANs can communicate depends on the overall network configuration: by default a switch keeps VLANs isolated at layer 2, but if a router (or layer-3 switch) is configured to route between those VLANs, the hosts can communicate.",
     "source": "imported",
     "sourceLabel": "reti_Quiz"
   },
@@ -16444,23 +14444,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0079",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "VLANs",
-    "difficulty": "easy",
-    "question": "What is a consequence of using VLANs in a local network?",
-    "options": [
-      "It creates virtual interfaces on switches which, as such, are always functional",
-      "Broadcast traffic is limited to the VLAN in which it was generated",
-      "Security of communication on the corporate network increases because frames are encrypted",
-      "Users are required to authenticate before being able to access the VLAN"
-    ],
-    "correctIndex": 1,
-    "explanation": "One of the main purposes of VLANs is to segment broadcast domains: a broadcast frame generated within a VLAN is only flooded to ports belonging to that same VLAN, and does not automatically reach hosts in other VLANs. VLANs by themselves do not encrypt traffic or require authentication.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0080",
     "chapter": "Principles of Modern LAN Design and Operation",
     "topic": "Switching",
@@ -16474,40 +14457,6 @@ const DB = [
     ],
     "correctIndex": 3,
     "explanation": "Dynamically learned MAC address entries are subject to an aging timer that is typically refreshed each time a frame is seen from that source MAC, so an entry's effective lifetime depends on ongoing traffic from that address rather than being a single fixed, unchanging value.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0081",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "VLANs",
-    "difficulty": "easy",
-    "question": "Given a certain LAN on which VLANs have been defined, a broadcast frame:",
-    "options": [
-      "Possibly reaches only a portion of the LAN",
-      "Reaches all hosts of the LAN",
-      "Is automatically converted into a set of unicast frames by the switch",
-      "Is discarded by all switches that have VLANs configured"
-    ],
-    "correctIndex": 0,
-    "explanation": "Because VLANs partition a physical LAN into separate broadcast domains, a broadcast frame generated in one VLAN is flooded only to the ports/hosts belonging to that VLAN, so it reaches only a portion of the overall physical LAN, not every host on it.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0082",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "Ethernet Switching",
-    "difficulty": "medium",
-    "question": "For what reason can two Ethernet frames collide?",
-    "options": [
-      "Switched full duplex",
-      "Switched half duplex",
-      "Due to queuing in the switch buffers",
-      "It often happens due to channel contention"
-    ],
-    "correctIndex": 1,
-    "explanation": "Collisions on switched Ethernet can only occur on links operating in half-duplex mode, where a port cannot transmit and receive simultaneously and must share the medium (e.g., with an attached hub); fully switched full-duplex links have dedicated separate transmit/receive paths and do not experience collisions.",
     "source": "imported",
     "sourceLabel": "reti_Quiz"
   },
@@ -16542,40 +14491,6 @@ const DB = [
     ],
     "correctIndex": 3,
     "explanation": "With pure flooding, every router keeps retransmitting incoming copies of the packet on all links except the one it arrived from; since A, B, and C form a ring, copies keep circulating among them (decrementing their TTL) and C forwards each surviving copy onward to D, so the total number of copies eventually delivered to D grows with, and is thus proportional to, the packet's initial TTL value.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0085",
-    "chapter": "Routing",
-    "topic": "Routing Fundamentals",
-    "difficulty": "easy",
-    "question": "The metric (cost) in a routing algorithm expresses:",
-    "options": [
-      "The weight to assign to a link, used in path selection",
-      "The probability that the shortest path will be used",
-      "The computational complexity of the algorithm",
-      "The maximum number of hops allowed before a packet is discarded"
-    ],
-    "correctIndex": 0,
-    "explanation": "A routing metric is a numeric weight assigned to a link (or path), reflecting factors such as hop count, bandwidth, or delay, which the routing algorithm uses to compare candidate paths and select the best (lowest-cost) one.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0086",
-    "chapter": "Routing",
-    "topic": "Routing Fundamentals",
-    "difficulty": "medium",
-    "question": "The concepts of Forwarding and Routing:",
-    "options": [
-      "Are synonyms; they identify the process that finds a valid path for a packet, from sender to receiver",
-      "Are synonyms; they identify the process that, given a packet entering a network node, determines the best outgoing port toward the destination",
-      "Are different concepts; the forwarding process aims to find a valid path for a packet, from sender to receiver; the routing process, given a packet entering a network node, determines the best outgoing port toward the destination",
-      "Are different concepts; the routing process aims to find a valid path for a packet, from sender to receiver; the forwarding process, given a packet entering a network node, determines the best outgoing port toward the destination"
-    ],
-    "correctIndex": 3,
-    "explanation": "Routing is the control-plane process of computing and maintaining valid end-to-end paths (e.g., via routing protocols building routing tables); forwarding is the data-plane process of actually looking up an incoming packet's destination in the forwarding table and sending it out the correct interface. These are distinct concepts.",
     "source": "imported",
     "sourceLabel": "reti_Quiz"
   },
@@ -16627,23 +14542,6 @@ const DB = [
     ],
     "correctIndex": 3,
     "explanation": "Any change in network state -- a link or router going up or down, a new route appearing -- triggers a transitory (convergence) period during which routers exchange updates and recompute paths, regardless of whether the routing algorithm is Distance Vector, Link State, or something else.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0091",
-    "chapter": "Routing",
-    "topic": "Isolated Routing",
-    "difficulty": "medium",
-    "question": "In isolated routing:",
-    "options": [
-      "Each router calculates its own routing table through message exchanges with its neighbors only",
-      "Each router calculates its routing table through message exchanges with all routers in the network",
-      "Each router calculates its routing table by analyzing only the traffic that passes through it",
-      "Some portions of the network are isolated from the remaining routers, preventing data transit between the public part of the network and the isolated one"
-    ],
-    "correctIndex": 2,
-    "explanation": "In isolated (locally adaptive) routing, a router makes its forwarding decisions purely by observing and analyzing the traffic that transits through it (e.g., queue lengths on outgoing links), without exchanging any explicit routing messages with other routers.",
     "source": "imported",
     "sourceLabel": "reti_Quiz"
   },
@@ -16733,74 +14631,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0097",
-    "chapter": "Routing",
-    "topic": "Distance Vector Routing",
-    "difficulty": "hard",
-    "question": "The Distance Vector routing algorithm:",
-    "options": [
-      "Can cause 'Counting to Infinity' phenomena only in meshed (looped) networks",
-      "Always causes 'Counting to Infinity' phenomena in non-meshed networks",
-      "Is characterized by a lower likelihood of 'Counting to Infinity' phenomena in non-meshed networks if the 'Split Horizon' technique is used",
-      "The 'Counting to Infinity' phenomenon is specific to Link State networks"
-    ],
-    "correctIndex": 2,
-    "explanation": "Split Horizon prevents a router from advertising a route back to the neighbor from which it learned it, which -- in networks without loops (non-meshed) -- eliminates the simplest two-node count-to-infinity scenarios and thus significantly reduces (though does not eliminate in more complex, looped cases) the likelihood of this problem.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0098",
-    "chapter": "Routing",
-    "topic": "Split Horizon",
-    "difficulty": "medium",
-    "question": "The 'Split Horizon' mechanism allows:",
-    "options": [
-      "Eliminating the possibility of loops (cyclic forwarding paths) following topology changes",
-      "Reducing the probability that loops occur following topology changes",
-      "Disabling, during the convergence phase, the sending of data packets toward destinations that could cause loops",
-      "Reducing routing traffic by implementing the neighbor discovery phase with dedicated packets ('Hello Packets')"
-    ],
-    "correctIndex": 1,
-    "explanation": "Split Horizon reduces, but does not fully eliminate, the possibility of routing loops (it handles simple two-node loops but not more complex multi-node loop scenarios), so it should be understood as lowering the probability of loops rather than guaranteeing their absence.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0099",
-    "chapter": "Routing",
-    "topic": "Split Horizon",
-    "difficulty": "medium",
-    "question": "The 'Split Horizon' technique:",
-    "options": [
-      "Provides that routes received in the advertisements of a neighboring router are always advertised back to that neighbor with a metric of infinity",
-      "Provides that a prefix is not advertised to the neighbor that represents the 'next hop' toward that destination",
-      "Provides that a destination is declared unreachable at the moment its cost exceeds a certain infinity threshold",
-      "None of the above answers"
-    ],
-    "correctIndex": 1,
-    "explanation": "Split Horizon's rule is that a router does not advertise a route back out the same interface/neighbor from which it learned that route (the next hop toward that destination), preventing that neighbor from being misled into thinking the router offers an independent path back to it.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0101",
-    "chapter": "Routing",
-    "topic": "Link State Routing",
-    "difficulty": "medium",
-    "question": "In the final phase of a Link State type routing algorithm, each router:",
-    "options": [
-      "Executes the Shortest Path First algorithm, using the Link State Database as input",
-      "Floods its own Link States to its neighbors",
-      "Floods all the Link States it knows to its neighbors",
-      "Executes the DUAL (Diffusing Update Algorithm) algorithm"
-    ],
-    "correctIndex": 0,
-    "explanation": "After each router has flooded its own link-state information and built a complete, consistent Link State Database describing the whole network topology, the final step is for each router to independently run a Shortest Path First (e.g., Dijkstra's) algorithm on that database to compute its own routing table.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0102",
     "chapter": "Routing",
     "topic": "Link State vs Distance Vector",
@@ -16852,23 +14682,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0106",
-    "chapter": "Routing",
-    "topic": "Autonomous Systems",
-    "difficulty": "easy",
-    "question": "An Autonomous System is:",
-    "options": [
-      "A computer capable of self-configuring",
-      "A zone of an IP network, administered -- especially from a routing standpoint -- autonomously from other zones, and with connections to at least two other Autonomous Systems",
-      "A network device capable of autonomously discovering the best path along which to forward packets to destinations",
-      "The network of an ISP"
-    ],
-    "correctIndex": 1,
-    "explanation": "An Autonomous System (AS) is a collection of IP networks under a single administrative routing policy, typically interconnected to at least a couple of other autonomous systems and exchanging inter-domain routing information (e.g., via BGP) with them.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0107",
     "chapter": "Routing",
     "topic": "Peering and Transit",
@@ -16886,74 +14699,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0108",
-    "chapter": "Routing",
-    "topic": "Neutral Access Points",
-    "difficulty": "medium",
-    "question": "A Neutral Access Point is a particular network in which:",
-    "options": [
-      "All devices are connected by means of a central, high-performance router equipped with multiple network interfaces",
-      "The various Autonomous Systems exchange traffic in 'peering' mode, i.e. without payment",
-      "The connection between the devices is realized at layer 2",
-      "Every connected router sees, at layer 3, all the other routers present in the network and is able to peer with each of them"
-    ],
-    "correctIndex": 2,
-    "explanation": "A Neutral Access Point (Internet Exchange Point) is fundamentally a layer-2 fabric (typically Ethernet-based) to which many Autonomous Systems connect their border routers, which then establish their own layer-3 (BGP) peering sessions over that shared layer-2 infrastructure -- peering itself is a business choice, not a defining property of the IXP's connectivity model.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0109",
-    "chapter": "Routing",
-    "topic": "Peering and Transit",
-    "difficulty": "easy",
-    "question": "The term 'Peering' refers to:",
-    "options": [
-      "The connection point between two routers of two different Internet Service Providers",
-      "The exchange of information between a router and a station using a routing protocol",
-      "The exchange of information between two OSPF routers connected by a virtual link",
-      "The exchange of information between two OSPF routers of the same area"
-    ],
-    "correctIndex": 0,
-    "explanation": "Peering describes an interconnection arrangement between two different network operators (ISPs/ASes) at a point where their routers exchange traffic directly, typically to swap traffic destined for each other's customers without payment.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0110",
-    "chapter": "Routing",
-    "topic": "Neutral Access Points",
-    "difficulty": "medium",
-    "question": "A Neutral Access Point is a particular network in which:",
-    "options": [
-      "Multiple Autonomous Systems connect, at layer 2, a certain number of routers so as to exchange routing information among themselves",
-      "Multiple Autonomous Systems connect, at layer 3, a certain number of routers so as to exchange routing information among themselves",
-      "A single Autonomous System connects, at layer 2, a certain number of routers in order to speed up the exchange of routing information within the domain",
-      "A single Autonomous System connects, at layer 3, a certain number of routers in order to speed up the exchange of routing information within the domain"
-    ],
-    "correctIndex": 0,
-    "explanation": "A Neutral Access Point provides a shared layer-2 infrastructure to which routers belonging to multiple different Autonomous Systems connect, allowing them to establish direct routing-information exchanges (peering) with one another over that common fabric.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0111",
-    "chapter": "Routing",
-    "topic": "Route Redistribution",
-    "difficulty": "medium",
-    "question": "Redistribution:",
-    "options": [
-      "Is that process that must be enabled on a router so that it can properly forward packets toward the appropriate destination",
-      "Is used for exchanging information between an internal router (interior gateway) and an external router (exterior gateway) that uses the BGP protocol",
-      "Is mainly used by peripheral routing domains that connect to a single Internet service provider for Internet access",
-      "Is used to allow routing information to pass from a routing domain A to a routing domain B"
-    ],
-    "correctIndex": 3,
-    "explanation": "Route redistribution is the mechanism by which routes learned via one routing protocol (or in one routing domain) are re-advertised into a different routing protocol (or domain), letting routing information flow between otherwise independent routing domains.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0112",
     "chapter": "Routing",
     "topic": "Route Redistribution",
@@ -16967,23 +14712,6 @@ const DB = [
     ],
     "correctIndex": 2,
     "explanation": "Redistribution takes routes learned via one routing protocol and re-announces them through a different routing protocol; because different protocols carry different types of metrics/attributes, this translation can lose some of the original routing information (e.g., original metric semantics).",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0113",
-    "chapter": "Routing",
-    "topic": "Inter-domain Routing",
-    "difficulty": "medium",
-    "question": "Inter-domain routing:",
-    "options": [
-      "Provides that every router knows exactly the path, in terms of routers traversed, followed by packets toward a destination",
-      "Provides that an exterior gateway makes path choices, based on information gathered through inter-domain routing protocols, consistent with the agreements existing with other autonomous systems",
-      "Provides that every router knows exactly the cost of reaching any destination (e.g., in terms of bandwidth of the links traversed), in order to calculate the lowest-cost path",
-      "Is a concept that will tend to disappear"
-    ],
-    "correctIndex": 1,
-    "explanation": "Inter-domain routing (e.g., via BGP) lets exterior gateway routers choose paths based on AS-path and policy information exchanged between Autonomous Systems, reflecting business/administrative agreements, rather than requiring full router-level path knowledge or a globally consistent least-cost metric across independently administered domains.",
     "source": "imported",
     "sourceLabel": "reti_Quiz"
   },
@@ -17022,74 +14750,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0117",
-    "chapter": "Routing",
-    "topic": "Multipath Routing",
-    "difficulty": "hard",
-    "question": "Multipath routing:",
-    "options": [
-      "Is supported by the major implementations of RIP",
-      "Allows routers to use multiple paths during transients on the network, thus speeding up the diffusion of routing information and decreasing the duration of the transitory period",
-      "Can be a cause of loops if it is admitted that the paths used can have different costs",
-      "Is recommended only if data traffic is predominantly composed of TCP packets"
-    ],
-    "correctIndex": 2,
-    "explanation": "When multipath routing allows traffic to be split across paths of different costs, packets can end up following inconsistent routes that route back on themselves under certain topology/timing conditions, creating the potential for forwarding loops -- a risk that isn't present when only equal-cost paths are used.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0118",
-    "chapter": "Routing",
-    "topic": "IS-IS",
-    "difficulty": "medium",
-    "question": "The IS-IS protocol:",
-    "options": [
-      "Is an obsolete routing protocol no longer used due to its poor performance",
-      "Is a routing protocol based on the link state algorithm, widely used in large networks",
-      "Is a protocol used by Ethernet switches to build a routing tree in the network (spanning tree), eliminating closed paths",
-      "Is an evolution of BGP for exchanging routing information between routers belonging to different autonomous systems"
-    ],
-    "correctIndex": 1,
-    "explanation": "IS-IS (Intermediate System to Intermediate System) is a link-state interior gateway protocol, similar in principle to OSPF, and is widely deployed by large ISPs and carriers due to its scalability and efficiency in big networks.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0119",
-    "chapter": "Routing",
-    "topic": "RIP",
-    "difficulty": "medium",
-    "question": "The RIP protocol is encapsulated:",
-    "options": [
-      "Directly in IP, to limit the size of routing packets",
-      "Directly in IP, to allow broadcast transmission of the packets",
-      "In UDP, to allow broadcast transmission of the packets",
-      "In UDP, mainly for reasons related to greater simplicity of software development"
-    ],
-    "correctIndex": 3,
-    "explanation": "RIP messages are carried over UDP (port 520); this choice is mainly driven by the greater simplicity of developing and running RIP on top of an existing transport protocol, rather than being strictly necessary to enable broadcast, which UDP itself does not uniquely provide.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0120",
-    "chapter": "Routing",
-    "topic": "RIP",
-    "difficulty": "medium",
-    "question": "The RIP protocol provides mechanisms to reduce the possibility of loops occurring:",
-    "options": [
-      "Through the analysis of transiting packets and the identification of those that pass more than once through the same router",
-      "By means of periodically activated 'traceroute' processes",
-      "Through the 'Split-Horizon' and 'Hold-Down' mechanisms",
-      "None of the above answers"
-    ],
-    "correctIndex": 2,
-    "explanation": "RIP employs Split Horizon (not advertising a route back to the neighbor it was learned from) together with Hold-Down timers (temporarily suppressing updates about a route that has just become unreachable) as its main loop-mitigation mechanisms.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0121",
     "chapter": "Routing",
     "topic": "RIP",
@@ -17103,23 +14763,6 @@ const DB = [
     ],
     "correctIndex": 3,
     "explanation": "RIP is a simple Distance Vector protocol intended for small/medium intra-domain networks; it is well known for slow convergence, instability, and susceptibility to routing loops (e.g., count-to-infinity) compared to link-state alternatives, and it does not scale hierarchically to large networks.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0122",
-    "chapter": "Routing",
-    "topic": "RIP vs IGRP",
-    "difficulty": "hard",
-    "question": "The main limitation of the RIP routing protocol compared to IGRP is that:",
-    "options": [
-      "Since RIP is proprietary, it is not available on all routers",
-      "RIP's metric is less indicative, compared to IGRP's, of the real degree of preferability of one network path over others",
-      "Unlike IGRP, it does not permit hierarchical routing",
-      "It is a Distance Vector type protocol, hence less scalable than IGRP (which is Link State)"
-    ],
-    "correctIndex": 1,
-    "explanation": "RIP uses simple hop count as its metric, which often fails to reflect the true quality of a path (e.g., ignoring bandwidth or delay differences), while IGRP uses a composite metric considering multiple factors, giving a more accurate picture of path preferability; note that IGRP is also a Distance Vector protocol, not Link State.",
     "source": "imported",
     "sourceLabel": "reti_Quiz"
   },
@@ -17192,23 +14835,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0127",
-    "chapter": "Routing",
-    "topic": "OSPF",
-    "difficulty": "medium",
-    "question": "In OSPF, a 'Database Description' packet:",
-    "options": [
-      "Is used by two adjacent routers to exchange their respective copies of the OSPF database",
-      "Is used by two adjacent routers to exchange their respective copies of the routing table",
-      "Allows a router that has detected a new adjacency with another OSPF router to learn the LSAs it is missing",
-      "Allows a router that has just powered on to learn the LSAs it is missing"
-    ],
-    "correctIndex": 2,
-    "explanation": "Database Description packets are exchanged during the Exchange phase of adjacency formation: they summarize (list headers of) the LSAs each router already has, allowing a router that just formed a new adjacency to identify which LSAs it is missing and needs to request in full.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0128",
     "chapter": "Routing",
     "topic": "OSPF",
@@ -17277,74 +14903,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0132",
-    "chapter": "Routing",
-    "topic": "OSPF vs IGRP",
-    "difficulty": "medium",
-    "question": "A difference of the OSPF routing protocol compared to IGRP is that:",
-    "options": [
-      "OSPF is hierarchical",
-      "OSPF also allows performing routing between different Autonomous Systems",
-      "OSPF allows carrying, at the same time, routing information relative to different protocol architectures (integrated routing)",
-      "OSPF is proprietary"
-    ],
-    "correctIndex": 0,
-    "explanation": "OSPF supports a two-level hierarchical area structure (a backbone area plus attached non-backbone areas), which improves scalability by limiting the scope of detailed topology flooding; IGRP does not have this kind of hierarchical area structure, and OSPF is an open standard, not proprietary.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0133",
-    "chapter": "Routing",
-    "topic": "OSPF",
-    "difficulty": "hard",
-    "question": "In OSPF, a 'Link State Update' packet:",
-    "options": [
-      "Is also used in the Exchange procedure for the exchange of all the LSAs possessed by the routers, and carries every LSA in complete form",
-      "Carries the main information related to a Link State Advertisement",
-      "Is used to update the state of the adjacency with a neighboring router and carries only the information related to that change",
-      "Is sent only under steady-state network conditions, once the transitory period is over"
-    ],
-    "correctIndex": 0,
-    "explanation": "Link State Update packets carry one or more complete LSAs in full form; they are used both to flood newly originated/changed LSAs and, during the initial database synchronization (Exchange/Loading) with a new neighbor, to actually transmit the full LSAs that the neighbor was found to be missing.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0134",
-    "chapter": "Routing",
-    "topic": "OSPF",
-    "difficulty": "medium",
-    "question": "In OSPF, a 'Database Description' packet:",
-    "options": [
-      "Is used during the 'Neighbor Discovery' phase",
-      "Is used during the adjacency realignment (synchronization) phase",
-      "Is always sent encrypted to avoid security issues",
-      "Is always sent encrypted for privacy reasons"
-    ],
-    "correctIndex": 1,
-    "explanation": "Database Description packets are exchanged during the Exchange phase, when two routers that have just discovered each other (already past initial Hello-based neighbor discovery) synchronize/realign their link-state databases by summarizing the LSAs each one holds.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0135",
-    "chapter": "Routing",
-    "topic": "BGP",
-    "difficulty": "medium",
-    "question": "The BGP routing protocol:",
-    "options": [
-      "Uses rules (policies) on additional information plus cost metrics to identify the 'best' way to reach a destination",
-      "Is used exclusively for exchanges of information between routers of different autonomous systems",
-      "Is used exclusively for exchanges of information between routers of the same autonomous system",
-      "Is the protocol that will replace OSPF"
-    ],
-    "correctIndex": 0,
-    "explanation": "BGP's path-selection process combines administrative policy attributes (such as local preference, AS-path length, and other configurable rules) with route information to determine the 'best' path, rather than relying on a single simple cost metric; it is used both between ASes (eBGP) and, in the form of iBGP, within a single AS.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0136",
     "chapter": "Routing",
     "topic": "BGP",
@@ -17358,40 +14916,6 @@ const DB = [
     ],
     "correctIndex": 0,
     "explanation": "BGP is the standard inter-domain (exterior gateway) routing protocol of the Internet, used by border routers of different Autonomous Systems to exchange reachability information about the networks each AS can reach.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0137",
-    "chapter": "Routing",
-    "topic": "BGP",
-    "difficulty": "medium",
-    "question": "In the BGP routing protocol:",
-    "options": [
-      "Topology information always has precedence over the application of routing policies ('policy')",
-      "The application of routing policies ('policy') always has precedence over topology information",
-      "The lowest-cost path toward every destination is always chosen",
-      "The lowest-cost path toward every destination is always chosen, unless there are limitations intrinsic to the operation of hierarchical routing"
-    ],
-    "correctIndex": 1,
-    "explanation": "BGP path selection is fundamentally policy-driven: administrators configure preferences (local preference, AS-path prepending, communities, etc.) that determine which route is chosen, and these policy decisions take precedence over any purely topological/shortest-path consideration.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0138",
-    "chapter": "Routing",
-    "topic": "BGP",
-    "difficulty": "medium",
-    "question": "The 'Path Vector' technique employed by BGP:",
-    "options": [
-      "Stores in the Path Vectors the list of Autonomous Systems to traverse in order to reach a given destination network",
-      "Stores in the Path Vectors the list of routers to traverse in order to reach a given destination network",
-      "Stores in the Path Vectors the next Autonomous System to traverse in order to reach a given destination network",
-      "Stores in the Path Vectors the next router to traverse in order to reach a given destination network"
-    ],
-    "correctIndex": 0,
-    "explanation": "BGP's AS-Path attribute is the concrete implementation of the Path Vector concept: it lists every Autonomous System a route advertisement has passed through, which BGP uses both for inter-domain loop prevention and, together with policies, for path selection.",
     "source": "imported",
     "sourceLabel": "reti_Quiz"
   },
@@ -17481,40 +15005,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0144",
-    "chapter": "Virtual Private Network",
-    "topic": "IP Tunneling",
-    "difficulty": "medium",
-    "question": "In which situation is it possible for a packet to have two IP headers?",
-    "options": [
-      "The packet has passed through an inbound firewall",
-      "The packet is in the public network, after having passed outbound through a NAT",
-      "The packet is in the public network, after having passed outbound through a firewall",
-      "The packet is in the public network, in transit on an IP tunnel connecting two segments of an IP-based VPN"
-    ],
-    "correctIndex": 3,
-    "explanation": "IP-in-IP tunneling, as used to connect two segments of an IP-based VPN, encapsulates the original (inner) IP packet -- with its own header -- inside a new outer IP header used to route it across the public network; the packet therefore carries two IP headers while in transit through the tunnel.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0145",
-    "chapter": "Virtual Private Network",
-    "topic": "Overlay VPN",
-    "difficulty": "hard",
-    "question": "What distinguishes a VPN implemented according to an overlay scheme?",
-    "options": [
-      "The user's equipment is the same that would be used if the various corporate network branches were connected directly to each other",
-      "It is not possible to have confidential communications",
-      "They cannot be implemented without the consent of the chosen ISP",
-      "The network operator is not aware that a VPN is being implemented"
-    ],
-    "correctIndex": 3,
-    "explanation": "In an overlay VPN, the customer builds tunnels (e.g. GRE, IPsec) over the provider's plain IP connectivity service entirely on its own equipment, so from the network operator's point of view the traffic just looks like ordinary IP traffic between the customer's sites -- the operator has no particular awareness that a VPN overlay is being built on top of its service.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0146",
     "chapter": "Virtual Private Network",
     "topic": "GRE",
@@ -17545,40 +15035,6 @@ const DB = [
     ],
     "correctIndex": 2,
     "explanation": "A GRE-encapsulated packet carries both the original inner header (of the encapsulated payload) and a new outer IP header used for delivery across the transit network; GRE places no particular restriction on whether either header uses private or public addressing.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0149",
-    "chapter": "Virtual Private Network",
-    "topic": "PPTP",
-    "difficulty": "medium",
-    "question": "The PPTP protocol is usually used for:",
-    "options": [
-      "Allowing the creation of a tunnel in an access VPN",
-      "Allowing the creation of a tunnel in a site-to-site VPN of overlay type",
-      "Allowing the creation of a tunnel in a site-to-site VPN of peer type",
-      "Allowing the creation of a tunnel at layer 4"
-    ],
-    "correctIndex": 0,
-    "explanation": "PPTP (Point-to-Point Tunneling Protocol) is typically used to build the tunnel for remote-access (dial-up/client-to-site) VPNs, letting an individual remote user connect securely to a corporate network, rather than for site-to-site interconnections.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0150",
-    "chapter": "Virtual Private Network",
-    "topic": "IPsec",
-    "difficulty": "medium",
-    "question": "IPsec:",
-    "options": [
-      "Is used only for VPN",
-      "Manages key encryption",
-      "Has problems with solutions that use NAT",
-      "Operates exclusively at the application layer of the protocol stack"
-    ],
-    "correctIndex": 2,
-    "explanation": "A well-known practical limitation of IPsec is that its AH (Authentication Header) mode -- and to some extent ESP -- can conflict with Network Address Translation, since NAT rewrites IP addresses/ports that IPsec's integrity checks or encapsulation assume to be unmodified, requiring special NAT-Traversal (NAT-T) mechanisms to work around it.",
     "source": "imported",
     "sourceLabel": "reti_Quiz"
   },
@@ -17630,23 +15086,6 @@ const DB = [
     ],
     "correctIndex": 2,
     "explanation": "In IPsec Tunnel mode, the entire original (inner) IP packet -- its IP header, transport header, and payload -- is encrypted and encapsulated inside a new outer IP header, which itself is not encrypted since routers need to read it to forward the packet.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0155",
-    "chapter": "Virtual Private Network",
-    "topic": "SSL VPN",
-    "difficulty": "medium",
-    "question": "SSL (Secure Socket Layer)-based VPN solutions allow:",
-    "options": [
-      "Securely distributing web-based applications across different servers",
-      "Creating clusters of private servers",
-      "A company to securely make specific corporate applications available to its employees outside the office",
-      "The building of a backbone on which a service provider can easily and efficiently offer connectivity services to its clients"
-    ],
-    "correctIndex": 2,
-    "explanation": "SSL VPNs are typically used to give remote employees secure, often browser-based, access to specific corporate applications, without necessarily providing full network-layer connectivity like other VPN types.",
     "source": "imported",
     "sourceLabel": "reti_Quiz"
   },
@@ -17736,23 +15175,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0162",
-    "chapter": "MPLS - Multi-Protocol Label Switching",
-    "topic": "MPLS Fundamentals",
-    "difficulty": "medium",
-    "question": "The MPLS (multi-protocol label switching) architecture is characterized by:",
-    "options": [
-      "A different mechanism (compared to pure IP) for deciding the output interface toward which a packet should be forwarded",
-      "A particularly evolved support for providing guaranteed-quality services",
-      "Particularly fast routing protocols for updating routing tables following topology changes, so as to quickly recover from failures",
-      "Intelligent network terminals able to personalize the services received from the network"
-    ],
-    "correctIndex": 0,
-    "explanation": "MPLS's defining architectural trait is its forwarding mechanism: instead of a longest-prefix-match IP lookup at every hop, routers make a simple label-based lookup/swap decision, which is a fundamentally different mechanism for choosing the outgoing interface compared to conventional IP forwarding.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0163",
     "chapter": "MPLS - Multi-Protocol Label Switching",
     "topic": "MPLS-based VPN",
@@ -17787,74 +15209,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0165",
-    "chapter": "MPLS - Multi-Protocol Label Switching",
-    "topic": "MPLS Labels",
-    "difficulty": "medium",
-    "question": "In a packet traveling on an MPLS network, is it possible to have more than one label at the same time?",
-    "options": [
-      "No, it is not provided for",
-      "Yes, but no more than 2",
-      "Yes, but no more than 20",
-      "Yes, but only in MPLS tunnels used for VPNs"
-    ],
-    "correctIndex": 2,
-    "explanation": "MPLS supports a label stack, allowing multiple labels to be pushed onto a packet (e.g., for hierarchical LSPs, MPLS VPNs, or traffic engineering tunnels); the standard specifies a practical limit that is much higher than just two (commonly cited as up to 20 in typical hardware/implementation limits).",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0166",
-    "chapter": "MPLS - Multi-Protocol Label Switching",
-    "topic": "MPLS Fundamentals",
-    "difficulty": "medium",
-    "question": "The importance of MPLS (multi-protocol label switching) in today's and future networks derives from the possibility of:",
-    "options": [
-      "Building switches with specific support to guarantee quality of service",
-      "Having a single control plane for different switching technologies",
-      "Building devices able to operate without any configuration",
-      "Distributing traffic across server farms"
-    ],
-    "correctIndex": 1,
-    "explanation": "A key value of MPLS is that it provides a unified control plane (IP-based routing and label distribution) that can sit above different underlying layer-2 switching technologies (ATM, Frame Relay, Ethernet, etc.), integrating them under common traffic engineering and forwarding logic.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0167",
-    "chapter": "MPLS - Multi-Protocol Label Switching",
-    "topic": "MPLS Label Operations",
-    "difficulty": "medium",
-    "question": "The operations that an MPLS router can perform on labels are the following:",
-    "options": [
-      "Add a label at any position in the MPLS header (PUSH), remove a label at any position (POP), change the content of any label (SWAP)",
-      "Add a label in the outermost position of the MPLS header (PUSH), remove the label at the outermost position of the MPLS header (POP), change the content of the outer label (SWAP)",
-      "Add a label only if there are no others already present (only one label is allowed) (PUSH), remove the only allowable label upon exiting the MPLS network (POP), and change the content of that label (SWAP)",
-      "Labels cannot be manipulated by MPLS routers"
-    ],
-    "correctIndex": 1,
-    "explanation": "MPLS label operations always act on the top (outermost) label of the label stack: PUSH adds a new outermost label, POP removes the current outermost label, and SWAP replaces the value of the outermost label -- inner labels in the stack are never directly manipulated.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0168",
-    "chapter": "MPLS - Multi-Protocol Label Switching",
-    "topic": "Label Binding",
-    "difficulty": "medium",
-    "question": "In topology-based control-driven label binding:",
-    "options": [
-      "Traffic from different applications running on the same hosts is transported on different LSPs",
-      "The forwarding tables of MPLS routers are configured manually",
-      "An LSP is created following the identification of a path toward a destination (in other words, an LSP is created for every discovered destination)",
-      "MPLS routers must use the BGP protocol"
-    ],
-    "correctIndex": 2,
-    "explanation": "In topology-driven (as opposed to traffic- or request-driven) label binding, LSPs are set up automatically as soon as the underlying routing protocol discovers a reachable destination/prefix, effectively creating one LSP per discovered route, independent of manual configuration or actual traffic demand.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0169",
     "chapter": "MPLS - Multi-Protocol Label Switching",
     "topic": "MPLS-based VPN",
@@ -17868,23 +15222,6 @@ const DB = [
     ],
     "correctIndex": 1,
     "explanation": "In an MPLS/BGP L3 VPN, the outer (transport) label is what core (P) routers use to label-switch the packet hop-by-hop toward the egress PE router; the inner (VPN) label identifies the specific customer VPN/VRF and is meaningful only to the egress PE, not to the P routers, which do not inspect or act on it.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0170",
-    "chapter": "MPLS - Multi-Protocol Label Switching",
-    "topic": "MPLS-based VPN",
-    "difficulty": "medium",
-    "question": "To realize a VPN using MPLS, at layer 3 according to the peer model, it is possible to:",
-    "options": [
-      "Use a suitably modified version of BGP",
-      "Use a suitably modified version of TCP",
-      "Use a suitably modified version of RIP",
-      "Use a suitably modified version of RTP"
-    ],
-    "correctIndex": 0,
-    "explanation": "The standard MPLS/BGP Layer-3 VPN architecture (RFC 4364) implements the peer model using Multiprotocol BGP (MP-BGP) extended with VPN-specific address families (VPN-IPv4/IPv6) and route distinguishers/targets, to distribute customer routes and VPN labels between PE routers.",
     "source": "imported",
     "sourceLabel": "reti_Quiz"
   },
@@ -17970,23 +15307,6 @@ const DB = [
     ],
     "correctIndex": 3,
     "explanation": "MPLS can support both VPN models: in an overlay VPN it can supply the point-to-point (or virtual-circuit-like) connections between customer sites, while in a peer-model VPN (e.g., MPLS/BGP L3VPN) it provides the entire label-switched forwarding mechanism that carries customer routes across the shared backbone.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0176",
-    "chapter": "MPLS - Multi-Protocol Label Switching",
-    "topic": "Label Swapping",
-    "difficulty": "medium",
-    "question": "The 'Label Swapping' forwarding technique:",
-    "options": [
-      "Is not suitable when there is a need to provide quality-of-service guarantees in packet forwarding",
-      "Provides that a data packet keeps the same label ('label') for the entire path from the source node to the destination node",
-      "Requires that all nodes present on the path share exactly the same forwarding table",
-      "May require a 'Path Setup' phase to determine the path"
-    ],
-    "correctIndex": 3,
-    "explanation": "Establishing the label-switched path that label swapping will use often involves a preliminary Path Setup (signaling) phase, during which routers along the chosen path agree on and install the label bindings needed before actual label-swapped forwarding of data can begin.",
     "source": "imported",
     "sourceLabel": "reti_Quiz"
   },
@@ -18144,23 +15464,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0190",
-    "chapter": "The Optical Internet",
-    "topic": "Fiber Optics",
-    "difficulty": "easy",
-    "question": "Advantage of optical fiber:",
-    "options": [
-      "Higher transmission speed on the channel",
-      "High-performance optical switches and low complexity",
-      "Lower cost of the fiber cabling compared to any other medium in every scenario",
-      "Immunity to all forms of signal degradation over any distance"
-    ],
-    "correctIndex": 1,
-    "explanation": "One of the practical advantages associated with optical fiber networks is that optical switching devices can achieve very high performance while remaining relatively low in complexity compared to performing equivalent switching decisions electronically at those data rates.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0192",
     "chapter": "Multimedia Networking and Quality of Service",
     "topic": "Token Bucket",
@@ -18178,40 +15481,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0193",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "Policing",
-    "difficulty": "medium",
-    "question": "What is the use of policing mechanisms?",
-    "options": [
-      "They are used by the customer to agree with the provider on the level of QoS to obtain",
-      "They are used by the service provider to verify that the traffic injected by the customer complies with the agreed contract",
-      "They are used by the customer to verify that traffic arriving from the provider complies with the agreed contract",
-      "They are used in various routers to guarantee a maximum crossing time for each of them"
-    ],
-    "correctIndex": 1,
-    "explanation": "Policing is enforced by the network (service provider) at the ingress of its domain, to check that a customer's incoming traffic conforms to the previously negotiated traffic contract (e.g., rate and burst limits), and to take action (e.g., drop or mark) on out-of-profile traffic.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0194",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "DiffServ vs IntServ",
-    "difficulty": "medium",
-    "question": "DiffServ differs from IntServ because:",
-    "options": [
-      "DiffServ tends to provide a QoS guarantee that IntServ does not",
-      "DiffServ introduces new protocols to allow the reservation of resources for the purpose of obtaining a given QoS",
-      "IntServ tends to provide a QoS guarantee that DiffServ does not",
-      "DiffServ tends to guarantee a maximum crossing time, while IntServ tends to provide a minimum guaranteed bandwidth"
-    ],
-    "correctIndex": 2,
-    "explanation": "IntServ, through per-flow resource reservation (via RSVP), can provide strict, quantifiable QoS guarantees to individual flows, whereas DiffServ works by aggregating traffic into a small number of classes with per-hop behaviors, offering differentiated (but generally less strict, statistical rather than hard) service guarantees at much better scalability.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0195",
     "chapter": "Multimedia Networking and Quality of Service",
     "topic": "Token Bucket",
@@ -18225,74 +15494,6 @@ const DB = [
     ],
     "correctIndex": 1,
     "explanation": "In a token bucket of depth B tokens refilled at rate r tokens/second, the long-term average injection rate is bounded by r, while the largest burst a source can send all at once is bounded by the bucket depth B -- matching option B's description exactly.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0196",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "Token Bucket",
-    "difficulty": "medium",
-    "question": "In the token bucket algorithm:",
-    "options": [
-      "The bucket capacity is related to the average rate over the long period",
-      "The bucket capacity is related to the maximum burst size",
-      "The bucket capacity has a direct relationship with bandwidth",
-      "It serves to implement weighted fair queuing"
-    ],
-    "correctIndex": 1,
-    "explanation": "The bucket's capacity (depth, in tokens) directly determines the maximum burst size a source is allowed to send instantaneously; the long-term average rate is instead controlled by the token refill rate, not by the bucket capacity itself.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0197",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "RSVP",
-    "difficulty": "medium",
-    "question": "The RSVP (Resource ReSerVation Protocol) protocol is able to:",
-    "options": [
-      "Limit the delay variations (jitter) suffered by packets in routers",
-      "Make routers aware of the quality of service requests made by applications",
-      "Reserve computing resources on servers that share their processors",
-      "Verify the delays and losses suffered by multimedia application packets on the network"
-    ],
-    "correctIndex": 1,
-    "explanation": "RSVP is a signaling protocol that lets applications/hosts request specific resource reservations (e.g., bandwidth, delay bounds) along the path to a destination, informing the routers along that path of the requested QoS so they can reserve the necessary network resources -- it does not itself directly bound jitter or reserve server CPU resources.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0198",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "Scheduling",
-    "difficulty": "medium",
-    "question": "Scheduling algorithms are used:",
-    "options": [
-      "In access routers, to ensure that the traffic generated by a user is compliant with the traffic profile contracted with their service provider",
-      "In firewalls, to delay packets entering a corporate network from the Internet, with the purpose of preventing certain types of security attacks",
-      "In routers, to decide the order in which packets waiting at an interface should be transmitted",
-      "In routers, to appropriately schedule the list of configuration commands issued by the user, so as to minimize the disruption caused by the time needed to apply the changes"
-    ],
-    "correctIndex": 2,
-    "explanation": "Scheduling algorithms (e.g., Weighted Fair Queuing, Priority Queuing) run on router output interfaces to decide, among the packets currently queued and waiting to be transmitted, in which order they should actually be sent -- this is distinct from traffic policing/shaping (which enforces contracted profiles) or firewall/config-related tasks.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
-    "id": "reti-0199",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "DiffServ",
-    "difficulty": "medium",
-    "question": "The DiffServ architecture is characterized by:",
-    "options": [
-      "A mechanism for separating traffic into classes, each of which can receive a specific service at every node it traverses",
-      "Sophisticated signaling protocols for the reservation of resources",
-      "The ability to provide a guaranteed-quality service to applications or flows that make explicit request for it to the network",
-      "Sophisticated routing protocols to choose the path of each individual packet so as to ensure it receives the service it needs"
-    ],
-    "correctIndex": 0,
-    "explanation": "DiffServ's core mechanism is to classify and mark traffic into a small number of aggregated service classes (via the DSCP field), so that each network node along the path can apply a consistent, class-specific forwarding treatment (Per-Hop Behavior), without needing per-flow signaling, reservation protocols, or special per-packet routing.",
     "source": "imported",
     "sourceLabel": "reti_Quiz"
   },
@@ -18361,40 +15562,6 @@ const DB = [
     ],
     "correctIndex": 3,
     "explanation": "The token (coin) bucket mechanism is a traffic shaping/policing tool that bounds the maximum burst size (bucket depth) and the average admitted rate (token fill rate), not queue scheduling or minimum delays.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0002",
-    "chapter": "IPv6",
-    "topic": "IPv6 vs IPv4 differences",
-    "difficulty": "medium",
-    "question": "Unlike IP version 4, version 6:",
-    "options": [
-      "It does not have an associated version of ICMP.",
-      "It does not allow you to find out the MAC address of another station by knowing its IP address.",
-      "It has no broadcast addresses.",
-      "It does not have a TTL (time-to-live) field equivalent."
-    ],
-    "correctIndex": 2,
-    "explanation": "IPv6 eliminates broadcast addresses entirely, replacing their functions with multicast; it still has ICMPv6, uses Neighbor Discovery (replacing ARP) to resolve link-layer addresses, and has a Hop Limit field equivalent to TTL.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0005",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "UMTS standard features",
-    "difficulty": "medium",
-    "question": "Which of the following definitions is new to the UMTS standard?",
-    "options": [
-      "Microdiversity",
-      "Network Slicing",
-      "None of these definitions",
-      "Macrodiversity"
-    ],
-    "correctIndex": 3,
-    "explanation": "Macrodiversity, where a mobile is simultaneously connected to multiple base stations (soft handover), is a concept introduced with UMTS/WCDMA; microdiversity already existed in earlier systems and network slicing belongs to 5G.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -18535,23 +15702,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasA-0014",
-    "chapter": "Routing",
-    "topic": "Forwarding vs Routing",
-    "difficulty": "medium",
-    "question": "The concepts of Forwarding and Routing:",
-    "options": [
-      "They are synonymous; they identify the process of finding a valid path for a packet, from sender to receiver",
-      "They are synonymous; they identify the process of determining, in the face of an incoming packet at a network node, which is the best output port to the destination",
-      "They are different concepts; the forwarding process aims to identify a valid path for a packet, from sender to receiver; the routing process allows, in the face of a packet entering a network node, to determine which is the best exit port to the destination",
-      "They are different concepts; the routing process aims to identify a valid path for a packet, from sender to receiver; the forwarding process allows, in the face of a packet entering a network node, to determine which is the best exit port to the destination"
-    ],
-    "correctIndex": 3,
-    "explanation": "Routing is the control-plane process of computing valid end-to-end paths (building routing tables), while forwarding is the data-plane process of using that table to decide the outgoing port for each arriving packet at a node.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasA-0015",
     "chapter": "MPLS - Multi-Protocol Label Switching",
     "topic": "LSP establishment",
@@ -18565,22 +15715,6 @@ const DB = [
     ],
     "correctIndex": 3,
     "explanation": "Setting up a Label Switched Path requires each MPLS router along the route to perform a mapping operation between incoming and outgoing labels (label swapping), rather than requiring uniform layer-2 protocols or MPLS support at the final destination.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0016",
-    "chapter": "IPv6",
-    "topic": "IPv6 header",
-    "difficulty": "medium",
-    "question": "IPv6 Header",
-    "options": [
-      "The header is fixed size and no options can be added.",
-      "The header is of variable size.",
-      "Fixed header size but with possible addition of additional headers"
-    ],
-    "correctIndex": 2,
-    "explanation": "The IPv6 base header has a fixed 40-byte size; optional information is carried via chained extension headers appended after the base header, rather than variable-length options within it.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -18602,21 +15736,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasA-0018",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "VLAN communication",
-    "difficulty": "easy",
-    "question": "A host belonging to a certain VLAN",
-    "options": [
-      "Can only contact hosts in the same VLAN",
-      "Can contact hosts in other VLANs via a router"
-    ],
-    "correctIndex": 1,
-    "explanation": "VLANs are separate broadcast/layer-2 domains; hosts in different VLANs can only communicate through a layer-3 device (a router or layer-3 switch) that routes between them.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasA-0020",
     "chapter": "Routing",
     "topic": "Centralized routing",
@@ -18630,23 +15749,6 @@ const DB = [
     ],
     "correctIndex": 3,
     "explanation": "Centralized routing relies on a single central node computing routes for the whole network, making that node a single point of failure and a scalability bottleneck.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0021",
-    "chapter": "IPv6",
-    "topic": "Link-local address",
-    "difficulty": "medium",
-    "question": "A link-local address:",
-    "options": [
-      "It can be used to enable communication between stations over local links (e.g., a LAN) in the absence of other IPv6 addresses.",
-      "It is used to physically connect two stations on a local link.",
-      "It is the address used by stations on a LAN to exchange data.",
-      "It is used in all communication between local stations."
-    ],
-    "correctIndex": 0,
-    "explanation": "IPv6 link-local addresses (fe80::/10) are automatically configured and allow communication on a local link even when no other (e.g., global) IPv6 address has been assigned.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -18713,57 +15815,6 @@ const DB = [
     ],
     "correctIndex": 1,
     "explanation": "RIP is a Distance Vector protocol that periodically communicates its routing information (distance vectors) with neighboring routers to build routing tables.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0026",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "Policing mechanisms",
-    "difficulty": "medium",
-    "question": "What is the use of policing mechanisms?",
-    "options": [
-      "They are for the user to agree with the provider on the level of QoS to be achieved.",
-      "They are used by the service provider to verify that the traffic entered by the customer is in accordance with the agreements made.",
-      "They are for the user to verify that incoming traffic from the provider is in accordance with the agreements made.",
-      "They are used in the various routers to guarantee a maximum traversal time for each of them."
-    ],
-    "correctIndex": 1,
-    "explanation": "Policing is performed by the network/service provider at the ingress point to check that customer traffic conforms to the agreed traffic contract (e.g., via token bucket parameters), discarding or marking excess traffic.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0027",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "IntServ vs DiffServ",
-    "difficulty": "medium",
-    "question": "DiffServ differs from IntServ because:",
-    "options": [
-      "DiffServ tends to provide a guarantee on QoS that IntServ does not give.",
-      "DiffServ introduces new protocols to enable resource reservation for the purpose of achieving a given QoS.",
-      "IntServ tends to provide a guarantee on QoS that DiffServ does not give.",
-      "DiffServ tends to guarantee a maximum traversal time, while IntServ tends to provide a guaranteed minimum bandwidth."
-    ],
-    "correctIndex": 2,
-    "explanation": "IntServ uses per-flow resource reservation (RSVP) to provide strict, guaranteed QoS, whereas DiffServ only provides a coarser, class-based/statistical form of service differentiation without hard per-flow guarantees.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0028",
-    "chapter": "Routing",
-    "topic": "RIP characteristics",
-    "difficulty": "medium",
-    "question": "The RIP protocol is characterized by",
-    "options": [
-      "The use of the link state routing algorithm",
-      "The ability to be used for both interdomain and intradomain routing",
-      "The ability to operate on large networks because of its ability to operate hierarchically",
-      "Frequent instability and ease in creating circular forwarding paths"
-    ],
-    "correctIndex": 3,
-    "explanation": "RIP, being a simple Distance Vector protocol with a small hop-count metric limit, is prone to slow convergence, instability (count-to-infinity), and transient routing loops.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -18887,22 +15938,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasA-0036",
-    "chapter": "Routing",
-    "topic": "Routing metric",
-    "difficulty": "easy",
-    "question": "The metric (cost) in a routing algorithm expresses",
-    "options": [
-      "The weight to be assigned to a link and used in path selection",
-      "The probability that the shortest path is used",
-      "The computational complexity of the algorithm"
-    ],
-    "correctIndex": 0,
-    "explanation": "A routing metric (cost) is a weight assigned to each link, used by the routing algorithm to select the best (e.g., lowest total cost) path to a destination.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasA-0037",
     "chapter": "IPv4 Addressing and Routing",
     "topic": "Subnet aggregation",
@@ -18932,23 +15967,6 @@ const DB = [
     ],
     "correctIndex": 1,
     "explanation": "MPLS Layer 3 VPNs (e.g., BGP/MPLS VPNs) are known for good automation and tight integration between the provider's backbone and customers' private networks, not for cryptographic security since MPLS itself provides no encryption.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0039",
-    "chapter": "IPv6",
-    "topic": "Solicited Node Multicast Address",
-    "difficulty": "medium",
-    "question": "The Solicited Node Multicast Address is:",
-    "options": [
-      "The multicast address used as the source address in a Neighbor Solicitation packet.",
-      "The multicast address that is placed in the payload (Target Address field of ARPv6) of a Neighbor Solicitation packet.",
-      "The multicast address that is placed in the payload (Target Address field of ICMPv6) of a Neighbor Solicitation packet.",
-      "The multicast address used as the destination address in a Neighbor Solicitation packet."
-    ],
-    "correctIndex": 3,
-    "explanation": "The Solicited-Node Multicast Address is derived from a target's unicast/anycast address and used as the destination address of Neighbor Solicitation packets, so only nodes with a matching address need to process the message.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -19021,23 +16039,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasA-0044",
-    "chapter": "Routing",
-    "topic": "Selective flooding",
-    "difficulty": "medium",
-    "question": "A selective flooding routing algorithm:",
-    "options": [
-      "It is basically similar to the classical flooding algorithm, with the difference that each incoming packet is retransmitted on all lines except the one on which it was received",
-      "It is definitely more robust than a classic flooding algorithm",
-      "Allows you to reduce the number of times a packet is sent over the same portion of the network",
-      "Requires sent packets to contain a sequence number"
-    ],
-    "correctIndex": 2,
-    "explanation": "Selective flooding forwards packets only on links that roughly point toward the destination (rather than all links), reducing redundant retransmissions over the same parts of the network compared to classical flooding.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasA-0045",
     "chapter": "Routing",
     "topic": "OSPF Area Border Router",
@@ -19106,23 +16107,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasA-0049",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "Ethernet switch communication",
-    "difficulty": "medium",
-    "question": "Two hosts connected to an Ethernet switch",
-    "options": [
-      "They can communicate only if they belong to the same VLAN, whatever the network configuration",
-      "They can communicate even if they belong to different VLANs, depends on the network configuration",
-      "They must be able to communicate at all times without using an intermediate router",
-      "They cannot communicate using a router since they are connected to the same switch."
-    ],
-    "correctIndex": 1,
-    "explanation": "Whether two hosts on an Ethernet switch can communicate depends on the network/VLAN configuration: same-VLAN hosts communicate directly at layer 2, while different-VLAN hosts need a router/layer-3 device, which may or may not be configured.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasA-0050",
     "chapter": "Multimedia Networking and Quality of Service",
     "topic": "RSVP",
@@ -19136,23 +16120,6 @@ const DB = [
     ],
     "correctIndex": 1,
     "explanation": "RSVP is a signaling protocol used by applications to inform routers along a path of their QoS/resource reservation requirements, enabling routers to reserve the necessary resources for that flow.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0051",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "Trunk vs Access mode",
-    "difficulty": "medium",
-    "question": "Two hosts connected to a Switched Ethernet network through ports configured in mode",
-    "options": [
-      "They can communicate only if they belong to the same VLAN",
-      "They cannot communicate",
-      "If they belong to different VLANs, they can only communicate if they are connected to different switches and the link between the switches is configured in Trunk mode",
-      "If they belong to different VLANs, they may be able to communicate even if they are connected to different switches and the switch ports are configured in Access mode."
-    ],
-    "correctIndex": 1,
-    "explanation": "This question (with an incomplete stem, likely referring to ports statically assigned to VLANs without inter-VLAN routing) indicates that without a routing device, hosts on switch ports alone cannot communicate across VLAN boundaries.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -19223,74 +16190,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasA-0057",
-    "chapter": "MPLS - Multi-Protocol Label Switching",
-    "topic": "MPLS control plane",
-    "difficulty": "medium",
-    "question": "The importance of MPLS (multi-protocol label switching) in today's and future networks stems from the possibility of",
-    "options": [
-      "Making switches with specific support to ensure quality of service",
-      "Having a single control plane for different switching tencologies",
-      "Making apparatus capable of operating without the need for configuration",
-      "Distribute traffic across batteries of servers"
-    ],
-    "correctIndex": 1,
-    "explanation": "A key value of MPLS is providing a single, unified control plane that can work over diverse underlying switching/transport technologies (e.g., ATM, Frame Relay, optical, Ethernet).",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0058",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "IMEI",
-    "difficulty": "easy",
-    "question": "The International Mobile Equipment Identity (IMEI) is:",
-    "options": [
-      "A temporary code assigned by the ISP",
-      "A fixed code assigned by the BTS",
-      "A temporary telephone number assigned to the terminal based on its location",
-      "Identifies the device, is assigned by the vendor, and is not modifiable"
-    ],
-    "correctIndex": 3,
-    "explanation": "The IMEI is a unique, permanent identifier of the physical mobile device assigned by its manufacturer, unlike the IMSI/SIM which identifies the subscriber.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0059",
-    "chapter": "Routing",
-    "topic": "OSPF LAN representation",
-    "difficulty": "medium",
-    "question": "In the OSPF protocol, routers connected to the same LAN are represented in the graph describing the network as:",
-    "options": [
-      "A single node",
-      "A star-shaped structure of logical connections",
-      "A fully knitted structure of logical connections",
-      "A structure composed of a set of nodes on a broadcast link"
-    ],
-    "correctIndex": 1,
-    "explanation": "OSPF represents a multi-access LAN using a pseudonode/Designated Router as a hub, with each attached router connected to it, forming a star-shaped topology in the link-state graph.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0060",
-    "chapter": "IPv6",
-    "topic": "IPv6 addressing scheme",
-    "difficulty": "medium",
-    "question": "The IPv6 addressing scheme:",
-    "options": [
-      "Provides only addresses uniquely assigned by a designated body.",
-      "It provides for each entity (e.g., company) to have a set of addresses globally assigned to it, which become its property in perpetuity.",
-      "It provides that the first 64 bits of an address are normally identified as the network prefix, at least on LANs.",
-      "It does not provide for the existence of multicast addresses."
-    ],
-    "correctIndex": 2,
-    "explanation": "In standard IPv6 addressing, the address is typically split into a 64-bit network prefix and a 64-bit interface identifier, especially for LANs using SLAAC/EUI-64.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasA-0061",
     "chapter": "Routing",
     "topic": "Link State final stage",
@@ -19342,22 +16241,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasA-0064",
-    "chapter": "IPv6",
-    "topic": "Aggregatable global unicast addresses",
-    "difficulty": "medium",
-    "question": "Aggregatable global unicast addresses",
-    "options": [
-      "They can only be used by routers",
-      "They can only be used by hosts",
-      "They are geographically distributed hierarchically"
-    ],
-    "correctIndex": 2,
-    "explanation": "IPv6 Aggregatable Global Unicast addresses are allocated in a hierarchical, geographically/topologically structured manner (via registries, ISPs, sites) to support efficient route aggregation.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasA-0066",
     "chapter": "Routing",
     "topic": "OSPF Network Link LSA",
@@ -19375,40 +16258,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasA-0067",
-    "chapter": "Routing",
-    "topic": "BGP policy vs topology",
-    "difficulty": "medium",
-    "question": "In the BGP routing protocol:",
-    "options": [
-      "Topology information always takes precedence over the application routing policies (\"policies\")",
-      "Application of routing policies (\"policies\") always precedence over topology information",
-      "The lowest cost route to each destination is always chosen",
-      "The lowest cost path to each destination is always chosen, unless there are inherent limitations to the operation of hierarchical routing"
-    ],
-    "correctIndex": 1,
-    "explanation": "BGP is fundamentally a policy-based routing protocol: administrators' configured routing policies take precedence over pure topological/shortest-path considerations when selecting the best route.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0068",
-    "chapter": "IPv6",
-    "topic": "IPv6 address types",
-    "difficulty": "medium",
-    "question": "The IPv6 address FE80::0201:06FF:FEA5:3A4C is:",
-    "options": [
-      "An address that can be used by a host with MAC address 00:01:06:A5:3A:4C for communications with another host on the same link",
-      "An address that can be used by a server with MAC address 00:01:06:A5:3A:4C to offer a service on the IPv6 public Internet",
-      "An address that can be used by multiple devices in the same link",
-      "An address not currently provided in IPv6"
-    ],
-    "correctIndex": 0,
-    "explanation": "FE80:: is the link-local prefix, and the interface identifier 0201:06FF:FEA5:3A4C is an EUI-64 derived from MAC 00:01:06:A5:3A:4C; link-local addresses are usable only for communication on the local link, not on the public Internet.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasA-0069",
     "chapter": "IPv4 Addressing and Routing",
     "topic": "IPv4 multicast support",
@@ -19421,23 +16270,6 @@ const DB = [
     ],
     "correctIndex": 1,
     "explanation": "IPv4 multicast is supported, but it requires additional protocols beyond plain IP forwarding, such as IGMP for host-router signaling and PIM/DVMRP for multicast routing between routers.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0070",
-    "chapter": "Routing",
-    "topic": "OSPF Database Description use",
-    "difficulty": "medium",
-    "question": "In OSPF, a package of \"Database Description\":",
-    "options": [
-      "It is used by two adjacent routers to exchange their respective copies of the OSPF database",
-      "It is used by two adjacent routers to exchange their respective copies of the routing table",
-      "Allows a router that has detected a new adjacency with another OSPF router to know the LSAs it is missing",
-      "Allows a newly powered-up router to learn about the LSAs it is missing"
-    ],
-    "correctIndex": 2,
-    "explanation": "Database Description packets summarize the headers of LSAs in a router's database so that a router forming a new adjacency can identify which LSAs it is missing and needs to request in full.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -19493,57 +16325,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasA-0074",
-    "chapter": "Virtual Private Network",
-    "topic": "IPsec standard purpose",
-    "difficulty": "medium",
-    "question": "The IPsec standard is used in VPNs (virtual private networks) for",
-    "options": [
-      "Verify authentication information provided by remote users through an information exchange with an authentication server.",
-      "Allow authentication information (e.g., username and password or via challenge mechanisms) to be sent by users of an access VPN.",
-      "The establishment of tunnels through a public IP network on the through which IP packets from or destined for a private network can be carried regardless of the addressing plane used on that private network (as long as the addressing planes of the two private networks do not overlap).",
-      "The automatic creation of encrypted links between a company's locations through a public network, over which communication is therefore inherently insecure."
-    ],
-    "correctIndex": 2,
-    "explanation": "IPsec is primarily used to build secure tunnels across a public IP network, carrying private-network IP packets independent of the addressing used internally, as long as the two private address spaces do not overlap.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0075",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "UMTS frequency reuse",
-    "difficulty": "medium",
-    "question": "In the UMTS connection",
-    "options": [
-      "Frequency reuse still exists, with possible interference",
-      "There is no longer frequency reuse and no interference due to the use of different codes",
-      "There is still frequency reuse, but optimized to avoid interference",
-      "There is no longer frequency reuse and no interference due to the use of different access times"
-    ],
-    "correctIndex": 1,
-    "explanation": "UMTS uses CDMA (WCDMA), where all cells can reuse the same frequency (reuse factor of 1) because different codes distinguish users/cells, removing the classical frequency-reuse planning problem.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0076",
-    "chapter": "IPv6",
-    "topic": "IPv6 forwarding on LAN",
-    "difficulty": "hard",
-    "question": "The forwarding of IPv6 packets on a LAN:",
-    "options": [
-      "It does not make use of neighbor discovery mechanisms since there is a rule to map any IPv6 address to a MAC address.",
-      "It does not make use of neighbor discovery mechanism with regard to forwarding IPv6 multicast and broadcast packets because there is a rule to map these IPv6 addresses into a MAC address.",
-      "Makes use of neighbor discovery mechanisms for all types of IPv6 addresses.",
-      "It does not make use of neighbor discovery mechanisms with regard to forwarding IPv6 multicast packets because there is a rule to map these IPv6 addresses into a MAC address."
-    ],
-    "correctIndex": 3,
-    "explanation": "IPv6 multicast addresses map algorithmically to Ethernet multicast MAC addresses, so no Neighbor Discovery lookup is needed for them; unicast addresses still require Neighbor Discovery (and there is no broadcast in IPv6).",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasA-0077",
     "chapter": "Wireless and Cellular Networks",
     "topic": "Radio interface protocol stack",
@@ -19595,40 +16376,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasA-0080",
-    "chapter": "MPLS - Multi-Protocol Label Switching",
-    "topic": "Topology-based control-driven label binding",
-    "difficulty": "hard",
-    "question": "In topology-based control-driven label binding:",
-    "options": [
-      "Traffic from different applications running on the same hosts is carried on different LSPs",
-      "MPLS router forwarding tables are configured manually",
-      "An LSP is created following the identification of a route to a destination (in other words, an LSP is created for each destination discovered)",
-      "MPLS routers must use the BGP protocol"
-    ],
-    "correctIndex": 2,
-    "explanation": "In topology-based (control-driven) label binding, LSPs are set up automatically as a consequence of the routing protocol discovering routes, effectively creating one LSP per destination/route learned.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0081",
-    "chapter": "IPv4 to IPv6 Transition",
-    "topic": "NAT64 functionality",
-    "difficulty": "medium",
-    "question": "A device equipped with the NAT64 functionality is able to",
-    "options": [
-      "Operate on 64-bit IP addresses",
-      "Replace the IPv6 header of a packet with an IPv4 one, and vice versa",
-      "Convert an IPv6 packet to an Ethernet frame",
-      "Replace the IPv6 destination address in the IPv6 header of a packet with an IPv4 one, and vice versa"
-    ],
-    "correctIndex": 1,
-    "explanation": "NAT64 translates entire packets between IPv6 and IPv4 by replacing the IP header (protocol translation), not merely rewriting one address field, allowing IPv6-only clients to reach IPv4-only servers.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasA-0082",
     "chapter": "Routing",
     "topic": "Count to infinity",
@@ -19659,23 +16406,6 @@ const DB = [
     ],
     "correctIndex": 1,
     "explanation": "Modern remote-access (virtual dial-up) VPNs are implemented by tunneling through an existing IP network (the Internet) rather than relying on actual dial-up phone connections.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0084",
-    "chapter": "IPv6",
-    "topic": "Stateless autoconfiguration privacy",
-    "difficulty": "hard",
-    "question": "Does IPv6 stateless autoconfiguration present privacy issues?",
-    "options": [
-      "There are no particular problems.",
-      "It does not allow cargo encryption.",
-      "It is possible to locate the same interface if it connects to the Internet from various providers.",
-      "Does not allow the use of security headers (IPsec type)."
-    ],
-    "correctIndex": 2,
-    "explanation": "Because SLAAC often derives the interface identifier from the fixed MAC address (EUI-64), the same device can be tracked/correlated across different networks and providers, raising a privacy concern.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -19714,23 +16444,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasA-0087",
-    "chapter": "Routing",
-    "topic": "Inter-domain routing",
-    "difficulty": "medium",
-    "question": "Inter-domain routing:",
-    "options": [
-      "Provides that each router knows exactly the path, in terms of routers traversed, taken by packets to a destination",
-      "Provides for an exterior gateway to make route choices, based on information collected through inter-domain routing protocols, consistent with existing agreements with other autonomous systems",
-      "Provides for each router to know exactly the cost of reaching any destination (e.g., in terms of the bandwidth of the links traversed) so that it can calculate the lowest cost path (e.g., higher bandwidth)",
-      "Is a concept that will tend to disappear"
-    ],
-    "correctIndex": 1,
-    "explanation": "Inter-domain routing (e.g., via BGP) relies on exterior gateway routers making path selections based on policy agreements between autonomous systems, not purely on cost/bandwidth metrics or exact router-level paths.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasA-0088",
     "chapter": "The Optical Internet",
     "topic": "Optical network equipment",
@@ -19744,23 +16457,6 @@ const DB = [
     ],
     "correctIndex": 1,
     "explanation": "The defining characteristic of optical networks (as opposed to plain fiber transmission systems) is the presence of optical switches that can switch an optical channel from an input port to an output port without electronic conversion.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0089",
-    "chapter": "Virtual Private Network",
-    "topic": "IPsec role in VPNs",
-    "difficulty": "medium",
-    "question": "What is the typical role of IPSec in VPNs?",
-    "options": [
-      "To distribute in a secure way the key required by other protocols to open a tunnel",
-      "To allow the transmission of authentication information (e.g. username and password) by users of VPN access",
-      "To open a managed secure tunnel across the public internet",
-      "To verify the user identity to allow other protocols to open tunnels only with authorized parties."
-    ],
-    "correctIndex": 2,
-    "explanation": "IPsec's typical role in a VPN is establishing a managed, secure (encrypted and authenticated) tunnel across the public Internet between VPN endpoints.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -19816,23 +16512,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasA-0093",
-    "chapter": "IPv6",
-    "topic": "IPv6 address structure",
-    "difficulty": "medium",
-    "question": "IPv6 addresses",
-    "options": [
-      "They allow IPv6 stations to communicate with IPv4 stations without any special additional mechanism.",
-      "They maintain the same flexible division between a network part and a host part already present in IPv4.",
-      "They are rigidly partitioned into a network, subnetwork and host part.",
-      "They are rigidly partitioned into a network part and a host part."
-    ],
-    "correctIndex": 1,
-    "explanation": "Like IPv4, IPv6 retains a flexible split between network prefix and host/interface identifier portions (via variable prefix lengths), rather than a fixed rigid partition.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasA-0094",
     "chapter": "Principles of Modern LAN Design and Operation",
     "topic": "VLAN filtering table",
@@ -19862,40 +16541,6 @@ const DB = [
     ],
     "correctIndex": 1,
     "explanation": "A key effect of VLANs is that they confine broadcast traffic to within the VLAN in which it originates, creating separate broadcast domains; VLANs do not inherently encrypt traffic or require authentication.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0096",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "Scheduling algorithms",
-    "difficulty": "medium",
-    "question": "Scheduling algorithms are used:",
-    "options": [
-      "In access routers, to ensure that the traffic generated by a user conforms to the traffic profile contracted with their service provider.",
-      "In firewalls, to delay packets entering a corporate network coming from the Internet for the purpose of preventing certain types of security attacks.",
-      "In routers, to decide the order in which waiting packets should be transmitted to an interface.",
-      "In routers, to appropriately schedule the list of configuration commands given by the user so as to minimize the disruption caused by the time it takes to apply changes."
-    ],
-    "correctIndex": 2,
-    "explanation": "Scheduling (queuing) algorithms such as WFQ or priority queuing are used in routers to determine the order in which queued packets are transmitted out an interface, in order to meet QoS objectives.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0097",
-    "chapter": "Routing",
-    "topic": "BGP purpose",
-    "difficulty": "easy",
-    "question": "The BGP protocol is used in the Internet for",
-    "options": [
-      "The exchange of information between routers belonging to different autonomous systems",
-      "Communicating the status of a router's links to neighboring routers",
-      "The discovery of neighboring routers (bordering routers) on a local area network",
-      "Locate the geographic location of a host based on its IP address"
-    ],
-    "correctIndex": 0,
-    "explanation": "BGP (Border Gateway Protocol) is the exterior gateway protocol used to exchange routing/reachability information between different Autonomous Systems on the Internet.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -19947,91 +16592,6 @@ const DB = [
     ],
     "correctIndex": 1,
     "explanation": "In BGP/MPLS VPNs, the outer (top) label is the transport label swapped hop-by-hop by P routers to reach the egress PE router, while the inner (VPN) label is used only by the PE routers to identify the correct VPN/VRF.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0101",
-    "chapter": "IPv6",
-    "topic": "IPv6 vs IPv4 header differences",
-    "difficulty": "medium",
-    "question": "Unlike IP version 4, version 6:",
-    "options": [
-      "It has no variable-length header.",
-      "It does not allow you to find out the MAC address of another station by knowing its IP address.",
-      "It does not have an equivalent of TTL (time-to-live).",
-      "It does not allow the use of IPsec."
-    ],
-    "correctIndex": 0,
-    "explanation": "IPv6 has a fixed-size 40-byte base header (unlike IPv4's variable-length header with options); it still supports Neighbor Discovery (equivalent to ARP), a Hop Limit (equivalent to TTL), and IPsec.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0102",
-    "chapter": "IPv4 to IPv6 Transition",
-    "topic": "MAP transition technique",
-    "difficulty": "hard",
-    "question": "The Mapping Address and Port (MAP) technique for the IPv4-IPv6 transition is based on",
-    "options": [
-      "The utilization, on the Customer Premises Equipment (CPE), of an IPv6 address derived from the IPv4 address and the Port Set ID assigned by the provider to the customer",
-      "The utilization, on the Border Relay, of an IPv6 address derived from the IPv4 address and the Port Set ID assigned by the provider to the various customers",
-      "The utilization, on the Customer Premises Equipment (CPE), of an IPv6 address selected among a fixed set of addresses defined by a standard",
-      "The utilization, on the Customer Premises Equipment (CPE), of an IPv6 address which varies on the basis of the IPv4 destination address that the user would like to reach"
-    ],
-    "correctIndex": 0,
-    "explanation": "MAP (Mapping of Address and Port) derives an algorithmic IPv6 address for the CPE from its IPv4 address and an assigned Port Set ID, enabling stateless IPv4-over-IPv6 address/port mapping without per-customer state at the provider.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0103",
-    "chapter": "The Optical Internet",
-    "topic": "Optical network basis",
-    "difficulty": "medium",
-    "question": "Optical networks are based on the use of",
-    "options": [
-      "Fiber-optic links between high-performance packet switches",
-      "IP router capable of forwarding packets based on their destination address by realizing look-up in the routing table using optical techniques.",
-      "Apparatus capable of switching an electromagnetic signal at a certain carrier frequency in the field of optics from an input port to an output port",
-      "None"
-    ],
-    "correctIndex": 2,
-    "explanation": "Optical networks are based on devices that switch an optical (electromagnetic) signal, identified by its carrier wavelength/frequency, directly from an input port to an output port without converting to the electronic domain.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0104",
-    "chapter": "Wireless and Cellular Networks",
-    "topic": "Frequency hopping",
-    "difficulty": "medium",
-    "question": "Frequency hopping (FH) allows",
-    "options": [
-      "To transmit consecutive bursts on different frequencies at the expense of reduced capacity",
-      "To transmit consecutive slots on the same frequency with a reduction in capacity",
-      "To transmit consecutive bursts on different frequencies with increased capacity",
-      "To transmit consecutive bursts on the same frequency"
-    ],
-    "correctIndex": 0,
-    "explanation": "Frequency hopping transmits successive bursts on different frequencies (to combat interference and fading), which comes at the cost of some reduction in usable capacity due to hopping overhead.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0105",
-    "chapter": "Virtual Private Network",
-    "topic": "Extranet definition",
-    "difficulty": "easy",
-    "question": "An extranet is",
-    "options": [
-      "A network that is used when extra transmission capacity is needed to connect two business sites",
-      "A part of a private network that is publicly accessible from the Internet, to which public enterprise servers are normally connected, such as web servers, mail servers, dns servers",
-      "A private network that includes networks of independent organizations, such as several corporate networks",
-      "A private network used to connect additional servers such as disk servers or database servers for use when needed"
-    ],
-    "correctIndex": 2,
-    "explanation": "An extranet is a private network that extends connectivity to include the networks of independent, external organizations (e.g., business partners), rather than being solely internal to one company.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -20137,23 +16697,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasA-0112",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "Access mode ports and VLAN communication",
-    "difficulty": "medium",
-    "question": "Two hosts connected to an Ethernet switch network through ports configured in Access mode:",
-    "options": [
-      "They cannot communicate",
-      "If they belong to different VLANs, they can communicate only when connected to different switches and the link between the switches is configured in trunk mode",
-      "Can only communicate if they belong to the same VLAN",
-      "If they belong to different VLANs, they may be able to communicate even if they are connected to different switches and the switch ports are configured in access mode"
-    ],
-    "correctIndex": 3,
-    "explanation": "Ports in access mode still belong to a VLAN; whether cross-VLAN communication occurs depends on whether a router/layer-3 device elsewhere in the network routes between those VLANs, so communication across switches with access ports is still possible if such routing exists.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasA-0113",
     "chapter": "IPv6",
     "topic": "IPv6 address scope",
@@ -20167,23 +16710,6 @@ const DB = [
     ],
     "correctIndex": 0,
     "explanation": "The scope (zone) associated with certain IPv6 addresses (like link-local) helps disambiguate which interface/zone an address belongs to when the same address could otherwise be associated with multiple interfaces of a sender.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0114",
-    "chapter": "IPv6",
-    "topic": "Stateless autoconfiguration requirements",
-    "difficulty": "easy",
-    "question": "Stateless autoconfiguration in IPv6 requires:",
-    "options": [
-      "A DHCPv6 server (Dynamic Host Configuration Protocol version 6)",
-      "A server present on the local network.",
-      "A server present on the corporate network (intranet).",
-      "This is possible even if no server or router is present."
-    ],
-    "correctIndex": 3,
-    "explanation": "IPv6 stateless address autoconfiguration (SLAAC) can generate a link-local address using only the interface identifier and the well-known link-local prefix, without any DHCP server or even a router being present.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -20307,23 +16833,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasA-0122",
-    "chapter": "Virtual Private Network",
-    "topic": "Centralized access VPN characteristic",
-    "difficulty": "medium",
-    "question": "The characteristic of a centralized access VPN is that",
-    "options": [
-      "Traffic not directed to the VPN is still routed through the VPN gateway.",
-      "User authentication for VPN access is delegated to the ISP.",
-      "Traffic not directed to the VPN is not forced to go through the VPN gateway.",
-      "User authentication is not done by the VPN gateway."
-    ],
-    "correctIndex": 0,
-    "explanation": "In a centralized-access VPN model, even traffic destined outside the private network (e.g., to the Internet) is routed through the central VPN gateway, which also typically enforces access control.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasA-0123",
     "chapter": "Routing",
     "topic": "RIP transport protocol",
@@ -20403,40 +16912,6 @@ const DB = [
     ],
     "correctIndex": 0,
     "explanation": "Decreasing the cell radius R while keeping the cluster/reuse size G fixed increases the number of cells (and thus frequency reuse instances) per unit area, increasing overall system capacity.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0128",
-    "chapter": "IPv6",
-    "topic": "Global unicast address usage",
-    "difficulty": "medium",
-    "question": "The IPv6 address 2001:4600::0201:06FF:FEA5:3A4C is:",
-    "options": [
-      "A private-type address",
-      "An address that can be used by a server to offer a service on the public Internet IPv6",
-      "An address that can be used by a host solely to carry out communications with another host on the same link",
-      "A currently invalid address in IPv6"
-    ],
-    "correctIndex": 1,
-    "explanation": "The prefix 2001: indicates a global unicast address (unlike the fe80:: link-local prefix), so this address is globally routable and can be used by a server to offer services on the public IPv6 Internet.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0130",
-    "chapter": "Routing",
-    "topic": "Neutral Access Point",
-    "difficulty": "medium",
-    "question": "A Neutral Access Point is a particular network in which:",
-    "options": [
-      "Multiple Autonomous Systems connect, at layer 2, a number of routers in order exchange routing information",
-      "Multiple Autonomous Systems connect, at layer 3, a number of routers in order exchange routing information",
-      "An Autonomous System connects, at layer 2, a number of routers so as to speed up the exchange of routing information within the domain",
-      "An Autonomous System connects, at layer 3, a number of routers so as to speed up the exchange of routing information within the domain"
-    ],
-    "correctIndex": 0,
-    "explanation": "A Neutral Access Point (Internet Exchange Point) is a layer-2 shared network fabric where routers belonging to multiple different Autonomous Systems interconnect to exchange routing information (peer) directly.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -20543,23 +17018,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasA-0138",
-    "chapter": "Routing",
-    "topic": "Route redistribution",
-    "difficulty": "medium",
-    "question": "Redistribution in the context of routing protocols consists of",
-    "options": [
-      "Distribute the routing table over multiple devices so as to reduce the memory occupancy on each device",
-      "Redistribute traffic over multiple alternative routes to make full use of network resources and avoid congestion on specific routes",
-      "Communicating via one routing route protocol acquired with another, however much this results in a loss of information",
-      "Learning how to reach destinations without having to exchange routing information with other computers"
-    ],
-    "correctIndex": 2,
-    "explanation": "Redistribution is the process of injecting routes learned by one routing protocol into a different routing protocol, which typically loses some protocol-specific information (like link-state metrics) in the translation.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasA-0139",
     "chapter": "IPv6",
     "topic": "Private (Unique Local) addresses",
@@ -20573,23 +17031,6 @@ const DB = [
     ],
     "correctIndex": 0,
     "explanation": "IPv6 Unique Local Addresses (ULAs, fc00::/7) are generated with a pseudo-random prefix designed to be unique with high probability across sites, but they are not globally routable on the public Internet.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0140",
-    "chapter": "Virtual Private Network",
-    "topic": "MPLS-based VPN implementation",
-    "difficulty": "hard",
-    "question": "How can MPLS be used to implement a VPN?",
-    "options": [
-      "To implement an access VPN.",
-      "MPLS cannot be used to implement VPN.",
-      "It can provide all the routing mechanism in overlay networks or of point-to-point links in peer networks.",
-      "It can provide point-to-point links in overlay networks or the whole routing mechanism in peer networks."
-    ],
-    "correctIndex": 3,
-    "explanation": "MPLS can be used either to provide simple point-to-point connectivity (as in an overlay VPN model) or to provide the full Layer 3 routing/VPN mechanism directly (as in the peer model), depending on how it is deployed.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -20678,40 +17119,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasA-0146",
-    "chapter": "Virtual Private Network",
-    "topic": "Double IP headers in tunnels",
-    "difficulty": "medium",
-    "question": "In what situation is it possible for a packet to have two IP headers?",
-    "options": [
-      "The packet passed through an incoming firewall.",
-      "The packet is in the public network after going through a NAT on the way out.",
-      "The packet is in the public network, having passed through a firewall on its way out.",
-      "The packet is in the public network in transit over an IP tunnel connecting two segments of an IP-based VPN."
-    ],
-    "correctIndex": 3,
-    "explanation": "A packet acquires two IP headers when it is encapsulated for tunneling — e.g., traveling across the public network inside an IP-in-IP or GRE tunnel connecting two segments of an IP-based VPN — with the original header preserved inside the new outer header.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0147",
-    "chapter": "IPv6",
-    "topic": "IPv6 protocol characteristics",
-    "difficulty": "medium",
-    "question": "In the IPv6 protocol:",
-    "options": [
-      "Routing protocols (e.g., packet format) do not change from IPv4.",
-      "The ARP protocol is incorporated into ICMPv6, but retains exactly the previous scheme operation (broadcast request, unicast response).",
-      "There is a possibility for a station on a network segment to self-configure by listening for Router Advertisement messages.",
-      "Like IPv4, IPv6 does not provide mechanisms for reconfiguring routers."
-    ],
-    "correctIndex": 2,
-    "explanation": "IPv6 hosts can perform stateless address autoconfiguration by listening for ICMPv6 Router Advertisement messages sent by routers, which carry prefix information used to build their own addresses.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasA-0148",
     "chapter": "Routing",
     "topic": "Multipath routing",
@@ -20746,40 +17153,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasA-0150",
-    "chapter": "Routing",
-    "topic": "Isolated routing",
-    "difficulty": "medium",
-    "question": "In isolated routing:",
-    "options": [
-      "Each router calculates, through message exchanges with only its neighbors, its own routing table",
-      "Each router calculates, through message exchanges with all routers in the network, its own routing table",
-      "Each router calculates, by analyzing only the traffic passing through it, its own routing table",
-      "Some portions of the network are isolated from the remaining routers, preventing data transit between the public portion of the network and the isolated portion"
-    ],
-    "correctIndex": 2,
-    "explanation": "In isolated (non-cooperative) routing, a router builds its routing table using only locally observed traffic statistics, without exchanging any routing information messages with other routers.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0151",
-    "chapter": "Routing",
-    "topic": "Route redistribution definition",
-    "difficulty": "medium",
-    "question": "Redistribution:",
-    "options": [
-      "is that process that needs to be enabled on the router for it to be able to sort packets to the appropriate destination",
-      "Is used to exchange information between an internal router (interior gateway) and an external router (exterior gateway) using the BGP protocol",
-      "It is mainly used by peripheral routing domains, which connect to a single Internet service provider for Internet access",
-      "Is used to allow routing information to be passed from routing domain A to routing domain B"
-    ],
-    "correctIndex": 3,
-    "explanation": "Redistribution is the mechanism that allows routes learned via one routing protocol/domain to be injected and advertised into a different routing protocol/domain.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasA-0152",
     "chapter": "MPLS - Multi-Protocol Label Switching",
     "topic": "Label Swapping technique",
@@ -20793,23 +17166,6 @@ const DB = [
     ],
     "correctIndex": 3,
     "explanation": "Label Swapping forwarding (as used in MPLS) typically requires an initial Path Setup (label distribution) phase during which the route is determined and labels are bound hop-by-hop before data forwarding begins.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0153",
-    "chapter": "Routing",
-    "topic": "Neutral Access Point layer",
-    "difficulty": "medium",
-    "question": "A Neutral Access Point is a particular network in which:",
-    "options": [
-      "All equipment is connected through the use of a high-performance central router equipped multiple network interfaces",
-      "various ASs exchange traffic in a \"peering\" mode, i.e., not for a fee",
-      "The connection between the devices is made at level 2",
-      "Each connected router sees at layer 3 all other routers on the network and can peer with each of them"
-    ],
-    "correctIndex": 2,
-    "explanation": "A Neutral Access Point (Internet Exchange Point) connects the routers of multiple ASes at layer 2 (a shared switching fabric), over which they then establish individual layer-3 peering sessions.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -20831,40 +17187,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasA-0155",
-    "chapter": "Routing",
-    "topic": "Autonomous System definition",
-    "difficulty": "medium",
-    "question": "An Autonomous System is:",
-    "options": [
-      "A computer capable of self-configuration",
-      "An area of an IP network that is administered, especially from a routing perspective, independently of others and with connections to at least two other Autonomous Systems",
-      "A network device that can autonomously discover the best route along which to forward packets for destinations",
-      "The network of an ISP"
-    ],
-    "correctIndex": 1,
-    "explanation": "An Autonomous System (AS) is a network or group of networks under a single administrative routing policy, typically interconnected to two or more other ASes for exchanging inter-domain routing information.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0156",
-    "chapter": "Routing",
-    "topic": "OSPF path selection metric",
-    "difficulty": "medium",
-    "question": "The OSPF routing protocol chooses the path to a destination taking into account:",
-    "options": [
-      "Length of each link along the route",
-      "Bandwidth and delay per link",
-      "It can be configured to use a variety of metrics whose semantics are determined by the network operator",
-      "Hop Count"
-    ],
-    "correctIndex": 2,
-    "explanation": "OSPF uses an administratively configurable cost metric per interface; the network operator decides what the cost values represent (e.g., inverse of bandwidth), giving flexibility in how paths are selected, rather than a fixed built-in semantic like hop count.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasA-0157",
     "chapter": "MPLS - Multi-Protocol Label Switching",
     "topic": "Multipath forwarding techniques",
@@ -20882,21 +17204,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasA-0158",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "VLAN broadcast scope",
-    "difficulty": "easy",
-    "question": "Given a certain LAN on which VLANs have been defined, a frame broadcast:",
-    "options": [
-      "Reaches possibly only a portion of the LAN",
-      "Reaches all hosts on the LAN"
-    ],
-    "correctIndex": 0,
-    "explanation": "With VLANs configured, a broadcast frame is confined to the VLAN in which it originated, so it reaches only the hosts in that VLAN — a portion of the physical LAN — not the entire LAN.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasA-0159",
     "chapter": "Routing",
     "topic": "OSPF Router LSA",
@@ -20910,39 +17217,6 @@ const DB = [
     ],
     "correctIndex": 0,
     "explanation": "An OSPF Router LSA describes each of the advertising router's links, including links to routers adjacent to it, forming the basis of the area's topology graph.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0160",
-    "chapter": "Routing",
-    "topic": "BGP best path selection",
-    "difficulty": "medium",
-    "question": "The BGP routing protocol:",
-    "options": [
-      "Uses rules (policy) on additional information to cost metrics to identify the \"best\" to reach a destination",
-      "Is used exclusively for information exchange between routers of different autonomous systems",
-      "Is used exclusively for information exchange between routers of the same autonomous system",
-      "Is the protocol that will replace OSPF"
-    ],
-    "correctIndex": 0,
-    "explanation": "BGP selects the 'best' route to a destination using a policy-based decision process based on multiple attributes (AS-PATH, local preference, MED, etc.), not solely a numeric cost metric.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0162",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "QoS guarantee mechanisms",
-    "difficulty": "medium",
-    "question": "Quality of service can be guaranteed on packet networks when",
-    "options": [
-      "Packets are carried by a cell-switched infrastructure (e.g., ATM)",
-      "Network nodes put in place appropriate mechanisms that regulate packet service (e.g., scheduling algorithms)",
-      "Applications are able to encode the information to be transferred according to layers (layers) of different importance"
-    ],
-    "correctIndex": 1,
-    "explanation": "QoS on packet networks is achieved through mechanisms implemented at network nodes, such as scheduling and queuing algorithms, that regulate how packets are treated and forwarded, rather than requiring a specific underlying transport technology.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -21015,40 +17289,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasA-0167",
-    "chapter": "Routing",
-    "topic": "IS-IS protocol",
-    "difficulty": "medium",
-    "question": "The IS-IS Protocol",
-    "options": [
-      "It is an obsolete routing protocol no longer used because of its poor performance",
-      "It is a routing protocol based on the link state algorithm widely used in large networks",
-      "It is a protocol used by Ethernet switches to create a spanning tree in the network by eliminating closed paths",
-      "It is an evolutionary protocol of BGP for exchanging routing information between routers belonging to different autonomous systems"
-    ],
-    "correctIndex": 1,
-    "explanation": "IS-IS (Intermediate System to Intermediate System) is a Link State interior gateway routing protocol, widely deployed in large service-provider networks alongside OSPF.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0168",
-    "chapter": "Routing",
-    "topic": "Path Vector algorithm record contents",
-    "difficulty": "medium",
-    "question": "In the Path Vector type routing algorithm:",
-    "options": [
-      "Each record contained in the Path Vector contains the destination, the distance to the router under consideration, and the next hop router to reach that destination",
-      "Each record contained in the Path Vector contains the destination, the distance to the router under consideration, and the next Autonomous System to reach that destination",
-      "Each record contained in the Path Vector contains the destination, the distance from the router under consideration, and the list of routers to be traversed to reach that destination",
-      "Each record contained in the Path Vector contains the destination, the distance from the router under consideration, and the list of Autonomous Systems to be traversed to reach that destination"
-    ],
-    "correctIndex": 3,
-    "explanation": "A Path Vector routing record (as used in BGP) contains the destination, a distance/preference value, and the complete list of Autonomous Systems that must be traversed to reach that destination.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasA-0169",
     "chapter": "MPLS - Multi-Protocol Label Switching",
     "topic": "MPLS packet label operation",
@@ -21062,23 +17302,6 @@ const DB = [
     ],
     "correctIndex": 1,
     "explanation": "MPLS associates each packet with a label that intermediate nodes use to determine how to forward and process the packet (label switching), rather than performing a full IP lookup at every hop.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0171",
-    "chapter": "Virtual Private Network",
-    "topic": "VPN solutions true statement",
-    "difficulty": "medium",
-    "question": "Regarding VPN solutions, which of these statements is true?",
-    "options": [
-      "None of the other answers",
-      "An end-to-end solution is always preferable to a site-to-site solution",
-      "A Skewed Channel is an encryption-only IPsec tunnel",
-      "Protections such as firewalls and IDSs cannot be placed within a protected network with a VPN gateway"
-    ],
-    "correctIndex": 0,
-    "explanation": "None of the other listed claims about VPN solutions are accurate (end-to-end is not always preferable, 'Skewed Channel' is not a standard IPsec concept, and firewalls/IDSs can certainly be deployed within a VPN-protected network), so 'none of the other answers' is correct.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -21146,23 +17369,6 @@ const DB = [
     ],
     "correctIndex": 2,
     "explanation": "OSPF is a Link State interior gateway routing protocol used by IP routers to compute the shortest path to each destination network using Dijkstra's algorithm on the link-state database.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0176",
-    "chapter": "Virtual Private Network",
-    "topic": "GRE protocol field purpose",
-    "difficulty": "medium",
-    "question": "The GRE protocol is used for:",
-    "options": [
-      "The identification of the protocol wrapped in an ethernet frame",
-      "The identification of the protocol wrapped in an IP packet",
-      "Exchange routing information in various protocol architectures",
-      "Encrypted tunneling in building secure VPNs"
-    ],
-    "correctIndex": 1,
-    "explanation": "GRE encapsulates a payload of essentially any network-layer protocol within an IP packet, and its header includes a field identifying the protocol type of the encapsulated (wrapped) packet.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -21285,23 +17491,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasB-0004",
-    "chapter": "Virtual Private Network",
-    "topic": "GRE protocol",
-    "difficulty": "easy",
-    "question": "The GRE protocol aims to:",
-    "options": [
-      "Protect packets against eavesdropping",
-      "Manage the encapsulation of packets to be transported through a tunnel",
-      "Authenticate the sender of the packets",
-      "Check the integrity of incoming packets"
-    ],
-    "correctIndex": 1,
-    "explanation": "Generic Routing Encapsulation (GRE) is a tunneling protocol whose purpose is to encapsulate a wide variety of network layer protocols inside point-to-point links (tunnels); it provides no encryption, authentication or integrity checking by itself.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasB-0005",
     "chapter": "Virtual Private Network",
     "topic": "VPN purpose",
@@ -21315,23 +17504,6 @@ const DB = [
     ],
     "correctIndex": 2,
     "explanation": "A VPN's core purpose is to emulate a private network's connectivity and security over a shared public infrastructure (such as the Internet), avoiding the cost of dedicated private links.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0006",
-    "chapter": "Virtual Private Network",
-    "topic": "GRE protocol",
-    "difficulty": "medium",
-    "question": "The GRE protocol is used for:",
-    "options": [
-      "Guarantee the authenticity of packages",
-      "Encapsulate packets in other IP headers, so they can be sent over a tunnel",
-      "Ensure the confidentiality of communications",
-      "Reserve some bandwidth for communication"
-    ],
-    "correctIndex": 1,
-    "explanation": "GRE encapsulates packets of one protocol inside an outer IP header so that they can traverse a tunnel across an IP network, without providing authentication, confidentiality, or bandwidth reservation.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -21383,23 +17555,6 @@ const DB = [
     ],
     "correctIndex": 2,
     "explanation": "In a centralized-access VPN model, only traffic addressed to VPN resources is routed through the central VPN gateway; other (e.g. general Internet) traffic from the user bypasses the gateway.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0010",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "DiffServ vs IntServ",
-    "difficulty": "medium",
-    "question": "DiffServ differs from IntServ because:",
-    "options": [
-      "DiffServ tends to provide a guarantee on QoS which IntServ does not give",
-      "DiffServ introduces new protocols to allow the reservation of resources in order to obtain a given QoS",
-      "IntServ tends to provide a guarantee on QoS which DiffServ does not give",
-      "DiffServ tends to guarantee a maximum traversal time, while IntServ tends to provide a minimum guaranteed band"
-    ],
-    "correctIndex": 2,
-    "explanation": "IntServ uses per-flow resource reservation (via RSVP) to provide hard, guaranteed QoS, while DiffServ only classifies and treats aggregated traffic classes differently, offering relative rather than guaranteed per-flow QoS.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -21484,23 +17639,6 @@ const DB = [
     ],
     "correctIndex": 2,
     "explanation": "A GRE-tunneled packet carries two IP headers: the original (inner) header of the encapsulated packet and a new (outer) header used to route the packet across the tunnel, and neither header is restricted to private addresses only.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0016",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "Policing mechanisms",
-    "difficulty": "medium",
-    "question": "What is the use of policing mechanisms?",
-    "options": [
-      "They are used by the user to agree with the supplier on the level of QoS to be obtained",
-      "They are used by the service provider to verify that the traffic entered by the customer complies with the agreements made",
-      "They are used by the user to verify that the traffic arriving from the supplier complies with the agreements made",
-      "They are used in the various routers to guarantee a maximum crossing time for each of them"
-    ],
-    "correctIndex": 1,
-    "explanation": "Traffic policing is applied by the service provider at the network edge to check and enforce that traffic submitted by the customer conforms to the agreed traffic contract (e.g. SLA), typically dropping or marking non-conformant traffic.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -21623,23 +17761,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasB-0025",
-    "chapter": "Virtual Private Network",
-    "topic": "IP-in-IP over VPN tunnels",
-    "difficulty": "medium",
-    "question": "In what situation is it possible for a packet to have two IP headers?",
-    "options": [
-      "The packet went through an inbound firewall",
-      "The packet is in the public network, having passed through a NAT outbound",
-      "The packet is on the public network after passing through a firewall outbound",
-      "The packet is on the public network in transit over an IP tunnel connecting two segments of an IP-based VPN"
-    ],
-    "correctIndex": 3,
-    "explanation": "A packet acquires a second (outer) IP header when it is encapsulated for transport across an IP tunnel, such as one connecting two sites of an IP-based VPN.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasB-0026",
     "chapter": "Multimedia Networking and Quality of Service",
     "topic": "DiffServ architecture",
@@ -21657,23 +17778,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasB-0027",
-    "chapter": "Virtual Private Network",
-    "topic": "IPSec role in VPNs",
-    "difficulty": "medium",
-    "question": "What is the typical role of IPSec in VPNs?",
-    "options": [
-      "Securely distribute the key required by other protocols to open a tunnel",
-      "Allow the transmission of authentication information (such as username and password) by the users of the accessing VPN",
-      "Open a secure tunnel managed over the public Internet",
-      "Verify user identity to allow other protocols to open tunnels only with authorized parties"
-    ],
-    "correctIndex": 2,
-    "explanation": "IPsec's typical role in VPNs is to establish a secure, encrypted and authenticated tunnel between two endpoints across the public Internet.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasB-0028",
     "chapter": "Virtual Private Network",
     "topic": "IPsec use cases",
@@ -21687,22 +17791,6 @@ const DB = [
     ],
     "correctIndex": 2,
     "explanation": "IPsec is commonly used to build secure, encrypted site-to-site tunnels between offices of the same organization across a public network such as the Internet.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0029",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "QoS guarantee mechanisms",
-    "difficulty": "medium",
-    "question": "The quality of service can be guaranteed on packet networks when:",
-    "options": [
-      "Packets are transported by a cell-switched infrastructure (e.g. ATM)",
-      "The network nodes implement appropriate mechanisms that regulate the packet service (for example scheduling algorithms)",
-      "Applications are able to encode the information to be transferred according to levels of different importance"
-    ],
-    "correctIndex": 1,
-    "explanation": "QoS guarantees on packet networks depend on network nodes implementing mechanisms such as scheduling, policing and admission control to regulate how packets are serviced, not simply on the underlying transport technology or application encoding.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -21809,23 +17897,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasB-0036",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "Neutral Access Point",
-    "difficulty": "medium",
-    "question": "A Neutral Access Point is a particular network in which:",
-    "options": [
-      "All devices are connected through the use of a high-performance central router, equipped with multiple network interfaces",
-      "The connection between the devices is made at level 2",
-      "Each connected router sees at level 3 all the other routers present on the network and is able to peer with each of them",
-      "The various ASs exchange traffic in \"peering\" mode, i.e., not for a fee"
-    ],
-    "correctIndex": 1,
-    "explanation": "A Neutral Access Point (such as an Internet Exchange Point) interconnects participating networks at Layer 2 (typically via a switch fabric), allowing each participant to establish its own Layer 3 peering sessions over that shared Layer 2 infrastructure.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasB-0037",
     "chapter": "MPLS - Multi-Protocol Label Switching",
     "topic": "Label Switched Path",
@@ -21873,23 +17944,6 @@ const DB = [
     ],
     "correctIndex": 1,
     "explanation": "One key benefit of MPLS is that it decouples the control plane from the underlying switching/transport technology, allowing a single unified control plane to manage forwarding across different link-layer technologies.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0040",
-    "chapter": "IPv6",
-    "topic": "Stateless autoconfiguration",
-    "difficulty": "medium",
-    "question": "Stateless autoconfiguration in IPv6 requires:",
-    "options": [
-      "A server on the local network",
-      "A server on the corporate network (intranet)",
-      "A DHCPv6 (Dynamic Host Configuration Protocol version 6) server",
-      "It is possible even if there is no server or router present"
-    ],
-    "correctIndex": 3,
-    "explanation": "Stateless address autoconfiguration lets a host generate at least a link-local IPv6 address on its own (from its interface identifier and the well-known link-local prefix) without needing any server or router to be present.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -22047,23 +18101,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasB-0050",
-    "chapter": "MPLS - Multi-Protocol Label Switching",
-    "topic": "Label Swapping",
-    "difficulty": "hard",
-    "question": "The \"Label Swapping\" forwarding technique:",
-    "options": [
-      "It is not suitable when there is a need to provide guarantees of service quality in the forwarding of packets",
-      "It requires a data packet to keep the same label (\"label\") for the entire path from the source node to the destination node",
-      "Requires that all nodes on the path share exactly the same forwarding table",
-      "It may require a \"Path Setup\" phase to determine the path"
-    ],
-    "correctIndex": 3,
-    "explanation": "Label swapping forwarding (as used in MPLS and ATM) typically requires an initial control-plane phase to set up the label switched path and distribute labels along it, before data forwarding by label swapping can occur.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasB-0051",
     "chapter": "Routing",
     "topic": "Link State routing loops",
@@ -22098,91 +18135,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasB-0053",
-    "chapter": "Routing",
-    "topic": "Path Vector routing",
-    "difficulty": "hard",
-    "question": "In the Path Vector routing algorithm:",
-    "options": [
-      "Each record contained in the Path Vector contains the destination, the distance from the router in question, and the next hop router to reach that destination",
-      "Each record contained in the Path Vector contains the destination, the distance from the router in question, and the next Autonomous System to reach that destination",
-      "Each record contained in the Path Vector contains the destination, the distance from the router in question, and the list of routers to cross to reach that destination",
-      "Each record contained in the Path Vector contains the destination, the distance from the router in question, and the list of Autonomous Systems to cross to reach that destination"
-    ],
-    "correctIndex": 3,
-    "explanation": "Path Vector routing (as used by BGP) records, for each destination, the full sequence (path) of Autonomous Systems that must be traversed to reach it, which is used both for loop prevention and policy-based path selection.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0054",
-    "chapter": "Routing",
-    "topic": "Isolated routing",
-    "difficulty": "medium",
-    "question": "In isolated routing:",
-    "options": [
-      "Each router calculates, through message exchanges with neighbors only, its own routing table",
-      "Each router calculates its own routing table by exchanging messages with all routers in the network",
-      "Each router calculates its own routing table by analyzing only the traffic that passes through it",
-      "Some portions of the network are isolated from the remaining routers, preventing the transit of data between the public portion of the network and the isolated one"
-    ],
-    "correctIndex": 2,
-    "explanation": "In isolated (or backward-learning) routing, a router builds its routing table purely by observing the source addresses and paths of the traffic passing through it, without exchanging any explicit routing control messages with other routers.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0055",
-    "chapter": "Routing",
-    "topic": "Forwarding vs Routing",
-    "difficulty": "medium",
-    "question": "The concepts of Forwarding and Routing:",
-    "options": [
-      "They are synonyms; they identify the process of finding a valid path for a packet, from the sender to the recipient",
-      "They are synonyms; identify the process that allows, in the face of a packet entering a network node, to determine which is the best exit port to the destination",
-      "They are different concepts; the forwarding process aims to identify a valid path for a packet, from the sender to the recipient; the routing process allows, in the face of a packet entering a network node, to determine which is the best exit port to the destination",
-      "They are different concepts; the routing process aims to identify a valid path for a packet, from the sender to the recipient; the forwarding process allows, in the face of a packet entering a network node, to determine which is the best exit port towards the destination"
-    ],
-    "correctIndex": 3,
-    "explanation": "Routing is the control-plane process of computing valid end-to-end paths (building routing tables), while forwarding is the data-plane process of using that information to decide, packet by packet, which outgoing interface to use at each node.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0056",
-    "chapter": "IPv6",
-    "topic": "Address scope",
-    "difficulty": "medium",
-    "question": "What is the function of the \"scope\" associated with IPv6 addresses?",
-    "options": [
-      "It serves to resolve, in particular cases, the ambiguity regarding the sender",
-      "There is no scope associated with IPv6 addresses",
-      "Used to use global addresses",
-      "It is needed in order to use anycast addresses"
-    ],
-    "correctIndex": 0,
-    "explanation": "The scope of an IPv6 address (link-local, site-local/unique-local, or global) resolves ambiguity about which interface or zone an address applies to, which is especially relevant since the same link-local address can be reused on different links.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0057",
-    "chapter": "IPv6",
-    "topic": "Link-local address use",
-    "difficulty": "easy",
-    "question": "A link-local address:",
-    "options": [
-      "It can be used to allow communication between stations on local links (e.g., a LAN) in the absence of other IPv6 addresses",
-      "It is used to physically connect two stations on a local link",
-      "It is the address used by stations on a LAN to exchange data",
-      "It is used in all communications between local stations"
-    ],
-    "correctIndex": 0,
-    "explanation": "A link-local address is a fallback that lets two stations on the same physical link communicate directly even if no other IPv6 address (e.g., a global address) has been configured.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasB-0058",
     "chapter": "IPv6",
     "topic": "Stateless autoconfiguration security",
@@ -22196,23 +18148,6 @@ const DB = [
     ],
     "correctIndex": 2,
     "explanation": "Because the interface identifier derived from a fixed MAC address stays constant across networks, a stateless-autoconfigured host can be tracked or correlated across different providers/networks using the same interface identifier, raising a privacy concern.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0059",
-    "chapter": "IPv6",
-    "topic": "IPv6 addressing scheme",
-    "difficulty": "medium",
-    "question": "The IPv6 addressing scheme:",
-    "options": [
-      "It only provides for addresses uniquely assigned by a body in charge",
-      "It provides for each entity (e.g., company) to be globally assigned a set of addresses, which become its property for an unlimited time",
-      "Provides that the first 64 bits of an address are normally identified as the network prefix, at least on LANs",
-      "It does not foresee the existence of multicast addresses"
-    ],
-    "correctIndex": 2,
-    "explanation": "In the common IPv6 addressing convention for LANs, the first 64 bits form the network/subnet prefix and the remaining 64 bits form the interface identifier.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -22251,23 +18186,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasB-0063",
-    "chapter": "Routing",
-    "topic": "BGP",
-    "difficulty": "medium",
-    "question": "The BGP routing protocol:",
-    "options": [
-      "Uses rules (policies) on additional information to cost metrics to identify the \"best\" path to reach a destination",
-      "It is used exclusively for exchanging information between different autonomous system routers",
-      "It is used exclusively for exchanges of information between routers of the same autonomous system",
-      "It is the protocol that will replace OSPF"
-    ],
-    "correctIndex": 0,
-    "explanation": "BGP is a policy-based routing protocol: besides basic path metrics, it applies configurable policies (based on attributes like AS-path, local preference, MED) to select the best route to a destination, rather than being restricted to a single fixed metric.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasB-0064",
     "chapter": "Routing",
     "topic": "Split Horizon",
@@ -22302,23 +18220,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasB-0066",
-    "chapter": "Routing",
-    "topic": "IS-IS",
-    "difficulty": "medium",
-    "question": "The IS-IS protocol:",
-    "options": [
-      "It is an obsolete routing protocol that is no longer used due to its poor performance",
-      "It is a routing protocol based on the link-state algorithm widely used in large networks",
-      "It is a protocol used by Ethernet switches to create a spanning tree by eliminating closed paths",
-      "It is an evolution protocol of BGP for the exchange of routing information between routers belonging to different autonomous systems"
-    ],
-    "correctIndex": 1,
-    "explanation": "IS-IS (Intermediate System to Intermediate System) is a link-state interior gateway routing protocol, similar in principle to OSPF, and is widely deployed in large service-provider networks.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasB-0067",
     "chapter": "Routing",
     "topic": "Peering",
@@ -22332,23 +18233,6 @@ const DB = [
     ],
     "correctIndex": 1,
     "explanation": "Peering describes a settlement-free arrangement between Autonomous Systems (often Tier-1 networks) to exchange traffic directly without payment, as opposed to a paid transit relationship.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0068",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "VLANs",
-    "difficulty": "easy",
-    "question": "What is a consequence of using VLANs in a local network?",
-    "options": [
-      "Create virtual interfaces on the switches which, as such, are always functional",
-      "Broadcast traffic is limited to the VLAN in which it was generated",
-      "The security of communication on the corporate network increases as the frames are encrypted",
-      "Users are required to authenticate before they can access the VLAN"
-    ],
-    "correctIndex": 1,
-    "explanation": "A key consequence of VLANs is that each VLAN forms its own broadcast domain, so broadcast traffic generated in one VLAN is confined to that VLAN and does not spread to hosts in other VLANs on the same switch infrastructure.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -22485,23 +18369,6 @@ const DB = [
     ],
     "correctIndex": 0,
     "explanation": "IPv6 uses a fixed-length, fixed-format 40-byte base header (with optional extension headers for additional features), unlike IPv4 whose header has a variable length due to the options field.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0079",
-    "chapter": "IPv6",
-    "topic": "IPv6 header simplification",
-    "difficulty": "medium",
-    "question": "In IPv6 what disappears from the headers, compared to IPv4?",
-    "options": [
-      "The lifetime of the package",
-      "The sender and recipient addresses",
-      "The indication of which heading is next",
-      "The checksum of the header"
-    ],
-    "correctIndex": 3,
-    "explanation": "IPv6 removed the header checksum present in IPv4, relying on error detection at the link layer and on upper-layer/transport-layer checksums instead, in order to speed up router processing.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -22739,23 +18606,6 @@ const DB = [
     ],
     "correctIndex": 3,
     "explanation": "In a token bucket, the bucket's token capacity directly bounds the maximum burst size a flow can send at once; here that capacity is K, so the maximum burst allowed is K, while the token insertion rate W governs the long-term average rate.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0094",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "Coin bucket algorithm",
-    "difficulty": "medium",
-    "question": "In the coin bucket algorithm:",
-    "options": [
-      "Bucket capacity is related to long-term average speed",
-      "The capacity of the bucket is related to the maximum burst size",
-      "The capacity of the bucket has a direct relationship with the band",
-      "Serve to implement the weighted fair queuing"
-    ],
-    "correctIndex": 1,
-    "explanation": "In the token (coin) bucket algorithm, the bucket's capacity (in tokens) determines the maximum burst size a flow may send at once, while the token fill rate governs the long-term average rate, not the bucket capacity.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -23100,23 +18950,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasB-0118",
-    "chapter": "IPv4 Addressing and Routing",
-    "topic": "IPv4 multicast",
-    "difficulty": "medium",
-    "question": "In an IPv4 network:",
-    "options": [
-      "A host is reached by a multicast packet related to a specific group only if it joined that group before",
-      "A host can be reached by a multicast packet related to a specific group even if it did not join that group before",
-      "A host always delivers to the application layer all the multicast packets received",
-      "A host cannot understand a multicast IPv4 packet"
-    ],
-    "correctIndex": 1,
-    "explanation": "Multicast group membership is enforced by IGMP at the network edge and by the last-hop forwarding devices, not necessarily by the host's own delivery logic; depending on network/link configuration, a host can still physically receive a multicast packet for a group it never joined (e.g. on a shared medium), even though it is not supposed to be a member.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasB-0125",
     "chapter": "IPv4 to IPv6 Transition",
     "topic": "DS-Lite",
@@ -23130,40 +18963,6 @@ const DB = [
     ],
     "correctIndex": 0,
     "explanation": "In DS-Lite (Dual-Stack Lite), the customer's CPE simply tunnels IPv4 traffic over the IPv6 access network, while the actual NAT (specifically a Carrier-Grade NAT/AFTR) that translates and shares public IPv4 addresses is performed centrally on the ISP's equipment, not on the CPE.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0127",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "Inter-VLAN switch communication",
-    "difficulty": "medium",
-    "question": "Two hosts connected to an Ethernet switch:",
-    "options": [
-      "Can communicate only if they belong to the same VLAN, for any network configuration",
-      "Can communicate even if they belong to different VLANs, it depends on the network configuration",
-      "Must be able to communicate without an intermediate router, always",
-      "Cannot communicate through an intermediate router since they are connected to the same switch"
-    ],
-    "correctIndex": 1,
-    "explanation": "Two hosts in different VLANs on the same switch can still communicate if the network is configured with a Layer 3 device (a router or Layer 3 switch, possibly via router-on-a-stick) that routes between the VLANs; without such routing, they cannot communicate.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0128",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "Access mode VLAN ports",
-    "difficulty": "medium",
-    "question": "Two hosts connected to a Switched Ethernet network through ports configured in Access mode:",
-    "options": [
-      "Can communicate only if they belong to the same VLAN",
-      "Cannot communicate",
-      "If they belong to different VLANs, they can communicate only if they are connected to different switches and the link between the switches is configured in Trunk mode",
-      "If they belong to different VLANs, it is possible that they can communicate even if they are connected to different switches and ports on switches are configured in Access mode"
-    ],
-    "correctIndex": 3,
-    "explanation": "Even with all host-facing ports in Access mode, inter-VLAN communication can still occur if some other Layer 3 device (e.g. a router attached elsewhere) routes traffic between the VLANs, so it is possible for hosts in different VLANs on different switches with Access-mode ports to communicate.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -23202,23 +19001,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasB-0138",
-    "chapter": "Routing",
-    "topic": "Autonomous Systems",
-    "difficulty": "easy",
-    "question": "An Autonomous System:",
-    "options": [
-      "Is identified by means of a 4 bytes long ID assigned by the CSA",
-      "Is a set of subnets with a short topological proximity and managed by a single organization unit",
-      "Is a subnet configured by leveraging the static routing",
-      "Is identified by means of a 4 bytes long ID automatically computed by the BGP"
-    ],
-    "correctIndex": 1,
-    "explanation": "An Autonomous System is a collection of IP networks/subnets under the administrative control of a single organization, which presents a common, clearly defined routing policy to the rest of the Internet.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasB-0139",
     "chapter": "Routing",
     "topic": "Static routing",
@@ -23236,23 +19018,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasB-0142",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "Network latency",
-    "difficulty": "medium",
-    "question": "The main contribution to the latency experienced in the nodes of a heavily loaded packet network is given by:",
-    "options": [
-      "The time needed to process the packet",
-      "The time taken to transmit the packet on an output link (transmission delay)",
-      "The time taken to locate, in the routing table or in the forwarding table, the information needed to forward the packet",
-      "The time spent in buffers while waiting for resources occupied by other packets to become available (for example, the transmission capacity of a link)"
-    ],
-    "correctIndex": 0,
-    "explanation": "According to this question, the dominant source of per-node latency is taken to be the packet processing time at the node, rather than queuing, transmission, or lookup delay.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasB-0143",
     "chapter": "Wireless and Cellular Networks",
     "topic": "LTE architecture",
@@ -23266,23 +19031,6 @@ const DB = [
     ],
     "correctIndex": 3,
     "explanation": "A defining architectural feature of LTE compared to earlier cellular generations is its flat, all-IP network architecture (Evolved Packet Core), in which both data and voice (via VoLTE) are carried over IP using shared radio channels, replacing circuit-switched and virtual-circuit techniques.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0144",
-    "chapter": "IPv6",
-    "topic": "Drivers for IPv6 adoption",
-    "difficulty": "medium",
-    "question": "One of the reasons that are favoring the spread of the IPv6 protocol is:",
-    "options": [
-      "The more and more widespread need to use multicast applications",
-      "The low inclination of network operators to modify the configuration of their own networks",
-      "The possible inefficiency of the private IPv4 addressing",
-      "The lack of MAC addresses"
-    ],
-    "correctIndex": 2,
-    "explanation": "IPv6 adoption is driven mainly by IPv4 address exhaustion; reliance on private IPv4 addressing and NAT to work around this shortage brings inefficiencies and limitations that IPv6's vastly larger address space avoids.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -23317,23 +19065,6 @@ const DB = [
     ],
     "correctIndex": 2,
     "explanation": "IPsec-based VPNs use tunneling between gateways (or hosts) to provide encryption and/or authentication of the IP packets exchanged between corporate sites, with IPsec allowing either or both services to be applied as configured, rather than mandating encryption specifically.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0152",
-    "chapter": "IPv6",
-    "topic": "Extension Headers",
-    "difficulty": "medium",
-    "question": "The IPv6 Extension Headers are:",
-    "options": [
-      "Header chains that can be added to the main IPv6 header in order to move to the network layer some features that are typically of the transport layer (e.g., the transmission of acknowledges)",
-      "Padding techniques adopted to make the IPv6 packet of fixed size equal to 40 bytes",
-      "Header chains that can be added to the main IPv6 header in order to offer additional features",
-      "Padding techniques adopted to fix the size of the layer 2 frame containing the IPv6 packet"
-    ],
-    "correctIndex": 0,
-    "explanation": "IPv6 Extension Headers are chained after the fixed base header to add optional network-layer functionality; per this question's marked answer, they can even be used to move certain functions traditionally associated with the transport layer (such as acknowledgment-related mechanisms) down into the network layer.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -23440,57 +19171,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasB-0160",
-    "chapter": "Principles of Modern LAN Design and Operation",
-    "topic": "Modern Ethernet networks",
-    "difficulty": "easy",
-    "question": "Modern Ethernet networks are:",
-    "options": [
-      "Usually based on hubs as interconnection devices, exclusively using, if necessary, multiple segmentation",
-      "Usually based on switches as interconnection devices and if necessary only virtually segmented by means of VLANs",
-      "Usually based on hubs as interconnection devices and, if necessary, only virtually segmented",
-      "Usually based on switches as interconnection devices, exclusively using, if necessary, multiple physical segmentation"
-    ],
-    "correctIndex": 1,
-    "explanation": "Modern Ethernet LANs are built with switches (not shared-medium hubs) as the interconnection devices, and where logical segmentation is needed it is achieved virtually through VLANs rather than through additional physical segmentation.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0161",
-    "chapter": "IPv4 Addressing and Routing",
-    "topic": "IPv4 multicast requirements",
-    "difficulty": "medium",
-    "question": "Multicast communications in an IPv4 network:",
-    "options": [
-      "Are not possible without the deployment of additional protocols in the network",
-      "Are always possible, IGMP only makes them more efficient",
-      "Are possible only within a single LAN, even if additional protocols are used",
-      "Are possible at a global scale, it is only required to enable the IGMP protocol in the network"
-    ],
-    "correctIndex": 0,
-    "explanation": "Native IPv4 unicast forwarding alone does not support multicast; delivering multicast traffic requires additional protocols such as IGMP (for group membership) and multicast routing protocols (e.g., PIM) to build the necessary distribution trees.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0162",
-    "chapter": "Routing",
-    "topic": "Centralized routing",
-    "difficulty": "medium",
-    "question": "Centralized routing:",
-    "options": [
-      "Mandates that network nodes do not exchange routing information",
-      "Consists in one network node computing routes for other network nodes and providing the computed routes",
-      "Is an obsolete solution that is never used in modern networks",
-      "Mandates that traffic traverses a specific network node"
-    ],
-    "correctIndex": 1,
-    "explanation": "In centralized routing, a single dedicated node (or controller) computes the routes for the rest of the network and distributes the resulting forwarding information to the other nodes, rather than each node computing its own routes through distributed message exchange.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasB-0163",
     "chapter": "IPv4 Addressing and Routing",
     "topic": "Addressing plan design",
@@ -23537,23 +19217,6 @@ const DB = [
     ],
     "correctIndex": 3,
     "explanation": "Addresses in the ff02::1:ff00:0/104 range are Solicited-Node multicast addresses, used by IPv6 Neighbor Discovery to solicit the link-layer address of a specific unicast/anycast address without using broadcast.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0166",
-    "chapter": "The Optical Internet",
-    "topic": "Optical switching",
-    "difficulty": "medium",
-    "question": "An optical switch is a device capable of switching:",
-    "options": [
-      "An optical channel on a given wavelength from a given input fiber to a given output fiber",
-      "Different optical channels on a given wavelength on different input fibers to a given wavelength on a given output fiber",
-      "Packets arriving on a given optical channel from a given input fiber to different optical channels",
-      "An optical channel on a given wavelength from a given input fiber to different wavelengths"
-    ],
-    "correctIndex": 0,
-    "explanation": "An optical switch's basic function is to redirect an entire optical channel (a given wavelength) arriving on one input fiber to a chosen output fiber, entirely in the optical domain, without necessarily changing its wavelength or converting it electronically.",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -23693,40 +19356,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasB-0175",
-    "chapter": "IPv6",
-    "topic": "Aggregatable Global Unicast addresses",
-    "difficulty": "medium",
-    "question": "The IPv6 Aggregatable Global Unicast addresses are:",
-    "options": [
-      "Globally unique, substantially equivalent to the IPv4 public addresses",
-      "Usable in a global IPv6 network only with proper Network Address Translation (NAT) techniques",
-      "Aggregable only in very small address ranges, in order to favor the precision of routing path evaluations",
-      "Usable only on devices belonging to the same local area network"
-    ],
-    "correctIndex": 0,
-    "explanation": "IPv6 Global Unicast (Aggregatable Global Unicast) addresses are globally unique and routable on the public Internet, playing the same role as public IPv4 addresses, without requiring NAT.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0176",
-    "chapter": "MPLS - Multi-Protocol Label Switching",
-    "topic": "Label binding modes",
-    "difficulty": "hard",
-    "question": "In topology-based control-driven label binding:",
-    "options": [
-      "MPLS routers must deploy BGP",
-      "Forwarding tables in MPLS routers are manually configured",
-      "Traffic belonging to different applications executing on the same host is transported on different LSPs",
-      "An LSP (Label Switched Path) is set up as a result of discovering a route to a destination"
-    ],
-    "correctIndex": 3,
-    "explanation": "In topology-driven (control-driven) label binding, labels/LSPs are established automatically as a consequence of the normal operation of the underlying routing protocol discovering routes to destinations, rather than through manual configuration or being tied to a specific application.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasB-0178",
     "chapter": "Routing",
     "topic": "Autonomous Systems",
@@ -23846,23 +19475,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasB-0186",
-    "chapter": "IPv6",
-    "topic": "Solicited-Node multicast",
-    "difficulty": "hard",
-    "question": "The Solicited Node Multicast Address:",
-    "options": [
-      "Is a special multicast group that can contain one or more nodes. These nodes receive and process the ICMP Neighbor Solicitation, but only one will reply with an ICMP Neighbor Advertisement",
-      "Is a special multicast group that contains all nodes of a given Link, as it replaces the broadcast address in the IPv6 context. All nodes receive and process the ICMP Neighbor Solicitation, but only one will reply with an ICMP Neighbor Advertisement",
-      "Is an obsolete Neighbor Discovery technique, now replaced by a more efficient solution based on ARP",
-      "Is a special multicast group that contains only one node. This node receives and processes the ICMP Neighbor Solicitation, and then it will reply with an ICMP Neighbor Advertisement"
-    ],
-    "correctIndex": 0,
-    "explanation": "A Solicited-Node multicast address is derived from the last 24 bits of a unicast/anycast address, so in the (rare) case of a collision it can be joined by more than one node; all member nodes receive and process the Neighbor Solicitation, but only the node whose target address actually matches will reply with a Neighbor Advertisement.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasB-0187",
     "chapter": "MPLS - Multi-Protocol Label Switching",
     "topic": "OSPF-TE / ISIS-TE",
@@ -23965,23 +19577,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasB-0197",
-    "chapter": "MPLS - Multi-Protocol Label Switching",
-    "topic": "Label vs address forwarding",
-    "difficulty": "hard",
-    "question": "Why is label-based forwarding less complex (and hence can be implemented using simpler hardware with lower power consumption) than IP address-based forwarding?",
-    "options": [
-      "Because label's validity is local to a link, while IP address's validity is global across the network",
-      "Because label-based forwarding can be implemented with an exact match in a table, while address-based forwarding requires a longest prefix match",
-      "Because labels can be chosen by routers, while IP addresses must be chosen by network administrators",
-      "Because labels don't need to be unique, while IP addresses must be unique across the network (unless NAT is deployed)"
-    ],
-    "correctIndex": 1,
-    "explanation": "MPLS label lookup only needs a simple, fast exact-match table lookup, whereas conventional IP forwarding requires a more complex longest-prefix-match search over variable-length address prefixes, making label-based hardware simpler and more power-efficient.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasB-0198",
     "chapter": "MPLS - Multi-Protocol Label Switching",
     "topic": "Label stack processing",
@@ -24016,23 +19611,6 @@ const DB = [
     "sourceLabel": "CNTAS"
   },
   {
-    "id": "cntasB-0200",
-    "chapter": "CDN - Content Delivery Network",
-    "topic": "Content update handling",
-    "difficulty": "medium",
-    "question": "Which of the following methods is used by Content Delivery Networks (CDNs) to handle content updates efficiently while minimizing disruptions to users?",
-    "options": [
-      "Multi-path TCP (MPTCP): Utilizing multiple TCP connections simultaneously to enhance performance and reliability between clients and origin servers",
-      "Compression Algorithms: Applying real-time compression to reduce the size of content from the origin server",
-      "Edge Caching: Storing frequently accessed content on servers located closer to end users with cache invalidation policies to ensure content freshness",
-      "Dynamic Content Acceleration: Optimizing the delivery of dynamically generated content by bypassing the CDN cache and fetching content directly from the origin server"
-    ],
-    "correctIndex": 2,
-    "explanation": "CDNs rely on edge caching, storing popular content on servers geographically close to end users, combined with cache invalidation/expiration policies to make sure updated content is refreshed and users are not served stale copies.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
     "id": "cntasB-0201",
     "chapter": "MPLS - Multi-Protocol Label Switching",
     "topic": "Label pushing design rationale",
@@ -24048,58 +19626,6 @@ const DB = [
     "explanation": "By having Label Edge Routers (not end hosts) push and pop MPLS labels, ordinary IP end hosts require no changes and remain completely unaware that MPLS is being used within the provider network, greatly easing MPLS's incremental deployment.",
     "source": "imported",
     "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0202",
-    "chapter": "IPv4 to IPv6 Transition",
-    "topic": "Dual stack",
-    "difficulty": "easy",
-    "question": "A network interface with both an IPv4 and an IPv6 address can receive:",
-    "options": [
-      "Only IPv6 packets encapsulated in IPv4, according to the approach called \"tunneling\"",
-      "Only IPv4 packets encapsulated in IPv6, according to the approach called \"tunneling\"",
-      "Both IPv4 and IPv6 packets",
-      "Only IPv6 packets, since in such kind of configuration the operating system considers IPv4 as obsolete"
-    ],
-    "correctIndex": 2,
-    "explanation": "A dual-stack interface runs both the IPv4 and IPv6 protocol stacks simultaneously, so it can natively send and receive both IPv4 and IPv6 packets, without needing tunneling to carry one protocol inside the other.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasB-0203",
-    "chapter": "Routing",
-    "topic": "Count to Infinity",
-    "difficulty": "medium",
-    "question": "The Count to Infinity",
-    "options": [
-      "Is a Link State-based algorithm to prevent the generation of loops",
-      "Happens when the Distance Vector algorithm converges",
-      "Is a possible event of the Distance Vector algorithm",
-      "None of the other answers is correct"
-    ],
-    "correctIndex": 2,
-    "explanation": "Count to Infinity is a well-known problem that can occur in distance-vector routing algorithms (like RIP), where, after certain topology changes, routers repeatedly increase their advertised distance to an unreachable destination in small increments, slowing convergence, rather than being a Link-State mechanism.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "gen4-0123",
-    "chapter": "IPv4 Addressing and Routing",
-    "topic": "Interfaces and Subnets",
-    "difficulty": "easy",
-    "question": "In the context of IPv4 addressing, what does the term 'interface' refer to?",
-    "options": [
-      "The part of a device capable of connecting to a network; one or more IP addresses can be assigned to it",
-      "The physical Ethernet cable connecting two routers",
-      "A layer-2 switch's forwarding table entry",
-      "The routing table stored in a router's memory",
-      "A special address reserved exclusively for broadcast traffic"
-    ],
-    "correctIndex": 0,
-    "explanation": "An interface is the part of a device capable of connecting to the network. Depending on whether the network is subdivided into subnetworks, one or more IP addresses can be assigned to the same interface.",
-    "source": "generated",
-    "sourceLabel": null
   },
   {
     "id": "gen4-0124",
@@ -25164,24 +20690,6 @@ const DB = [
     "sourceLabel": null
   },
   {
-    "id": "gen4-0183",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "QoS vs QoE",
-    "difficulty": "easy",
-    "question": "What is the key difference between Quality of Service (QoS) and Quality of Experience (QoE)?",
-    "options": [
-      "QoS measures technical network metrics like delay and loss, while QoE reflects the user's perceived satisfaction",
-      "QoS applies only to video, while QoE applies only to voice traffic",
-      "QoS is measured only after a connection ends, while QoE is measured only during the connection",
-      "QoS and QoE are two names for exactly the same concept",
-      "QoS is a business term, while QoE is a purely mathematical formula"
-    ],
-    "correctIndex": 0,
-    "explanation": "QoS measures how well the network meets requirements like delay, jitter, packet loss, and throughput, while QoE reflects the user's perceived satisfaction, which can remain high even with some underlying delay if playback appears smooth.",
-    "source": "generated",
-    "sourceLabel": null
-  },
-  {
     "id": "gen4-0184",
     "chapter": "Multimedia Networking and Quality of Service",
     "topic": "Packet Scheduling",
@@ -25340,24 +20848,6 @@ const DB = [
     ],
     "correctIndex": 0,
     "explanation": "Basic GRE (version 0) simply wraps and forwards packets without providing reliability, flow control, or congestion control; any loss, duplication, or reordering must be handled by protocols above or below it.",
-    "source": "generated",
-    "sourceLabel": null
-  },
-  {
-    "id": "gen4-0193",
-    "chapter": "Virtual Private Network",
-    "topic": "L2TP",
-    "difficulty": "medium",
-    "question": "In L2TP, what are the roles of the LAC and the LNS?",
-    "options": [
-      "The LAC provides access to the tunnel from the client side, while the LNS is the VPN gateway on the corporate side that terminates the tunnel",
-      "The LAC encrypts data while the LNS only handles authentication",
-      "The LNS initiates all tunnels, while the LAC can only receive them",
-      "The LAC and LNS are two names for the same device in different contexts",
-      "The LAC operates at Layer 3 while the LNS operates at Layer 1"
-    ],
-    "correctIndex": 0,
-    "explanation": "The LAC (L2TP Access Concentrator) provides access to the tunnel from the client side, often part of a Network Access Server, while the LNS (L2TP Network Server) is the VPN gateway on the corporate side that terminates the tunnel and authenticates the connection.",
     "source": "generated",
     "sourceLabel": null
   },
@@ -25542,24 +21032,6 @@ const DB = [
     "sourceLabel": null
   },
   {
-    "id": "gen4-0204",
-    "chapter": "MPLS - Multi-Protocol Label Switching",
-    "topic": "FEC",
-    "difficulty": "medium",
-    "question": "What is a Forwarding Equivalence Class (FEC) in MPLS?",
-    "options": [
-      "A set of packets that are treated the same way by each LSR, following the same path and receiving consistent labels hop by hop",
-      "A field in the MPLS header that stores the packet's checksum",
-      "A protocol used only to distribute labels between routers",
-      "A hardware component responsible for switching optical wavelengths",
-      "A synonym for the MPLS routing table itself"
-    ],
-    "correctIndex": 0,
-    "explanation": "A Forwarding Equivalence Class groups packets that are treated identically and forwarded along the same LSP, with labels being switched consistently hop-by-hop for every packet in the flow, based on criteria that MPLS can define more finely than plain IP.",
-    "source": "generated",
-    "sourceLabel": null
-  },
-  {
     "id": "gen4-0205",
     "chapter": "MPLS - Multi-Protocol Label Switching",
     "topic": "Label Binding",
@@ -25610,24 +21082,6 @@ const DB = [
     ],
     "correctIndex": 0,
     "explanation": "Link re-routing protects a specific physical link via a fast backup LSP using label stacking, enabling very fast recovery, while edge-to-edge re-routing protects the entire LSP and reacts to failure notifications sent backward, which is slower but still faster than traditional IP rerouting.",
-    "source": "generated",
-    "sourceLabel": null
-  },
-  {
-    "id": "gen4-0208",
-    "chapter": "MPLS - Multi-Protocol Label Switching",
-    "topic": "Penultimate Hop Popping",
-    "difficulty": "medium",
-    "question": "What is the purpose of Penultimate Hop Popping (PHP) in MPLS?",
-    "options": [
-      "It removes the outer MPLS label at the second-to-last router instead of the egress router, reducing processing load at the egress",
-      "It prevents any router other than the ingress LER from adding new labels",
-      "It forces the egress LER to always drop the packet after the last hop",
-      "It is used only when the LSP passes through exactly two routers",
-      "It replaces the routing table of the penultimate router with a static list"
-    ],
-    "correctIndex": 0,
-    "explanation": "Penultimate Hop Popping removes the label at the penultimate LSR (the second-to-last router) rather than at the egress LSR, since the egress router does not need the label to forward the packet, reducing its processing load.",
     "source": "generated",
     "sourceLabel": null
   },

@@ -99,6 +99,34 @@ let wrong    = [];   // { q, userIdx }
 let answered = false;
 let userStats = { completed: new Set(), wrong: new Set() };
 
+function loadStats() {
+  try {
+    const saved = localStorage.getItem('quizRetiStats');
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      userStats.completed = new Set(parsed.completed || []);
+      userStats.wrong = new Set(parsed.wrong || []);
+    }
+  } catch (e) {
+    console.error("Failed to load stats from localStorage", e);
+  }
+}
+
+function saveStats() {
+  try {
+    const data = {
+      completed: Array.from(userStats.completed),
+      wrong: Array.from(userStats.wrong)
+    };
+    localStorage.setItem('quizRetiStats', JSON.stringify(data));
+  } catch (e) {
+    console.error("Failed to save stats to localStorage", e);
+  }
+}
+
+// Load stats immediately
+loadStats();
+
 
 // ═══════════════════════════════════════════════════════════════════════
 //  NAVIGATION
@@ -299,6 +327,7 @@ function answer(choiceIdx) {
     } else {
       userStats.wrong.add(q.id);
     }
+    saveStats();
   }
 
   if (isCorrect) {
@@ -446,10 +475,28 @@ function showProfile() {
 
   const chContainer = document.getElementById('prof-chapters');
   chContainer.innerHTML = '';
+  
+  const customQuizChapters = document.getElementById('custom-quiz-chapters');
+  if (customQuizChapters) {
+    customQuizChapters.innerHTML = '';
+  }
 
   CHAPTER_ORDER.forEach(c => {
     const total = DB.filter(q => q.chapter === c).length;
     if (total === 0) return;
+    
+    // Populate custom quiz checkboxes
+    if (customQuizChapters) {
+      const checkboxDiv = document.createElement('div');
+      checkboxDiv.style.marginBottom = '5px';
+      checkboxDiv.innerHTML = `
+        <label style="cursor: pointer; display: flex; align-items: center; gap: 10px; padding: 6px 4px; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='var(--surface)'" onmouseout="this.style.background='transparent'">
+          <input type="checkbox" class="custom-quiz-ch-cb" value="${escapeAttr(c)}" checked style="accent-color: var(--accent2); width: 16px; height: 16px; cursor: pointer;">
+          <span style="font-size: 0.95rem; color: var(--text);">${c}</span>
+        </label>
+      `;
+      customQuizChapters.appendChild(checkboxDiv);
+    }
     
     const completed = DB.filter(q => q.chapter === c && userStats.completed.has(q.id)).length;
     const pct = Math.round((completed / total) * 100) || 0;
@@ -465,11 +512,16 @@ function showProfile() {
       <div class="ch-prog-wrap">
         <div class="ch-prog-fill" style="width: ${pct}%"></div>
       </div>
-      <div class="ch-card-actions">
+      <div class="ch-card-actions" style="display: flex; gap: 10px; flex-wrap: wrap;">
         <button class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.8rem; width: auto;" 
           ${unseen.length === 0 ? 'disabled' : ''} 
           onclick="startCustomQuiz('${escapeJs(c)}', 20)">
           Fai ${Math.min(20, unseen.length)} nuove domande
+        </button>
+        <button class="btn btn-danger" style="padding: 6px 12px; font-size: 0.8rem; width: auto;" 
+          ${completed === 0 ? 'disabled' : ''} 
+          onclick="resetChapterStats('${escapeJs(c)}')">
+          Azzerra capitolo
         </button>
       </div>
     `;
@@ -477,6 +529,70 @@ function showProfile() {
   });
 
   show('screen-profile');
+}
+
+function resetGlobalStats() {
+  if (confirm("Sei sicuro di voler azzerare TUTTI i progressi salvati? Questa azione non può essere annullata.")) {
+    userStats.completed.clear();
+    userStats.wrong.clear();
+    saveStats();
+    showProfile();
+  }
+}
+
+function resetChapterStats(chapter) {
+  if (confirm(`Sei sicuro di voler azzerare i progressi del capitolo "${chapter}"?`)) {
+    const chapterQuestions = DB.filter(q => q.chapter === chapter);
+    chapterQuestions.forEach(q => {
+      userStats.completed.delete(q.id);
+      userStats.wrong.delete(q.id);
+    });
+    saveStats();
+    showProfile();
+  }
+}
+
+function startMultiChapterCustomQuiz() {
+  const checkboxes = document.querySelectorAll('.custom-quiz-ch-cb:checked');
+  const selectedChapters = Array.from(checkboxes).map(cb => cb.value);
+  
+  if (selectedChapters.length === 0) {
+    alert("Seleziona almeno un capitolo.");
+    return;
+  }
+  
+  const maxCountInput = document.getElementById('custom-quiz-count');
+  const maxCount = parseInt(maxCountInput.value) || 20;
+  
+  const unseenQuestions = DB.filter(q => selectedChapters.includes(q.chapter) && !userStats.completed.has(q.id));
+  
+  if (unseenQuestions.length === 0) {
+    alert("Non ci sono nuove domande non risposte nei capitoli selezionati.");
+    return;
+  }
+  
+  const count = Math.min(unseenQuestions.length, maxCount);
+  
+  quiz = shuffle(unseenQuestions).slice(0, count).map(q => {
+    const newQ = { ...q, options: [...q.options] };
+    const indices = newQ.options.map((_, i) => i);
+    for (let i = indices.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [indices[i], indices[j]] = [indices[j], indices[i]];
+    }
+    newQ.options = indices.map(i => q.options[i]);
+    newQ.correctIndex = indices.indexOf(q.correctIndex);
+    return newQ;
+  });
+  
+  qIdx = 0;
+  score = 0;
+  wrong = [];
+  answered = false;
+  document.getElementById('quiz-drawer').classList.remove('open');
+  show('screen-quiz');
+  renderDrawer();
+  renderQ();
 }
 
 function startCustomQuiz(chapter, maxCount) {

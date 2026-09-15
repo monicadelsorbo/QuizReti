@@ -167,7 +167,7 @@
   <div id="screen-profile" class="screen">
     <div class="profile-top">
       <h2>👤 Profilo & Statistiche</h2>
-      <p>Statistiche della sessione corrente. I progressi si azzerano ricaricando la pagina.</p>
+      <button class="btn btn-danger" onclick="resetGlobalStats()" style="margin-top: 10px; width: auto; padding: 6px 16px; font-size: 0.9rem;">⚠️ Azzerra tutti i progressi</button>
     </div>
     
     <div class="stats-card">
@@ -176,8 +176,25 @@
       <p>Rifai i quiz che hai sbagliato per migliorare e toglierli da questa lista.</p>
       <button class="btn btn-danger" id="btn-start-wrong" onclick="startWrongQuiz()" style="width: auto; padding: 10px 20px;">Rifai errori</button>
     </div>
+
+    <div class="stats-card custom-quiz-card" style="margin-top: 20px; text-align: left;">
+      <h3 style="margin-bottom: 15px; text-align: center; color: var(--accent2);">Genera Quiz Personalizzato</h3>
+      <p style="margin-bottom: 15px; font-size: 0.95rem; color: var(--muted); line-height: 1.5;">Seleziona uno o più capitoli e scegli il numero di domande. Il sistema pescherà tra quelle che non hai ancora svolto.</p>
+      
+      <div id="custom-quiz-chapters" style="max-height: 220px; overflow-y: auto; border: 1px solid var(--border); padding: 12px; border-radius: var(--r); margin-bottom: 18px; background: var(--surface2); color: var(--text);">
+        <!-- Checkboxes injected by JS -->
+      </div>
+      
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; background: var(--surface2); padding: 12px; border-radius: var(--r); border: 1px solid var(--border);">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <label for="custom-quiz-count" style="color: var(--text); font-size: 0.95rem;"><strong>Numero domande:</strong></label>
+          <input type="number" id="custom-quiz-count" class="snum-input" min="1" value="20" style="width: 70px; padding: 6px; text-align: center; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 6px;">
+        </div>
+        <button class="btn btn-primary" onclick="startMultiChapterCustomQuiz()" style="width: auto; padding: 10px 20px;">▶ Avvia Quiz</button>
+      </div>
+    </div>
     
-    <div class="chapters-stats" id="prof-chapters">
+    <div class="chapters-stats" id="prof-chapters" style="margin-top: 20px;">
       <!-- Injected by JS -->
     </div>
     

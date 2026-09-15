@@ -11449,23 +11449,6 @@ const DB = [
     "sourceLabel": "TSR"
   },
   {
-    "id": "tsr-0264",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "Token bucket",
-    "difficulty": "hard",
-    "question": "Using the token bucket algorithm (or leaky bucket) with capacity B tokens and a refill rate of r tokens/s, it is possible to control:",
-    "options": [
-      "That the number of packets per second admitted does not exceed r, and that the maximum burst does not exceed B",
-      "That the jitter does not exceed B/r",
-      "That the number of packets per second admitted does not exceed B, and the maximum burst does not exceed r",
-      "That the crossing time does not exceed rB seconds"
-    ],
-    "correctIndex": 0,
-    "explanation": "The bucket's capacity B bounds the maximum burst size, while the refill rate r bounds the long-term average number of packets per second that can be admitted.",
-    "source": "imported",
-    "sourceLabel": "TSR"
-  },
-  {
     "id": "tsr-0265",
     "chapter": "Multimedia Networking and Quality of Service",
     "topic": "Token bucket",
@@ -11479,23 +11462,6 @@ const DB = [
     ],
     "correctIndex": 0,
     "explanation": "The token bucket mechanism directly bounds two quantities: the maximum burst size (via bucket capacity) and the average admitted data rate (via token refill rate).",
-    "source": "imported",
-    "sourceLabel": "TSR"
-  },
-  {
-    "id": "tsr-0266",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "Token bucket + WFQ",
-    "difficulty": "hard",
-    "question": "The combination of token bucket (or leaky bucket) mechanisms and Weighted Fair Queueing (WFQ) serves to guarantee:",
-    "options": [
-      "A maximum bandwidth for each packet flow",
-      "A maximum burst of consecutive packets, for each flow",
-      "A maximum crossing time for a router",
-      "A maximum crossing time for a NAT"
-    ],
-    "correctIndex": 1,
-    "explanation": "By shaping each flow's traffic with a token bucket and then scheduling flows fairly with WFQ, the network can guarantee a bounded maximum burst of consecutive packets for each individual flow.",
     "source": "imported",
     "sourceLabel": "TSR"
   },
@@ -13439,23 +13405,6 @@ const DB = [
     ],
     "correctIndex": 3,
     "explanation": "RIP messages are carried over UDP (port 520); using UDP mainly simplifies implementation (reusing standard socket APIs) rather than being required specifically to enable broadcast, which UDP can carry but is not the primary reason for the choice.",
-    "source": "imported",
-    "sourceLabel": "ALL_MERGED"
-  },
-  {
-    "id": "merged-0150",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "Token bucket and WFQ combination",
-    "difficulty": "medium",
-    "question": "The combination of token bucket mechanisms and Weighted Fair Queueing (WFQ) serves to guarantee:",
-    "options": [
-      "A maximum crossing (transit) time through a router",
-      "A maximum crossing time through a NAT",
-      "A maximum bandwidth for each packet flow",
-      "A maximum burst of consecutive packets, for each flow"
-    ],
-    "correctIndex": 0,
-    "explanation": "Bounding a flow's traffic with a token bucket (limiting rate and burst) combined with a fair scheduler like WFQ (which guarantees each flow a minimum share of link capacity) together allow deriving a deterministic bound on the maximum delay (crossing time) a packet of that flow can experience at a router.",
     "source": "imported",
     "sourceLabel": "ALL_MERGED"
   },
@@ -15481,23 +15430,6 @@ const DB = [
     "sourceLabel": "reti_Quiz"
   },
   {
-    "id": "reti-0195",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "Token Bucket",
-    "difficulty": "medium",
-    "question": "Using the token bucket algorithm (or leaky bucket) with capacity B tokens and refill rate r tokens/s, it is possible to control:",
-    "options": [
-      "That the crossing time does not exceed r times B seconds",
-      "That the number of packets injected per second does not exceed r, and the maximum burst does not exceed B",
-      "That the number of packets injected per second does not exceed B, and the maximum burst does not exceed r",
-      "That the jitter does not exceed B/r"
-    ],
-    "correctIndex": 1,
-    "explanation": "In a token bucket of depth B tokens refilled at rate r tokens/second, the long-term average injection rate is bounded by r, while the largest burst a source can send all at once is bounded by the bucket depth B -- matching option B's description exactly.",
-    "source": "imported",
-    "sourceLabel": "reti_Quiz"
-  },
-  {
     "id": "reti-0201",
     "chapter": "Multimedia Networking and Quality of Service",
     "topic": "DiffServ",
@@ -15866,23 +15798,6 @@ const DB = [
     ],
     "correctIndex": 0,
     "explanation": "MPLS's defining characteristic is that forwarding decisions are made based on short fixed-length labels (label switching) rather than longest-prefix IP lookups, a fundamentally different output-interface decision mechanism than pure IP routing.",
-    "source": "imported",
-    "sourceLabel": "CNTAS"
-  },
-  {
-    "id": "cntasA-0032",
-    "chapter": "Multimedia Networking and Quality of Service",
-    "topic": "Token bucket algorithm",
-    "difficulty": "medium",
-    "question": "Using the token bucket algorithm (or washed bucket) of capacity B tokens and filling speed r tokens/s we are able to control:",
-    "options": [
-      "That the crossing time does not exceed rB seconds.",
-      "The number packets per second input does not exceed r, and the maximum burst does not exceed B.",
-      "The number of packets per second input does not exceed B, and the maximum burst does not exceed r.",
-      "The jitter does not exceed B/r."
-    ],
-    "correctIndex": 1,
-    "explanation": "The token bucket algorithm bounds the long-term average admitted rate to r tokens/s and the maximum burst size to B tokens (the bucket capacity).",
     "source": "imported",
     "sourceLabel": "CNTAS"
   },
@@ -21336,5 +21251,1709 @@ const DB = [
     "explanation": "In ARIMA(p,d,q), 'd' is the degree of differencing, representing the number of times the raw observations are differenced to remove trends and achieve stationarity, corresponding to the Integration (I) part of ARIMA.",
     "source": "generated",
     "sourceLabel": null
+  }
+  ,
+  {
+    "id": "gen2-vpn-001",
+    "chapter": "Virtual Private Network",
+    "topic": "VPN Basics",
+    "difficulty": "medium",
+    "question": "Which of the following best describes the primary concept of a Virtual Private Network (VPN)?",
+    "options": [
+      "A dedicated physical infrastructure exclusively owned by a single enterprise.",
+      "A network that uses shared public infrastructure to provide secure, isolated communication between sites.",
+      "A local area network that uses VLANs to separate traffic within a single building.",
+      "A public network where all traffic is unencrypted but logically separated by IP subnetting."
+    ],
+    "correctIndex": 1,
+    "explanation": "A VPN provides the illusion of a dedicated private network by securely tunneling and isolating traffic over a shared infrastructure (like the Internet or a service provider's core network).",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-002",
+    "chapter": "Virtual Private Network",
+    "topic": "VPN Topologies",
+    "difficulty": "easy",
+    "question": "In a Hub-and-Spoke VPN topology, how do the spoke sites communicate with each other?",
+    "options": [
+      "Directly, using dynamically established tunnels between spokes.",
+      "Traffic between spokes must always pass through the central hub site.",
+      "They cannot communicate with each other, only with the hub.",
+      "By broadcasting packets over the public internet without encapsulation."
+    ],
+    "correctIndex": 1,
+    "explanation": "In a strict Hub-and-Spoke topology, all inter-spoke traffic is routed through the central hub site. Direct spoke-to-spoke communication is not possible without additional configuration (like ADVPN).",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-003",
+    "chapter": "Virtual Private Network",
+    "topic": "IPsec",
+    "difficulty": "hard",
+    "question": "In IPsec, what is the purpose of the Internet Key Exchange (IKE) protocol?",
+    "options": [
+      "To encapsulate data packets and provide data confidentiality.",
+      "To provide data integrity checks using HMAC.",
+      "To securely negotiate and establish Security Associations (SAs) between peers.",
+      "To route packets across the Internet based on the outer IP header."
+    ],
+    "correctIndex": 2,
+    "explanation": "IKE is responsible for authenticating peers, negotiating cryptographic algorithms, and generating the shared keys used to establish IPsec Security Associations (SAs).",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-004",
+    "chapter": "Virtual Private Network",
+    "topic": "IPsec Modes",
+    "difficulty": "medium",
+    "question": "Which IPsec mode encrypts the entire original IP packet and adds a new outer IP header?",
+    "options": [
+      "Transport Mode",
+      "Tunnel Mode",
+      "Authentication Header Mode",
+      "ESP Transport Mode"
+    ],
+    "correctIndex": 1,
+    "explanation": "In Tunnel Mode, the original IP packet is completely encapsulated within a new IP packet, masking the original source and destination IP addresses.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-005",
+    "chapter": "Virtual Private Network",
+    "topic": "IPsec Protocols",
+    "difficulty": "medium",
+    "question": "Which of the following IPsec protocols provides confidentiality (encryption) as well as integrity and authentication?",
+    "options": [
+      "Authentication Header (AH)",
+      "Encapsulating Security Payload (ESP)",
+      "Internet Key Exchange (IKE)",
+      "Generic Routing Encapsulation (GRE)"
+    ],
+    "correctIndex": 1,
+    "explanation": "ESP provides data confidentiality (encryption), integrity, and authentication. AH only provides integrity and authentication, but no encryption.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-006",
+    "chapter": "Virtual Private Network",
+    "topic": "Overlay vs Peer-to-Peer",
+    "difficulty": "hard",
+    "question": "In an Overlay VPN model, what is the primary role of the Service Provider (SP)?",
+    "options": [
+      "To actively participate in the customer's routing protocol.",
+      "To provide point-to-point virtual circuits transparently between customer sites.",
+      "To manage all the CE (Customer Edge) routers and their security policies.",
+      "To assign private IP addresses to the customer's internal networks."
+    ],
+    "correctIndex": 1,
+    "explanation": "In an Overlay VPN, the SP network acts as a transparent transport layer providing point-to-point links (e.g., Frame Relay, ATM, or GRE tunnels). The SP is unaware of the customer's internal routing.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-007",
+    "chapter": "Virtual Private Network",
+    "topic": "VPN Security",
+    "difficulty": "easy",
+    "question": "What security mechanism prevents an attacker from capturing an IPsec packet and re-transmitting it later to gain unauthorized access?",
+    "options": [
+      "Data Encryption Standard (DES)",
+      "Anti-replay protection using sequence numbers",
+      "Diffie-Hellman key exchange",
+      "Perfect Forward Secrecy (PFS)"
+    ],
+    "correctIndex": 1,
+    "explanation": "IPsec uses sequence numbers in the AH and ESP headers to detect and reject replayed packets, providing anti-replay protection.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-008",
+    "chapter": "Virtual Private Network",
+    "topic": "GRE",
+    "difficulty": "medium",
+    "question": "What is a major limitation of using standard Generic Routing Encapsulation (GRE) for a VPN over the public internet?",
+    "options": [
+      "It cannot transport multicast or broadcast traffic.",
+      "It does not support routing protocols like OSPF.",
+      "It does not provide any encryption or inherent security for the transported data.",
+      "It is restricted to transporting only IPv4 payloads."
+    ],
+    "correctIndex": 2,
+    "explanation": "GRE is a simple encapsulation protocol that can carry various protocols, including multicast, but it offers no encryption. It is often combined with IPsec (GRE over IPsec) to secure the payload.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-009",
+    "chapter": "Virtual Private Network",
+    "topic": "IKE Phases",
+    "difficulty": "hard",
+    "question": "In IPsec IKEv1, what is the primary goal of Phase 1?",
+    "options": [
+      "To establish a secure, authenticated channel for negotiating IPsec SAs.",
+      "To negotiate the specific encryption algorithms for user data traffic.",
+      "To encapsulate the first data packet using ESP.",
+      "To perform NAT traversal for the VPN endpoints."
+    ],
+    "correctIndex": 0,
+    "explanation": "IKE Phase 1 establishes the ISAKMP SA, which is a secure, authenticated channel used exclusively by IKE to securely negotiate the IPsec SAs in Phase 2.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-010",
+    "chapter": "Virtual Private Network",
+    "topic": "VPN Types",
+    "difficulty": "medium",
+    "question": "Which type of VPN is typically used to connect a remote worker's laptop to the corporate network over the internet?",
+    "options": [
+      "Site-to-Site VPN",
+      "Remote Access VPN",
+      "Intranet VPN",
+      "Extranet VPN"
+    ],
+    "correctIndex": 1,
+    "explanation": "A Remote Access VPN connects individual clients (remote workers) to a central corporate network, usually via IPsec or SSL/TLS.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-011",
+    "chapter": "Virtual Private Network",
+    "topic": "L2TP",
+    "difficulty": "medium",
+    "question": "Layer 2 Tunneling Protocol (L2TP) is frequently combined with which protocol to provide confidentiality?",
+    "options": [
+      "PPTP",
+      "IPsec",
+      "GRE",
+      "SSL"
+    ],
+    "correctIndex": 1,
+    "explanation": "L2TP does not provide encryption natively. It is almost always used in conjunction with IPsec (L2TP/IPsec) to secure the tunnel.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-012",
+    "chapter": "Virtual Private Network",
+    "topic": "SSL VPN",
+    "difficulty": "easy",
+    "question": "What is a primary advantage of an SSL/TLS VPN compared to an IPsec Remote Access VPN?",
+    "options": [
+      "It is significantly faster for site-to-site connections.",
+      "It typically requires a dedicated hardware appliance on the client side.",
+      "It often doesn't require specialized client software, as web browsers support SSL/TLS natively.",
+      "It operates entirely at Layer 2 of the OSI model."
+    ],
+    "correctIndex": 2,
+    "explanation": "SSL VPNs can often be accessed directly through a standard web browser (clientless or thin-client), making deployment and support for remote users much easier.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-013",
+    "chapter": "Virtual Private Network",
+    "topic": "Peer-to-Peer VPN",
+    "difficulty": "medium",
+    "question": "In a Peer-to-Peer VPN model, how is customer routing handled?",
+    "options": [
+      "The Service Provider (SP) edge routers participate in the customer's routing, learning and exchanging customer routes.",
+      "The customer manages all routing independently, and the SP only provides point-to-point tunnels.",
+      "Routing is entirely static, as dynamic routing is not supported.",
+      "The customer routers exchange routes directly with each other over an IPsec tunnel."
+    ],
+    "correctIndex": 0,
+    "explanation": "In a Peer-to-Peer VPN, the SP network participates in customer routing. The Provider Edge (PE) routers learn customer routes from Customer Edge (CE) routers and forward them across the SP backbone.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-001",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "MPLS Basics",
+    "difficulty": "easy",
+    "question": "What fundamental problem with traditional IP routing does MPLS aim to solve or improve upon?",
+    "options": [
+      "The limitation of a 32-bit address space in IPv4.",
+      "The lack of wireless connectivity in core networks.",
+      "The overhead of doing longest-prefix match lookups at every hop along a path.",
+      "The inability to use MAC addresses over long distances."
+    ],
+    "correctIndex": 2,
+    "explanation": "MPLS improves forwarding performance and simplifies core routers by replacing complex longest-prefix match IP lookups with simple, exact-match label lookups.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-002",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "Label Header",
+    "difficulty": "medium",
+    "question": "Where is the MPLS label header inserted within a data packet?",
+    "options": [
+      "Inside the IP payload, before the TCP/UDP header.",
+      "Between the Layer 2 (Data Link) header and the Layer 3 (Network) header.",
+      "At the very beginning of the frame, replacing the Layer 2 MAC address.",
+      "Appended to the end of the IP packet as a trailer."
+    ],
+    "correctIndex": 1,
+    "explanation": "The MPLS label header is commonly referred to as the 'shim' header because it is inserted between the Layer 2 (e.g., Ethernet) and Layer 3 (e.g., IP) headers.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-003",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "MPLS Label Format",
+    "difficulty": "hard",
+    "question": "In the 32-bit MPLS label header, what is the purpose of the 3-bit TC (Traffic Class) or EXP field?",
+    "options": [
+      "To specify the Time To Live (TTL) of the label.",
+      "To identify the bottom of the label stack.",
+      "To carry Quality of Service (QoS) or Class of Service (CoS) information.",
+      "To define the specific routing protocol used to distribute the label."
+    ],
+    "correctIndex": 2,
+    "explanation": "The 3-bit field, originally called Experimental (EXP) and now known as Traffic Class (TC), is used to support QoS (Quality of Service) policies for the labeled packet.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-004",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "Label Operations",
+    "difficulty": "medium",
+    "question": "When an Ingress LSR (Label Switching Router) receives an IP packet and adds an MPLS label before forwarding it, this operation is called:",
+    "options": [
+      "Pop",
+      "Swap",
+      "Push",
+      "Penultimate Hop Popping"
+    ],
+    "correctIndex": 2,
+    "explanation": "The operation of adding a new label to a packet (either an initially unlabeled packet or adding to an existing stack) is called 'Push'.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-005",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "LDP",
+    "difficulty": "hard",
+    "question": "What is the role of the Label Distribution Protocol (LDP) in an MPLS network?",
+    "options": [
+      "To dynamically assign IP addresses to LSRs.",
+      "To discover the physical topology of the network.",
+      "To bind Forwarding Equivalence Classes (FECs) to labels and distribute these bindings to peers.",
+      "To perform deep packet inspection for security filtering."
+    ],
+    "correctIndex": 2,
+    "explanation": "LDP is used by LSRs to negotiate and exchange label bindings for specific Forwarding Equivalence Classes (FECs), allowing them to build the Label Information Base (LIB).",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-006",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "Penultimate Hop Popping",
+    "difficulty": "hard",
+    "question": "What is the main benefit of Penultimate Hop Popping (PHP) in MPLS?",
+    "options": [
+      "It provides enhanced encryption for the last hop.",
+      "It prevents routing loops by manipulating the TTL.",
+      "It saves the Egress LSR from having to perform two lookups (one for the label, one for the IP header).",
+      "It allows the use of non-IP traffic on the core network."
+    ],
+    "correctIndex": 2,
+    "explanation": "PHP allows the second-to-last (penultimate) router to remove the top MPLS label. The Egress router then receives an IP packet, meaning it only needs to perform one IP lookup instead of a label lookup followed by an IP lookup.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-007",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "Traffic Engineering",
+    "difficulty": "medium",
+    "question": "How does MPLS facilitate Traffic Engineering (TE) compared to traditional IP routing?",
+    "options": [
+      "By using only the shortest path computed by OSPF or IS-IS.",
+      "By allowing the creation of explicit Label Switched Paths (LSPs) that can bypass congested shortest-path links.",
+      "By increasing the bandwidth of physical links.",
+      "By blocking traffic that exceeds a certain bandwidth threshold."
+    ],
+    "correctIndex": 1,
+    "explanation": "MPLS TE allows operators to establish explicit LSPs (e.g., using RSVP-TE) that direct traffic along specific paths, utilizing underused links and avoiding congested ones, rather than being forced to use the IGP shortest path.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-008",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "LSP",
+    "difficulty": "easy",
+    "question": "In MPLS terminology, what does LSP stand for?",
+    "options": [
+      "Label Security Protocol",
+      "Label Switched Path",
+      "Link State Protocol",
+      "Logical Switch Port"
+    ],
+    "correctIndex": 1,
+    "explanation": "LSP stands for Label Switched Path, which is the predetermined path that a labeled packet takes through an MPLS network.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-009",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "Forwarding Equivalence Class",
+    "difficulty": "hard",
+    "question": "What is a Forwarding Equivalence Class (FEC) in the context of MPLS?",
+    "options": [
+      "A specific Quality of Service priority queue.",
+      "A group of packets that are forwarded in the same manner, over the same path, and with the same forwarding treatment.",
+      "A set of routers that share the same routing table.",
+      "The specific hardware interface on an LSR."
+    ],
+    "correctIndex": 1,
+    "explanation": "An FEC represents a group of packets that share the same characteristics (e.g., same destination IP subnet) and are therefore assigned the same MPLS label and given the same forwarding treatment.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-010",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "MPLS VPN",
+    "difficulty": "medium",
+    "question": "In an MPLS Layer 3 VPN (L3VPN), what is the function of the Route Distinguisher (RD)?",
+    "options": [
+      "To encrypt the data payload of the customer's traffic.",
+      "To identify the specific LSP that the traffic should take.",
+      "To make customer IPv4 prefixes globally unique across the service provider's network by prepending a unique value.",
+      "To determine the Quality of Service level for the packet."
+    ],
+    "correctIndex": 2,
+    "explanation": "Because different customers might use overlapping private IPv4 address spaces, the RD is prepended to the customer's IPv4 prefix to create a unique 96-bit VPNv4 address within the provider's network.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-011",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "VRF",
+    "difficulty": "medium",
+    "question": "In the context of MPLS VPNs, what does VRF stand for?",
+    "options": [
+      "Virtual Routing and Forwarding",
+      "VPN Resource Filter",
+      "Virtual Router Fabric",
+      "Valid Route Format"
+    ],
+    "correctIndex": 0,
+    "explanation": "VRF stands for Virtual Routing and Forwarding. A VRF acts like a separate, logical router within a physical Provider Edge (PE) router, maintaining a distinct routing table for a specific customer VPN.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-012",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "MPLS Label Stack",
+    "difficulty": "hard",
+    "question": "When an MPLS packet has multiple labels (a label stack), which label does an intermediate LSR examine to make a forwarding decision?",
+    "options": [
+      "The bottom label (S bit = 1).",
+      "The top label in the stack.",
+      "All labels simultaneously.",
+      "The label that matches its own IP address."
+    ],
+    "correctIndex": 1,
+    "explanation": "An intermediate LSR only examines the top label in the stack to make its forwarding decision (usually a Swap operation). The inner labels are exposed only when the top label is popped.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }
+  ,
+  {
+    "id": "gen2-vpn-014",
+    "chapter": "Virtual Private Network",
+    "topic": "VPN Architecture",
+    "difficulty": "medium",
+    "question": "What is the primary difference between an Intranet VPN and an Extranet VPN?",
+    "options": [
+      "Intranet VPNs use IPsec, while Extranet VPNs use SSL/TLS.",
+      "Intranet VPNs connect internal company sites, while Extranet VPNs securely connect the company to external partners or suppliers.",
+      "Intranet VPNs are always Layer 2, while Extranet VPNs are Layer 3.",
+      "Extranet VPNs do not require encryption."
+    ],
+    "correctIndex": 1,
+    "explanation": "An Intranet VPN securely links an organization's own remote offices. An Extranet VPN extends this secure connectivity to trusted external entities like partners, vendors, or suppliers.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-015",
+    "chapter": "Virtual Private Network",
+    "topic": "IPsec Modes",
+    "difficulty": "hard",
+    "question": "When would IPsec Transport Mode most likely be used instead of Tunnel Mode?",
+    "options": [
+      "For a site-to-site VPN between two different branch offices.",
+      "For end-to-end communication directly between two specific hosts.",
+      "When the traffic must pass through a Network Address Translation (NAT) device.",
+      "When connecting a remote user's laptop to a corporate firewall."
+    ],
+    "correctIndex": 1,
+    "explanation": "Transport Mode is generally used for host-to-host communications where the original IP header can be kept and used for routing. Tunnel Mode is used between gateways (like routers or firewalls) where the original IP addresses must be hidden.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-016",
+    "chapter": "Virtual Private Network",
+    "topic": "VPN Topologies",
+    "difficulty": "hard",
+    "question": "In a Full-Mesh VPN topology, what is the formula for the number of tunnels required to connect 'N' sites?",
+    "options": [
+      "N - 1",
+      "N * 2",
+      "N * (N - 1) / 2",
+      "N^2"
+    ],
+    "correctIndex": 2,
+    "explanation": "A full-mesh topology requires every site to connect to every other site, resulting in N * (N - 1) / 2 tunnels. This scales poorly for a large number of sites.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-017",
+    "chapter": "Virtual Private Network",
+    "topic": "IPsec IKEv2",
+    "difficulty": "medium",
+    "question": "What is a major improvement of IKEv2 over IKEv1?",
+    "options": [
+      "IKEv2 removes the need for Diffie-Hellman key exchange.",
+      "IKEv2 simplifies the initial negotiation process, requiring fewer messages to establish an SA.",
+      "IKEv2 operates at Layer 2 instead of Layer 3.",
+      "IKEv2 does not support pre-shared keys (PSK)."
+    ],
+    "correctIndex": 1,
+    "explanation": "IKEv2 is much more efficient, requiring only 4 messages to establish the initial SAs (compared to up to 9 in IKEv1 Main Mode). It also natively supports NAT traversal and mobility.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-018",
+    "chapter": "Virtual Private Network",
+    "topic": "NAT Traversal",
+    "difficulty": "hard",
+    "question": "How does IPsec NAT Traversal (NAT-T) allow ESP packets to pass through a NAT device successfully?",
+    "options": [
+      "It disables encryption on the IP payload.",
+      "It changes the ESP protocol number to TCP port 80.",
+      "It encapsulates the ESP packet within a UDP header.",
+      "It requires the NAT device to share its translation tables with the VPN gateway."
+    ],
+    "correctIndex": 2,
+    "explanation": "NAT devices typically modify IP and TCP/UDP headers, which breaks IPsec integrity checks or fails if there are no ports to translate (ESP has no ports). NAT-T encapsulates the ESP packet in a UDP header (usually port 4500) so the NAT device can translate it normally.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-019",
+    "chapter": "Virtual Private Network",
+    "topic": "VPN QoS",
+    "difficulty": "medium",
+    "question": "Why can Quality of Service (QoS) be challenging to implement over an IPsec VPN tunnel?",
+    "options": [
+      "IPsec strips the IP header completely, removing all DSCP markings.",
+      "The encryption of the payload hides the original packet's port numbers and protocol types from intermediate routers.",
+      "VPN tunnels are fundamentally limited to a maximum of 1 Mbps throughput.",
+      "QoS is strictly forbidden by the IPsec RFCs."
+    ],
+    "correctIndex": 1,
+    "explanation": "Because IPsec (ESP) encrypts the inner IP header and payload (like TCP/UDP ports), intermediate routers on the Internet cannot see into the packet to classify traffic (e.g., voice vs. data). QoS markings must be copied to the outer IP header (ToS/DSCP byte) before encryption.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-020",
+    "chapter": "Virtual Private Network",
+    "topic": "VPN Technologies",
+    "difficulty": "medium",
+    "question": "Which of the following VPN technologies operates at Layer 2 and is commonly used by ISPs to provide wholesale DSL access?",
+    "options": [
+      "IPsec",
+      "PPPoE",
+      "BGP/MPLS L3VPN",
+      "SSL/TLS"
+    ],
+    "correctIndex": 1,
+    "explanation": "PPPoE (Point-to-Point Protocol over Ethernet) is a Layer 2 tunneling protocol widely used by ISPs for DSL connections to authenticate and assign IP addresses to subscribers.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-021",
+    "chapter": "Virtual Private Network",
+    "topic": "DMVPN",
+    "difficulty": "hard",
+    "question": "In a Dynamic Multipoint VPN (DMVPN), what protocol is used to map logical tunnel IP addresses to the physical public IP addresses of the spokes?",
+    "options": [
+      "ARP (Address Resolution Protocol)",
+      "NHRP (Next Hop Resolution Protocol)",
+      "BGP (Border Gateway Protocol)",
+      "IKE (Internet Key Exchange)"
+    ],
+    "correctIndex": 1,
+    "explanation": "NHRP (Next Hop Resolution Protocol) is a key component of DMVPN. It acts like ARP for the tunnel network, allowing spokes to dynamically discover the public IP addresses of other spokes to establish direct tunnels.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-022",
+    "chapter": "Virtual Private Network",
+    "topic": "VPN Authentication",
+    "difficulty": "easy",
+    "question": "What is a 'Pre-Shared Key' (PSK) in the context of setting up an IPsec VPN?",
+    "options": [
+      "A digital certificate issued by a trusted Certificate Authority.",
+      "A secret string of characters configured manually on both endpoints before the tunnel is established.",
+      "A key generated dynamically during IKE Phase 2.",
+      "The public key of the remote peer."
+    ],
+    "correctIndex": 1,
+    "explanation": "A Pre-Shared Key (PSK) is a secret password or string configured identically on both VPN peers to authenticate each other during the initial IKE exchange.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-023",
+    "chapter": "Virtual Private Network",
+    "topic": "VPN Encryption Algorithms",
+    "difficulty": "medium",
+    "question": "Which of the following is an example of a symmetric encryption algorithm commonly used in IPsec for data confidentiality?",
+    "options": [
+      "RSA",
+      "Diffie-Hellman",
+      "AES (Advanced Encryption Standard)",
+      "SHA-256"
+    ],
+    "correctIndex": 2,
+    "explanation": "AES is a symmetric encryption cipher used heavily in IPsec for encrypting the data payload. RSA and Diffie-Hellman are asymmetric, and SHA is a hashing algorithm for integrity.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-024",
+    "chapter": "Virtual Private Network",
+    "topic": "VPN Integrity",
+    "difficulty": "medium",
+    "question": "What role does a hash function (like SHA-2) play in IPsec?",
+    "options": [
+      "It encrypts the payload data.",
+      "It negotiates the Diffie-Hellman parameters.",
+      "It ensures data integrity and origin authentication by creating an HMAC.",
+      "It assigns IP addresses to remote clients."
+    ],
+    "correctIndex": 2,
+    "explanation": "Hash functions are used to create a Hash-based Message Authentication Code (HMAC). This ensures the packet has not been altered in transit (integrity) and that it came from a trusted peer possessing the secret key (authentication).",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-025",
+    "chapter": "Virtual Private Network",
+    "topic": "VPN Hardware",
+    "difficulty": "easy",
+    "question": "What is the primary benefit of using a dedicated VPN Concentrator instead of a general-purpose router for terminating hundreds of remote access VPNs?",
+    "options": [
+      "It costs less than a standard router.",
+      "It includes dedicated hardware acceleration for cryptographic operations, vastly improving performance.",
+      "It operates without the need for an Internet connection.",
+      "It automatically bypasses all NAT devices without configuration."
+    ],
+    "correctIndex": 1,
+    "explanation": "VPN Concentrators have dedicated crypto hardware (ASICs) designed specifically to handle the intense mathematical calculations required for IPsec/SSL encryption and decryption at scale.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-013",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "MPLS Architecture",
+    "difficulty": "medium",
+    "question": "In an MPLS network, what is an LSR?",
+    "options": [
+      "Label Switched Router: a router that forwards packets based on the MPLS label.",
+      "Logical System Record: a database entry for a VPN customer.",
+      "Local Subnet Route: a routing entry for a connected network.",
+      "Link State Routing: the IGP protocol used in the core."
+    ],
+    "correctIndex": 0,
+    "explanation": "An LSR (Label Switching Router) is a core router in an MPLS network that participates in label distribution and forwards packets based entirely on MPLS labels.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-014",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "MPLS Architecture",
+    "difficulty": "medium",
+    "question": "What is the function of a Provider Edge (PE) router in an MPLS Layer 3 VPN?",
+    "options": [
+      "It only forwards packets using labels and does not maintain any customer IP routes.",
+      "It sits at the customer site and connects to the Service Provider.",
+      "It maintains customer-specific routing tables (VRFs) and imposes MPLS labels to forward traffic across the core.",
+      "It acts as a central DNS server for all VPN customers."
+    ],
+    "correctIndex": 2,
+    "explanation": "The PE (Provider Edge) router sits at the edge of the provider network, connects to Customer Edge (CE) routers, maintains VRFs for VPN segregation, and handles the IP-to-MPLS conversion (Push).",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-015",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "MPLS Core",
+    "difficulty": "hard",
+    "question": "In a BGP/MPLS Layer 3 VPN, do the core P (Provider) routers need to know the customer's IP routes?",
+    "options": [
+      "Yes, they must run BGP to learn all customer routes.",
+      "No, they only need to know how to reach the PE loopback addresses via the IGP and LDP.",
+      "Yes, they maintain a massive global routing table containing all VRF routes.",
+      "No, they only forward traffic based on the MAC address."
+    ],
+    "correctIndex": 1,
+    "explanation": "This is a key scalability feature of MPLS L3VPNs. Core 'P' routers are completely unaware of customer VPN routes. They only forward based on the outer MPLS label, which directs the packet to the egress PE router.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-016",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "Label Distribution",
+    "difficulty": "hard",
+    "question": "In an MPLS L3VPN, how are the inner VPN labels distributed between PE routers?",
+    "options": [
+      "Using standard LDP.",
+      "Using RSVP-TE.",
+      "Using Multiprotocol BGP (MP-BGP).",
+      "Using OSPF Link State Advertisements."
+    ],
+    "correctIndex": 2,
+    "explanation": "MP-BGP (Multiprotocol BGP) is used by PE routers to exchange VPNv4 routes and their associated inner MPLS labels. LDP or RSVP-TE is used to distribute the outer labels for the transport path across the core.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-017",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "MPLS vs ATM",
+    "difficulty": "medium",
+    "question": "Which of the following is a key advantage of MPLS over traditional ATM or Frame Relay networks?",
+    "options": [
+      "MPLS guarantees zero packet loss.",
+      "MPLS avoids the 'N-squared' routing complexity of full-mesh PVCs by utilizing IP routing protocols in the core.",
+      "MPLS uses fixed-size 53-byte cells, making hardware switching faster.",
+      "MPLS does not require any routers, only Layer 2 switches."
+    ],
+    "correctIndex": 1,
+    "explanation": "Unlike ATM/Frame Relay which required manually provisioning complex meshes of Permanent Virtual Circuits (PVCs), MPLS builds LSPs dynamically based on the IP routing table (IGP), drastically simplifying operations and scalability.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-018",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "MPLS Traffic Engineering",
+    "difficulty": "hard",
+    "question": "In MPLS Traffic Engineering, what protocol is typically used to reserve bandwidth and establish the explicit LSP across the network?",
+    "options": [
+      "LDP (Label Distribution Protocol)",
+      "RSVP-TE (Resource Reservation Protocol with Traffic Engineering extensions)",
+      "BGP (Border Gateway Protocol)",
+      "RIP (Routing Information Protocol)"
+    ],
+    "correctIndex": 1,
+    "explanation": "While LDP builds LSPs based on the shortest path IGP, RSVP-TE is used to signal, establish, and reserve bandwidth for explicitly defined Traffic Engineering LSPs.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-019",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "MPLS Forwarding",
+    "difficulty": "medium",
+    "question": "When an LSR performs a 'Swap' operation, what exactly is happening?",
+    "options": [
+      "It is removing the MPLS label and forwarding the IP packet.",
+      "It is adding a second MPLS label to the stack.",
+      "It is replacing the incoming top label with a new outgoing label, based on its Label Forwarding Information Base (LFIB).",
+      "It is swapping the source and destination IP addresses."
+    ],
+    "correctIndex": 2,
+    "explanation": "A Swap operation occurs at an intermediate LSR. It looks up the incoming label in its LFIB, swaps it with the outgoing label bound to the next hop, and forwards the packet out the specified interface.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-020",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "Route Targets",
+    "difficulty": "hard",
+    "question": "In an MPLS L3VPN, what is the purpose of Route Targets (RTs)?",
+    "options": [
+      "To ensure customer IP addresses are globally unique.",
+      "To define the physical path the packet takes across the core.",
+      "To control the import and export of VPN routes into specific VRFs, creating the VPN topology.",
+      "To encrypt the routing updates."
+    ],
+    "correctIndex": 2,
+    "explanation": "Route Targets (RTs) are extended BGP communities. PEs 'export' routes from a VRF with specific RTs, and 'import' routes into a VRF based on matching RTs. This mechanism controls which sites can communicate, defining complex topologies like Hub-and-Spoke or Extranets.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-021",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "VPLS",
+    "difficulty": "medium",
+    "question": "What service does Virtual Private LAN Service (VPLS) provide over an MPLS network?",
+    "options": [
+      "A Layer 3 routed VPN.",
+      "A multipoint-to-multipoint Layer 2 Ethernet VPN, making the SP network appear as a single logical Ethernet switch.",
+      "A point-to-point IPsec tunnel.",
+      "A dedicated wavelength service for optical networks."
+    ],
+    "correctIndex": 1,
+    "explanation": "VPLS uses MPLS to provide a multipoint Layer 2 VPN. From the customer's perspective, the entire SP MPLS core looks like a giant, geographically distributed Ethernet switch.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-022",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "MPLS Header Size",
+    "difficulty": "easy",
+    "question": "How large is a single MPLS label header?",
+    "options": [
+      "16 bits (2 bytes)",
+      "32 bits (4 bytes)",
+      "64 bits (8 bytes)",
+      "128 bits (16 bytes)"
+    ],
+    "correctIndex": 1,
+    "explanation": "An MPLS label header (the 'shim' header) is exactly 32 bits (4 bytes) long. It contains a 20-bit label, a 3-bit TC/EXP field, a 1-bit Bottom of Stack (S) flag, and an 8-bit TTL.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-023",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "LSP Establishment",
+    "difficulty": "medium",
+    "question": "In standard LDP, how are labels typically allocated and distributed?",
+    "options": [
+      "Downstream on Demand (DoD)",
+      "Unsolicited Downstream (UD)",
+      "Centralized Server Allocation",
+      "Manual Configuration Only"
+    ],
+    "correctIndex": 1,
+    "explanation": "Most modern MPLS implementations use Unsolicited Downstream distribution, where an LSR assigns a label to a FEC and advertises it to its neighbors without being explicitly asked.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-024",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "MPLS Bottom of Stack",
+    "difficulty": "easy",
+    "question": "What does the 'S' bit (Bottom of Stack) being set to 1 indicate in an MPLS header?",
+    "options": [
+      "The packet must be dropped.",
+      "This is the last label in the stack, and the next header is a network layer payload (e.g., IP).",
+      "The packet should be encrypted.",
+      "The packet is experiencing congestion."
+    ],
+    "correctIndex": 1,
+    "explanation": "The S bit is 1 for the innermost label (at the bottom of the stack) and 0 for all other labels. When an LSR pops a label with S=1, it knows the remaining payload is native IP (or another Layer 3 protocol).",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-025",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "Fast Reroute",
+    "difficulty": "hard",
+    "question": "In MPLS Traffic Engineering, what is the purpose of Fast Reroute (FRR)?",
+    "options": [
+      "To bypass the PE routers to increase speed.",
+      "To pre-calculate and establish backup LSPs that can locally detour traffic around a failed link or node in tens of milliseconds.",
+      "To automatically upgrade the bandwidth of a link during high traffic.",
+      "To quickly transition IPv4 traffic to IPv6."
+    ],
+    "correctIndex": 1,
+    "explanation": "MPLS FRR creates backup tunnels at the point of local repair (PLR). If a link or node fails, traffic is immediately shunted into the backup tunnel, providing sub-50ms recovery times similar to SONET/SDH rings.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }
+  ,
+  {
+    "id": "gen2-vpn-026",
+    "chapter": "Virtual Private Network",
+    "topic": "VPN Encapsulation",
+    "difficulty": "medium",
+    "question": "When tunneling IPv6 traffic over an IPv4 IPsec VPN, what happens to the packet?",
+    "options": [
+      "The IPv6 packet is encapsulated directly within the IPv4 ESP payload.",
+      "The IPv6 header is translated to an IPv4 header using NAT64 before encryption.",
+      "IPsec cannot tunnel IPv6 over IPv4; a separate IPv6 internet connection is required.",
+      "The IPv6 packet is fragmented into smaller IPv4 packets without encryption."
+    ],
+    "correctIndex": 0,
+    "explanation": "IPsec Tunnel mode can encapsulate an entire IP packet (including IPv6) within an ESP payload, which is then encapsulated with a new outer IP header (which can be IPv4). This allows secure tunneling of IPv6 over an IPv4 network.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-027",
+    "chapter": "Virtual Private Network",
+    "topic": "IKE Aggressive Mode",
+    "difficulty": "hard",
+    "question": "Why is IKEv1 Aggressive Mode considered less secure than Main Mode?",
+    "options": [
+      "It uses weaker encryption algorithms like DES instead of AES.",
+      "It transmits the identity of the peers (e.g., hostnames) in cleartext before the encrypted tunnel is fully established.",
+      "It does not support the use of digital certificates.",
+      "It only works with Transport Mode, leaving IP headers exposed."
+    ],
+    "correctIndex": 1,
+    "explanation": "Aggressive Mode completes the Phase 1 exchange in fewer messages (3 instead of 6), but it sends the peer ID hash in the clear, making it vulnerable to offline dictionary attacks if Pre-Shared Keys are used.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-026",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "MPLS Operations",
+    "difficulty": "medium",
+    "question": "What is the function of a P (Provider) router in an MPLS L3VPN architecture?",
+    "options": [
+      "It connects directly to the customer site (CE).",
+      "It runs MP-BGP to maintain customer VPN routing tables.",
+      "It performs only label switching (swap) and does not know about customer IP routes.",
+      "It is responsible for NAT translating the customer's private IP addresses."
+    ],
+    "correctIndex": 2,
+    "explanation": "P (Provider) routers reside in the core of the MPLS network. They do not run MP-BGP, have no knowledge of VPN routes, and forward traffic solely based on the outer MPLS label.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-027",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "Label Space",
+    "difficulty": "easy",
+    "question": "Are MPLS labels globally unique across the entire Internet?",
+    "options": [
+      "Yes, they are managed by IANA similar to public IP addresses.",
+      "No, they only have local significance between adjacent MPLS routers (LSRs).",
+      "Yes, but only for IPv6 traffic.",
+      "No, they are identical on every router within a single service provider's network."
+    ],
+    "correctIndex": 1,
+    "explanation": "MPLS labels typically have only local significance. A label value is agreed upon only between two adjacent LSRs. The label is usually swapped for a different one at each hop.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-ipv6-001",
+    "chapter": "IPv6",
+    "topic": "IPv6 Addressing",
+    "difficulty": "easy",
+    "question": "How many bits are in an IPv6 address?",
+    "options": [
+      "32 bits",
+      "64 bits",
+      "128 bits",
+      "256 bits"
+    ],
+    "correctIndex": 2,
+    "explanation": "IPv6 uses a 128-bit address space, allowing for vastly more addresses than the 32-bit IPv4.",
+    "source": "generated",
+    "sourceLabel": "IPv6 Slides"
+  }  ,
+  {
+    "id": "gen2-ipv6-002",
+    "chapter": "IPv6",
+    "topic": "IPv6 SLAAC",
+    "difficulty": "medium",
+    "question": "Which protocol is used by IPv6 nodes to automatically discover routers on the local link?",
+    "options": [
+      "ARP",
+      "DHCPv6",
+      "Neighbor Discovery Protocol (NDP)",
+      "IGMP"
+    ],
+    "correctIndex": 2,
+    "explanation": "IPv6 uses Neighbor Discovery Protocol (NDP), specifically Router Solicitation (RS) and Router Advertisement (RA) messages via ICMPv6, to discover routers.",
+    "source": "generated",
+    "sourceLabel": "IPv6 Slides"
+  }  ,
+  {
+    "id": "gen2-opt-001",
+    "chapter": "The Optical Internet",
+    "topic": "WDM",
+    "difficulty": "medium",
+    "question": "What is the primary concept behind Wavelength Division Multiplexing (WDM) in optical networks?",
+    "options": [
+      "Splitting a single optical fiber physically into multiple thinner fibers.",
+      "Transmitting multiple independent data streams simultaneously over the same fiber by using different colors (wavelengths) of laser light.",
+      "Increasing the speed of a single laser to carry more data.",
+      "Using microwave radio links as backups for optical fibers."
+    ],
+    "correctIndex": 1,
+    "explanation": "WDM allows multiple signals to be transmitted simultaneously on the same optical fiber by using different optical wavelengths (colors) for each signal.",
+    "source": "generated",
+    "sourceLabel": "Optical Networks Slides"
+  }  ,
+  {
+    "id": "gen2-opt-002",
+    "chapter": "The Optical Internet",
+    "topic": "EDFA",
+    "difficulty": "hard",
+    "question": "What is an EDFA and why was its invention crucial for long-haul optical networks?",
+    "options": [
+      "Erbium-Doped Fiber Amplifier; it allows optical signals to be amplified directly as light without converting them back to electrical signals.",
+      "Electronic Data Forwarding Array; it increases the switching speed of core routers.",
+      "External Dispersion Fiber Apparatus; it eliminates chromatic dispersion completely.",
+      "Ethernet Data Frame Analyzer; it inspects optical packets for errors."
+    ],
+    "correctIndex": 0,
+    "explanation": "An EDFA directly amplifies the optical signal in the fiber. Before EDFAs, optical signals had to be converted to electrical, amplified, and converted back to optical (O-E-O conversion), which was expensive and slow.",
+    "source": "generated",
+    "sourceLabel": "Optical Networks Slides"
+  }  ,
+  {
+    "id": "gen2-wire-001",
+    "chapter": "Wireless and Cellular Networks",
+    "topic": "WiFi MAC",
+    "difficulty": "medium",
+    "question": "Why does IEEE 802.11 (Wi-Fi) use CSMA/CA instead of CSMA/CD?",
+    "options": [
+      "Because wireless networks operate at much higher speeds than wired Ethernet.",
+      "Because wireless radios cannot transmit and receive at the same time to detect collisions accurately.",
+      "Because CSMA/CD is a proprietary protocol.",
+      "Because wireless networks don't experience collisions."
+    ],
+    "correctIndex": 1,
+    "explanation": "A wireless node cannot easily detect a collision while it is transmitting because its own transmission overwhelms any weak incoming signals. Therefore, it uses Collision Avoidance (CA) instead of Collision Detection (CD).",
+    "source": "generated",
+    "sourceLabel": "Wireless Slides"
+  }  ,
+  {
+    "id": "gen2-wire-002",
+    "chapter": "Wireless and Cellular Networks",
+    "topic": "Cellular Generations",
+    "difficulty": "easy",
+    "question": "Which cellular generation introduced packet-switched core networks exclusively (an all-IP architecture) and eliminated traditional circuit-switched voice?",
+    "options": [
+      "2G (GSM)",
+      "3G (UMTS)",
+      "4G (LTE)",
+      "1G (AMPS)"
+    ],
+    "correctIndex": 2,
+    "explanation": "4G LTE introduced an all-IP Evolved Packet Core (EPC). Voice was no longer carried over dedicated circuits, but rather as IP packets (VoLTE).",
+    "source": "generated",
+    "sourceLabel": "Wireless Slides"
+  }  ,
+  {
+    "id": "gen2-qos-001",
+    "chapter": "Multimedia Networking and Quality of Service",
+    "topic": "QoS IntServ",
+    "difficulty": "medium",
+    "question": "In the Integrated Services (IntServ) QoS architecture, what protocol is primarily used by applications to request guaranteed bandwidth across the network?",
+    "options": [
+      "BGP",
+      "RSVP",
+      "SNMP",
+      "SIP"
+    ],
+    "correctIndex": 1,
+    "explanation": "RSVP (Resource Reservation Protocol) is used in the IntServ model to request and reserve network resources (like bandwidth) along the path from sender to receiver.",
+    "source": "generated",
+    "sourceLabel": "QoS Slides"
+  }  ,
+  {
+    "id": "gen2-qos-002",
+    "chapter": "Multimedia Networking and Quality of Service",
+    "topic": "QoS DiffServ",
+    "difficulty": "hard",
+    "question": "How does Differentiated Services (DiffServ) scale better than Integrated Services (IntServ)?",
+    "options": [
+      "DiffServ requires every router to maintain state for every single microflow.",
+      "DiffServ classifies packets at the network edge and applies Per-Hop Behaviors (PHBs) in the core based on simple markings, without needing to maintain per-flow state.",
+      "DiffServ only works on local area networks.",
+      "DiffServ increases the physical bandwidth of the links automatically."
+    ],
+    "correctIndex": 1,
+    "explanation": "DiffServ groups traffic into a small number of classes (using the DSCP field). Core routers simply apply the requested Per-Hop Behavior to the class, making it highly scalable as no per-flow state is kept.",
+    "source": "generated",
+    "sourceLabel": "QoS Slides"
+  }  ,
+  {
+    "id": "gen2-rout-001",
+    "chapter": "Routing",
+    "topic": "BGP",
+    "difficulty": "medium",
+    "question": "Which type of routing protocol is the Border Gateway Protocol (BGP)?",
+    "options": [
+      "Link-State Interior Gateway Protocol",
+      "Distance-Vector Interior Gateway Protocol",
+      "Path-Vector Exterior Gateway Protocol",
+      "Hybrid Multicast Protocol"
+    ],
+    "correctIndex": 2,
+    "explanation": "BGP is the standard Exterior Gateway Protocol (EGP) used to route between Autonomous Systems (AS) on the Internet. It uses a Path-Vector algorithm, maintaining the entire sequence of ASes a route has traversed.",
+    "source": "generated",
+    "sourceLabel": "Routing Slides"
+  }  ,
+  {
+    "id": "gen2-rout-002",
+    "chapter": "Routing",
+    "topic": "OSPF vs BGP",
+    "difficulty": "easy",
+    "question": "What is the primary purpose of an Interior Gateway Protocol (IGP) like OSPF?",
+    "options": [
+      "To route traffic between different ISPs on the global Internet.",
+      "To discover routes and provide connectivity within a single organization's Autonomous System (AS).",
+      "To encrypt traffic between remote branch offices.",
+      "To provide QoS guarantees for video streams."
+    ],
+    "correctIndex": 1,
+    "explanation": "IGPs (like OSPF and IS-IS) are designed to route traffic efficiently inside a single administrative domain (Autonomous System).",
+    "source": "generated",
+    "sourceLabel": "Routing Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-028",
+    "chapter": "Virtual Private Network",
+    "topic": "VPN vs Leased Lines",
+    "difficulty": "easy",
+    "question": "Which is a major economic advantage of using a Site-to-Site VPN over the Internet instead of dedicated leased lines?",
+    "options": [
+      "Leased lines are always slower than the Internet.",
+      "Internet-based VPNs drastically reduce costs, especially for connecting geographically distant branches.",
+      "VPNs require zero configuration.",
+      "Leased lines cannot carry IP traffic."
+    ],
+    "correctIndex": 1,
+    "explanation": "Dedicated leased lines (like T1/E1) across long distances are very expensive. VPNs leverage the relatively cheap public Internet to provide similar connectivity at a fraction of the cost.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-028",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "FEC Mapping",
+    "difficulty": "hard",
+    "question": "In basic IP over MPLS (no VPNs or TE), how are Forwarding Equivalence Classes (FECs) typically defined?",
+    "options": [
+      "A FEC corresponds to a single TCP connection.",
+      "A FEC corresponds to a specific IP destination prefix found in the routing table.",
+      "A FEC corresponds to the source MAC address.",
+      "A FEC corresponds to the HTTP URL being accessed."
+    ],
+    "correctIndex": 1,
+    "explanation": "In standard LDP-based MPLS, each IP prefix (route) in the routing table (RIB) typically constitutes a single FEC. All packets destined to that prefix get the same label.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-cdn-001",
+    "chapter": "CDN - Content Delivery Network",
+    "topic": "CDN Purpose",
+    "difficulty": "easy",
+    "question": "What is the primary goal of a Content Delivery Network (CDN)?",
+    "options": [
+      "To encrypt all user traffic on the internet.",
+      "To reduce latency and network congestion by caching content closer to the end users.",
+      "To route BGP traffic more efficiently.",
+      "To provide physical wireless connectivity to users."
+    ],
+    "correctIndex": 1,
+    "explanation": "CDNs distribute cache servers geographically close to users (at the network edge) to deliver static and dynamic content faster, reducing latency and load on the origin server.",
+    "source": "generated",
+    "sourceLabel": "CDN Slides"
+  }  ,
+  {
+    "id": "gen2-cdn-002",
+    "chapter": "CDN - Content Delivery Network",
+    "topic": "CDN Redirection",
+    "difficulty": "medium",
+    "question": "Which mechanism is most commonly used by CDNs to redirect a user's request to the closest edge server?",
+    "options": [
+      "IPsec Tunneling",
+      "DNS redirection (returning the IP of the closest cache server)",
+      "MAC address spoofing",
+      "OSPF Anycast"
+    ],
+    "correctIndex": 1,
+    "explanation": "When a user requests a CDN-hosted domain, the CDN's authoritative DNS server resolves the query by returning the IP address of an edge server that is geographically or topologically close to the user.",
+    "source": "generated",
+    "sourceLabel": "CDN Slides"
+  }  ,
+  {
+    "id": "gen2-lan-001",
+    "chapter": "Principles of Modern LAN Design and Operation",
+    "topic": "VLANs",
+    "difficulty": "easy",
+    "question": "What is the primary benefit of implementing VLANs on a campus network?",
+    "options": [
+      "It allows devices to communicate via Wi-Fi without access points.",
+      "It logically segments a physical network into multiple broadcast domains, improving security and performance.",
+      "It increases the speed of copper ethernet cables.",
+      "It eliminates the need for any routers."
+    ],
+    "correctIndex": 1,
+    "explanation": "VLANs (Virtual LANs) allow network administrators to group devices logically into separate broadcast domains, regardless of their physical location, which limits broadcast traffic and enhances security.",
+    "source": "generated",
+    "sourceLabel": "LAN Slides"
+  }  ,
+  {
+    "id": "gen2-lan-002",
+    "chapter": "Principles of Modern LAN Design and Operation",
+    "topic": "STP",
+    "difficulty": "medium",
+    "question": "What problem does the Spanning Tree Protocol (STP) solve in a Layer 2 switched network?",
+    "options": [
+      "It prevents unauthorized MAC addresses from connecting.",
+      "It resolves IP address conflicts.",
+      "It prevents bridging loops by logically blocking redundant paths.",
+      "It routes packets between different VLANs."
+    ],
+    "correctIndex": 2,
+    "explanation": "Redundant links in a Layer 2 network can cause endless broadcast storms (loops). STP detects these loops and blocks redundant ports to create a loop-free logical topology while maintaining physical redundancy.",
+    "source": "generated",
+    "sourceLabel": "LAN Slides"
+  }  ,
+  {
+    "id": "gen2-pat-001",
+    "chapter": "Pattern Analysis",
+    "topic": "Supervised Learning",
+    "difficulty": "medium",
+    "question": "In the context of Pattern Analysis or Machine Learning, what defines a 'Supervised Learning' approach?",
+    "options": [
+      "The algorithm groups unlabeled data based on hidden similarities.",
+      "The algorithm is trained on a dataset containing both the input features and the corresponding known output labels.",
+      "The algorithm learns by interacting with an environment and receiving rewards.",
+      "The algorithm relies entirely on human experts manually writing if-else rules."
+    ],
+    "correctIndex": 1,
+    "explanation": "Supervised learning relies on labeled training data. The model learns the mapping from input features to the known correct outputs (labels) so it can predict outputs for new, unseen data.",
+    "source": "generated",
+    "sourceLabel": "Pattern Analysis Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-029",
+    "chapter": "Virtual Private Network",
+    "topic": "VPN High Availability",
+    "difficulty": "medium",
+    "question": "To ensure High Availability for site-to-site VPNs, what feature is often configured on VPN gateways?",
+    "options": [
+      "Dead Peer Detection (DPD)",
+      "Border Gateway Protocol (BGP)",
+      "Spanning Tree Protocol (STP)",
+      "NAT-Traversal (NAT-T)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Dead Peer Detection (DPD) is an IPsec feature used to detect if the remote VPN peer is offline. If detected, the gateway can quickly tear down the SAs and potentially failover to a backup tunnel.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-029",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "MPLS QoS",
+    "difficulty": "hard",
+    "question": "When an IP packet enters an MPLS network, how is its IP DSCP QoS marking typically handled?",
+    "options": [
+      "The DSCP marking is permanently erased.",
+      "The DSCP marking is mapped or copied into the 3-bit EXP (TC) field of the MPLS label.",
+      "The MPLS router ignores the label and reads the IP header directly for QoS.",
+      "MPLS cannot support QoS."
+    ],
+    "correctIndex": 1,
+    "explanation": "To maintain QoS across the MPLS core without needing to inspect the inner IP header, the ingress PE router maps the IP Precedence or DSCP value into the 3-bit EXP (Traffic Class) field of the pushed MPLS label.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-ipv4v6-001",
+    "chapter": "IPv4 to IPv6 Transition",
+    "topic": "Dual Stack",
+    "difficulty": "easy",
+    "question": "What does a 'Dual Stack' approach mean in the context of IPv6 transition?",
+    "options": [
+      "Nodes use two separate physical network interfaces.",
+      "Nodes implement and run both IPv4 and IPv6 protocol stacks simultaneously.",
+      "IPv6 packets are tunneled inside IPv4 packets.",
+      "A NAT router translates IPv4 addresses to IPv6."
+    ],
+    "correctIndex": 1,
+    "explanation": "Dual Stack means the device is configured to handle both IPv4 and IPv6 traffic. It can communicate with IPv4-only hosts using IPv4, and IPv6-only hosts using IPv6.",
+    "source": "generated",
+    "sourceLabel": "Transition Slides"
+  }  ,
+  {
+    "id": "gen2-ipv4v6-002",
+    "chapter": "IPv4 to IPv6 Transition",
+    "topic": "6to4 Tunneling",
+    "difficulty": "medium",
+    "question": "In the context of IPv6 transition mechanisms, what is the purpose of a 6to4 tunnel?",
+    "options": [
+      "To translate IPv4 addresses to IPv6 addresses at the edge of the network.",
+      "To allow isolated IPv6 islands to communicate with each other over an IPv4-only core network.",
+      "To force all devices to use IPv6.",
+      "To compress IPv6 headers to the size of IPv4 headers."
+    ],
+    "correctIndex": 1,
+    "explanation": "Tunneling mechanisms like 6to4 encapsulate IPv6 packets inside IPv4 packets, allowing them to transit an IPv4 infrastructure and connecting isolated IPv6 networks.",
+    "source": "generated",
+    "sourceLabel": "Transition Slides"
+  }
+  ,
+  {
+    "id": "gen2-vpn-030",
+    "chapter": "Virtual Private Network",
+    "topic": "Split Tunneling",
+    "difficulty": "medium",
+    "question": "What is 'Split Tunneling' in the context of a Remote Access VPN?",
+    "options": [
+      "Splitting the VPN traffic across two physical network interfaces to double the bandwidth.",
+      "Configuring the VPN client so that only traffic destined for the corporate network goes through the encrypted tunnel, while general internet traffic goes out directly unencrypted.",
+      "Splitting the encryption key into two halves for better security.",
+      "A technique where the IPsec tunnel encapsulates only the TCP header, not the data payload."
+    ],
+    "correctIndex": 1,
+    "explanation": "Split Tunneling allows a remote VPN user to access the corporate intranet securely through the tunnel, while simultaneously accessing the public internet directly without bouncing through the corporate gateway.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-031",
+    "chapter": "Virtual Private Network",
+    "topic": "VPN Authentication",
+    "difficulty": "hard",
+    "question": "When using PKI (Public Key Infrastructure) for IPsec VPN authentication, how does a router verify the identity of its peer?",
+    "options": [
+      "By comparing the peer's Pre-Shared Key with its own.",
+      "By validating the digital certificate presented by the peer against a trusted Certificate Authority (CA) root certificate.",
+      "By looking up the peer's IP address in a public DNS server.",
+      "By using a RADIUS server to check the user's password."
+    ],
+    "correctIndex": 1,
+    "explanation": "In a PKI setup, peers exchange digital certificates. Authentication is successful if the certificate is valid, not expired, and mathematically signed by a Certificate Authority (CA) that the verifying router trusts.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-030",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "MPLS Label Stack",
+    "difficulty": "medium",
+    "question": "In an MPLS L3VPN environment, what is the typical structure of the label stack applied to a customer packet crossing the core?",
+    "options": [
+      "A single label identifying the destination PE.",
+      "A two-label stack: an outer 'transport' label and an inner 'VPN' label.",
+      "A three-label stack: one for QoS, one for VPN, one for routing.",
+      "There is no label stack, only the VRF ID is attached."
+    ],
+    "correctIndex": 1,
+    "explanation": "Typically, a 2-label stack is used: The outer label (IGP/LDP label) gets the packet to the correct egress PE router across the core. The inner label (BGP VPN label) tells the egress PE which specific VRF (customer) the packet belongs to.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-031",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "RSVP-TE",
+    "difficulty": "hard",
+    "question": "How does RSVP-TE establish a label switched path (LSP)?",
+    "options": [
+      "It broadcasts labels to all neighbors simultaneously.",
+      "It sends a PATH message from ingress to egress to request resources, and a RESV message flows back from egress to ingress to distribute labels and confirm reservation.",
+      "It uses MP-BGP to inject routes directly into the IGP.",
+      "It relies entirely on the OSPF shortest path tree."
+    ],
+    "correctIndex": 1,
+    "explanation": "RSVP-TE establishes LSPs using a two-way signaling process: a downstream PATH message requests the tunnel, and an upstream RESV message confirms bandwidth reservation and allocates the MPLS labels hop-by-hop.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-ipv4-001",
+    "chapter": "IPv4 Addressing and Routing",
+    "topic": "Subnetting",
+    "difficulty": "medium",
+    "question": "If a network has the subnet mask 255.255.255.224, how many usable host IP addresses are available per subnet?",
+    "options": [
+      "14",
+      "30",
+      "32",
+      "62"
+    ],
+    "correctIndex": 1,
+    "explanation": "The mask .224 corresponds to a /27 prefix (24 bits + 3 bits = 27 bits). This leaves 5 bits for the host portion. 2^5 = 32 total addresses. Subtracting 2 (network ID and broadcast), we get 30 usable host addresses.",
+    "source": "generated",
+    "sourceLabel": "IPv4 Slides"
+  }  ,
+  {
+    "id": "gen2-ipv4-002",
+    "chapter": "IPv4 Addressing and Routing",
+    "topic": "NAT",
+    "difficulty": "easy",
+    "question": "What is the primary function of Network Address Translation (NAT)?",
+    "options": [
+      "To translate domain names to IP addresses.",
+      "To translate private, non-routable IP addresses to a public, routable IP address for internet access.",
+      "To encrypt data payloads before they leave the local network.",
+      "To assign dynamic IP addresses to hosts via DHCP."
+    ],
+    "correctIndex": 1,
+    "explanation": "NAT allows multiple devices on a private network (using RFC 1918 addresses) to share a single, or a few, public IP addresses to communicate over the public Internet.",
+    "source": "generated",
+    "sourceLabel": "IPv4 Slides"
+  }  ,
+  {
+    "id": "gen2-wire-003",
+    "chapter": "Wireless and Cellular Networks",
+    "topic": "Hidden Node Problem",
+    "difficulty": "hard",
+    "question": "How does the IEEE 802.11 standard address the 'Hidden Node Problem'?",
+    "options": [
+      "By increasing the transmission power of all nodes.",
+      "By using an optional RTS/CTS (Request to Send / Clear to Send) exchange before transmitting data.",
+      "By relying solely on CSMA/CD.",
+      "By using a token-passing mechanism."
+    ],
+    "correctIndex": 1,
+    "explanation": "The RTS/CTS handshake reserves the medium. If a node sends an RTS and the Access Point replies with a CTS, all nodes in range of the AP (even hidden ones) hear the CTS and defer their transmissions.",
+    "source": "generated",
+    "sourceLabel": "Wireless Slides"
+  }  ,
+  {
+    "id": "gen2-wire-004",
+    "chapter": "Wireless and Cellular Networks",
+    "topic": "LTE Architecture",
+    "difficulty": "medium",
+    "question": "In the 4G LTE architecture, what is the role of the eNodeB?",
+    "options": [
+      "It is the central billing database.",
+      "It is the base station that handles radio communications directly with the User Equipment (UE).",
+      "It is the core router connecting the cellular network to the internet.",
+      "It is the device that performs deep packet inspection."
+    ],
+    "correctIndex": 1,
+    "explanation": "The eNodeB (Evolved Node B) is the hardware that communicates directly wirelessly with mobile handsets (UEs), handling radio resource management and handover decisions.",
+    "source": "generated",
+    "sourceLabel": "Wireless Slides"
+  }  ,
+  {
+    "id": "gen2-opt-003",
+    "chapter": "The Optical Internet",
+    "topic": "Optical Switching",
+    "difficulty": "hard",
+    "question": "What distinguishes Optical Burst Switching (OBS) from pure Optical Packet Switching (OPS)?",
+    "options": [
+      "OBS is much slower than OPS.",
+      "In OBS, a control packet is sent ahead to reserve resources for a 'burst' of data, avoiding the need for optical buffers at intermediate nodes.",
+      "OBS requires O-E-O conversion at every node, while OPS does not.",
+      "OBS is exclusively used for submarine cables."
+    ],
+    "correctIndex": 1,
+    "explanation": "Because practical optical RAM/buffers do not exist yet, pure Optical Packet Switching is very difficult. OBS mitigates this by sending a control packet electrically to configure the optical switches just in time before the data burst arrives optically.",
+    "source": "generated",
+    "sourceLabel": "Optical Networks Slides"
+  }  ,
+  {
+    "id": "gen2-rout-003",
+    "chapter": "Routing",
+    "topic": "Link State vs Distance Vector",
+    "difficulty": "medium",
+    "question": "Which of the following describes a key difference between Link-State and Distance-Vector routing protocols?",
+    "options": [
+      "Link-State protocols converge slower than Distance-Vector protocols.",
+      "Distance-Vector protocols require every router to have a complete map of the network topology.",
+      "Link-State protocols flood topology information to all routers, so every router builds an identical map of the network.",
+      "Distance-Vector protocols only work for IPv6."
+    ],
+    "correctIndex": 2,
+    "explanation": "In a Link-State protocol (like OSPF), routers flood Link-State Advertisements (LSAs) containing the state of their own links to all other routers, allowing everyone to build a complete and identical topology database.",
+    "source": "generated",
+    "sourceLabel": "Routing Slides"
+  }  ,
+  {
+    "id": "gen2-rout-004",
+    "chapter": "Routing",
+    "topic": "BGP Attributes",
+    "difficulty": "hard",
+    "question": "In BGP, what is the AS_PATH attribute used for?",
+    "options": [
+      "To determine the physical speed of the links.",
+      "To prevent routing loops by ensuring an Autonomous System drops route advertisements containing its own AS number.",
+      "To encrypt BGP update messages.",
+      "To identify the specific router that originated the prefix."
+    ],
+    "correctIndex": 1,
+    "explanation": "The AS_PATH attribute lists all the Autonomous Systems a route has traversed. If a BGP router receives an update and sees its own AS number in the AS_PATH, it rejects the route to prevent loops.",
+    "source": "generated",
+    "sourceLabel": "Routing Slides"
+  }  ,
+  {
+    "id": "gen2-qos-003",
+    "chapter": "Multimedia Networking and Quality of Service",
+    "topic": "Traffic Shaping",
+    "difficulty": "medium",
+    "question": "What is the primary difference between Traffic Policing and Traffic Shaping?",
+    "options": [
+      "Policing buffers excess traffic, while Shaping drops it immediately.",
+      "Policing drops or remarks traffic exceeding a rate limit, while Shaping buffers excess traffic to smooth out the transmission rate.",
+      "Policing is used for UDP traffic, while Shaping is used for TCP.",
+      "There is no difference; they are synonymous terms."
+    ],
+    "correctIndex": 1,
+    "explanation": "Traffic Shaping uses a buffer (queue) to delay excess packets, resulting in a smoother output rate. Traffic Policing has no buffer; it simply drops or remarks packets that exceed the configured rate limit.",
+    "source": "generated",
+    "sourceLabel": "QoS Slides"
+  }  ,
+  {
+    "id": "gen2-lan-003",
+    "chapter": "Principles of Modern LAN Design and Operation",
+    "topic": "Ethernet Frame",
+    "difficulty": "easy",
+    "question": "What is the size of a standard MAC address used in Ethernet frames?",
+    "options": [
+      "32 bits",
+      "48 bits",
+      "64 bits",
+      "128 bits"
+    ],
+    "correctIndex": 1,
+    "explanation": "A standard MAC (Media Access Control) address is 48 bits (6 bytes) long, typically represented as 12 hexadecimal digits.",
+    "source": "generated",
+    "sourceLabel": "LAN Slides"
+  }  ,
+  {
+    "id": "gen2-lan-004",
+    "chapter": "Principles of Modern LAN Design and Operation",
+    "topic": "VLAN Trunking",
+    "difficulty": "medium",
+    "question": "What is the purpose of the IEEE 802.1Q standard in switched LAN environments?",
+    "options": [
+      "To encrypt data on wireless networks.",
+      "To provide power to devices over ethernet cables (PoE).",
+      "To add a VLAN tag to ethernet frames so multiple VLANs can be carried over a single trunk link.",
+      "To prevent Layer 2 loops."
+    ],
+    "correctIndex": 2,
+    "explanation": "IEEE 802.1Q defines the standard for VLAN tagging (inserting a 4-byte tag into the Ethernet frame header), which allows switches to multiplex traffic from multiple VLANs across a single trunk connection.",
+    "source": "generated",
+    "sourceLabel": "LAN Slides"
+  }  ,
+  {
+    "id": "gen2-cdn-003",
+    "chapter": "CDN - Content Delivery Network",
+    "topic": "Caching Strategies",
+    "difficulty": "hard",
+    "question": "What does a Cache-Control: max-age HTTP header instruct a CDN edge server to do?",
+    "options": [
+      "To immediately delete the content from the cache.",
+      "To bypass the cache and fetch directly from the origin server.",
+      "To keep the content in the cache and consider it fresh for the specified number of seconds before revalidating.",
+      "To compress the content before sending it to the client."
+    ],
+    "correctIndex": 2,
+    "explanation": "The Cache-Control: max-age header specifies the Maximum time (in seconds) that a cached response is considered fresh. Once this time expires, the CDN must revalidate the content with the origin server.",
+    "source": "generated",
+    "sourceLabel": "CDN Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-032",
+    "chapter": "Virtual Private Network",
+    "topic": "VPN Authentication",
+    "difficulty": "hard",
+    "question": "What is Extended Authentication (XAuth) used for in the context of IPsec?",
+    "options": [
+      "To encrypt the data payload with a second layer of AES.",
+      "To force remote users to authenticate with a username and password (e.g., via RADIUS/Active Directory) in addition to the standard IKE peer authentication.",
+      "To validate the digital certificate of the Certificate Authority.",
+      "To establish the Phase 2 IPsec SA."
+    ],
+    "correctIndex": 1,
+    "explanation": "XAuth (Extended Authentication) is an extension to IKEv1 that allows a VPN gateway to challenge the remote user for standard credentials (username/password) after the initial IKE Phase 1 tunnel is established.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-032",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "LDP vs RSVP",
+    "difficulty": "hard",
+    "question": "If you need an MPLS network to guarantee bandwidth for specific traffic flows along explicitly defined paths, which protocol MUST you use?",
+    "options": [
+      "LDP",
+      "RSVP-TE",
+      "BGP",
+      "OSPF"
+    ],
+    "correctIndex": 1,
+    "explanation": "LDP can only build LSPs along the shortest path determined by the IGP and cannot reserve bandwidth. RSVP-TE (Traffic Engineering) is required to establish explicit paths and guarantee bandwidth.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-ipv6-003",
+    "chapter": "IPv6",
+    "topic": "IPv6 Headers",
+    "difficulty": "medium",
+    "question": "How does IPv6 handle packet fragmentation differently than IPv4?",
+    "options": [
+      "IPv6 routers fragment packets automatically if they are too large for the next hop MTU.",
+      "In IPv6, fragmentation is performed ONLY by the source host, not by intermediate routers.",
+      "IPv6 does not support fragmentation at all; oversized packets are always dropped.",
+      "Fragmentation in IPv6 is handled at Layer 2 instead of Layer 3."
+    ],
+    "correctIndex": 1,
+    "explanation": "To improve routing efficiency, IPv6 routers do not fragment packets. If a packet is too large, the router drops it and sends an ICMPv6 'Packet Too Big' message. The source host is responsible for discovering the Path MTU and fragmenting if necessary.",
+    "source": "generated",
+    "sourceLabel": "IPv6 Slides"
+  }  ,
+  {
+    "id": "gen2-ipv4v6-003",
+    "chapter": "IPv4 to IPv6 Transition",
+    "topic": "NAT64",
+    "difficulty": "medium",
+    "question": "What is the primary function of NAT64?",
+    "options": [
+      "To translate private IPv4 addresses to public IPv4 addresses.",
+      "To translate IPv6 packets to IPv4 packets and vice versa, allowing IPv6-only clients to access IPv4-only servers.",
+      "To encrypt IPv6 traffic over an IPv4 VPN.",
+      "To dynamically assign IPv6 addresses to clients."
+    ],
+    "correctIndex": 1,
+    "explanation": "NAT64 is a stateful translation mechanism that allows an IPv6-only host to initiate communications with an IPv4-only server by translating the IP headers between the two protocols.",
+    "source": "generated",
+    "sourceLabel": "Transition Slides"
+  }  ,
+  {
+    "id": "gen2-pat-002",
+    "chapter": "Pattern Analysis",
+    "topic": "Clustering",
+    "difficulty": "medium",
+    "question": "Which category of machine learning does 'Clustering' belong to?",
+    "options": [
+      "Supervised Learning",
+      "Unsupervised Learning",
+      "Reinforcement Learning",
+      "Deep Learning"
+    ],
+    "correctIndex": 1,
+    "explanation": "Clustering is a fundamental technique in Unsupervised Learning. The algorithm is given unlabeled data and must find hidden structures or groupings (clusters) on its own.",
+    "source": "generated",
+    "sourceLabel": "Pattern Analysis Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-033",
+    "chapter": "Virtual Private Network",
+    "topic": "VPN Terminology",
+    "difficulty": "easy",
+    "question": "In the context of IPsec, what does 'SA' stand for?",
+    "options": [
+      "Secure Access",
+      "System Administrator",
+      "Security Association",
+      "Symmetric Algorithm"
+    ],
+    "correctIndex": 2,
+    "explanation": "An SA (Security Association) is the agreement established between two IPsec peers that defines the parameters (keys, algorithms, SPIs) they will use to securely exchange data.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-033",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "MPLS VPN Verification",
+    "difficulty": "hard",
+    "question": "How does a PE router distinguish between overlapping IP subnets (e.g., 10.1.1.0/24) belonging to two different VPN customers?",
+    "options": [
+      "It uses NAT to change one of the subnets to a public IP.",
+      "It prepends a unique 64-bit Route Distinguisher (RD) to the 32-bit IPv4 route, creating unique 96-bit VPNv4 routes.",
+      "It assigns them to the same VRF.",
+      "It drops the routes of the second customer."
+    ],
+    "correctIndex": 1,
+    "explanation": "The Route Distinguisher (RD) ensures that identical private IP prefixes from different customers become globally unique VPNv4 prefixes within the provider's MP-BGP tables.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-vpn-034",
+    "chapter": "Virtual Private Network",
+    "topic": "SSL VPN Features",
+    "difficulty": "medium",
+    "question": "Which of the following is true about 'Clientless' SSL VPNs?",
+    "options": [
+      "They provide full network-layer access to the entire remote network.",
+      "They only provide access to specific web-based applications via a web portal without requiring a dedicated VPN client installation.",
+      "They operate entirely using UDP to maximize speed.",
+      "They cannot provide any form of encryption."
+    ],
+    "correctIndex": 1,
+    "explanation": "Clientless SSL VPNs typically use a web browser to access a portal that proxies connections to internal web or file servers. They do not install a virtual network adapter for full Layer 3 access.",
+    "source": "generated",
+    "sourceLabel": "VPN Slides"
+  }  ,
+  {
+    "id": "gen2-mpls-034",
+    "chapter": "MPLS - Multi-Protocol Label Switching",
+    "topic": "MPLS Core Routing",
+    "difficulty": "medium",
+    "question": "In an MPLS network, what must be running on the core P routers for LDP to successfully distribute labels?",
+    "options": [
+      "BGP",
+      "An Interior Gateway Protocol (IGP) like OSPF or IS-IS.",
+      "RIPv1",
+      "NAT"
+    ],
+    "correctIndex": 1,
+    "explanation": "LDP relies on the underlying IP routing table to bind labels to destinations (FECs). Therefore, a robust IGP (like OSPF or IS-IS) must be running and converged in the core for LDP to function.",
+    "source": "generated",
+    "sourceLabel": "MPLS Slides"
+  }  ,
+  {
+    "id": "gen2-qos-004",
+    "chapter": "Multimedia Networking and Quality of Service",
+    "topic": "QoS Jitter",
+    "difficulty": "easy",
+    "question": "In the context of Multimedia QoS, what is 'Jitter'?",
+    "options": [
+      "The total amount of packet loss in a stream.",
+      "The variation in delay (latency) between received packets.",
+      "The maximum bandwidth capacity of a link.",
+      "The encryption algorithm used for VoIP."
+    ],
+    "correctIndex": 1,
+    "explanation": "Jitter is the variance in packet delay. High jitter is problematic for real-time applications like voice and video, which require a steady stream of packets. Jitter buffers are used to smooth it out.",
+    "source": "generated",
+    "sourceLabel": "QoS Slides"
   }
 ];
